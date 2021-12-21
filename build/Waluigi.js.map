@@ -1,0 +1,1 @@
+{"version":3,"file":"Waluigi.js","sourceRoot":"","sources":["../src/Waluigi.ts"],"names":[],"mappings":"AAAA,OAAO,MAAM,MAAM,aAAa,CAAC;AAEjC,MAAM,CAAC,OAAO,OAAO,OAAQ,SAAQ,MAAM;IAOzC,YAAmB,SAAiB,EAAE,SAAiB;QACrD,KAAK,CAAC,0BAA0B,EAAE,SAAS,EAAE,SAAS,CAAC,CAAC;IAC1D,CAAC;CACF"}
