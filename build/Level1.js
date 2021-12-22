@@ -1,15 +1,17 @@
 import Level from './Level.js';
+import Static from './Static.js';
 export default class Level1 extends Level {
-    pointlessVariable;
     constructor() {
         super();
-        this.pointlessVariable = false;
     }
-    checkLevelUp() {
+    processInput() {
         if (this.keyboard.isKeyDown(32)) {
-            return true;
+            this.levelPass = true;
         }
-        return false;
+    }
+    render(ctx, canvas) {
+        let image = Static.loadNewImage('./assets/img/levelonebackground.png');
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     }
 }
 //# sourceMappingURL=Level1.js.map

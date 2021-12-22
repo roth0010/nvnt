@@ -8,13 +8,11 @@ import Player from './Player.js';
 export default class Game {
   private canvas: HTMLCanvasElement;
 
-  private stop: boolean;
-
   private level: Level;
 
   private engine: GameLoop;
 
-  private levelUp: boolean;
+  private score: number;
 
   private levelNumber: number;
 
@@ -33,12 +31,11 @@ export default class Game {
     this.canvas.width = window.innerWidth;
     this.ctx = this.canvas.getContext('2d');
     this.level = new Level1();
-    this.stop = false;
-    this.levelUp = false;
+    this.score = 0;
     this.engine = new GameLoop(this);
     this.levelNumber = 1;
     this.players = [];
-    this.players.push(new Waluigi(this.canvas.height / 2, this.canvas.width / 2));
+    this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
     console.log(this.canvas.width);
     console.log(this.canvas.height);
     this.engine.start();
@@ -48,7 +45,7 @@ export default class Game {
    * buzz off, it's not implemented yet.
    */
   public processInput(): void {
-    // this.level.processInput()
+    this.level.processInput();
   }
 
   /**
@@ -60,7 +57,7 @@ export default class Game {
   public update(step: number): boolean {
     if (this.level.update()) {
       this.increaseLevel(this.levelNumber + 1);
-      // console.log(this.level);
+      this.score = this.level.getScore();
     }
     return false;
   }
@@ -69,18 +66,11 @@ export default class Game {
    * buzz off, it's not implemented yet.
    */
   public render(): void {
+    this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+    this.level.render(this.ctx, this.canvas);
     this.players.forEach((player) => {
       player.render(this.ctx);
     });
-  }
-
-  /**
-   * Sets the levelUp variable
-   *
-   * @param input the new boolean value
-   */
-  public setLevelUp(input: boolean): void {
-    this.levelUp = input;
   }
 
   private increaseLevel(level: number): void {

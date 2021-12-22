@@ -1,13 +1,17 @@
 import Level from './Level.js';
+import Static from './Static.js';
 export default class Level2 extends Level {
+    constructor() {
+        super();
+    }
     processInput() {
-        throw new Error('Method not implemented.');
+        if (this.keyboard.isKeyDown(32)) {
+            this.levelPass = true;
+        }
     }
-    checkLevelUp() {
-        throw new Error('Method not implemented.');
-    }
-    render() {
-        throw new Error('Method not implemented.');
+    render(ctx, canvas) {
+        let image = Static.loadNewImage('./assets/img/Waluigi.png');
+        ctx.drawImage(image, canvas.width / 2, canvas.height / 2);
     }
 }
 //# sourceMappingURL=Level2.js.map

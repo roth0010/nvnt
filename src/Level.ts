@@ -1,21 +1,16 @@
 import KeyListener from './KeyListener.js';
+import Screen from './Screen.js';
 
-export default abstract class Level {
-  protected keyboard: KeyListener
+export default abstract class Level extends Screen {
+  private levelPass: boolean;
 
   public constructor() {
-    this.keyboard = new KeyListener();
+    super();
+    this.levelPass = false;
+    this.score = 0;
   }
-
-  // public abstract processInput(): void;
 
   public update(): boolean {
-    let levelUp = false;
-    levelUp = this.checkLevelUp();
-    return levelUp
+    return this.levelPass;
   }
-
-  // public abstract render(): void;
-
-  public abstract checkLevelUp(): boolean;
 }

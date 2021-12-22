@@ -4,7 +4,6 @@ import GameLoop from './GameLoop.js';
 import Waluigi from './Waluigi.js';
 export default class Game {
     canvas;
-    stop;
     level;
     engine;
     levelUp;
@@ -17,17 +16,18 @@ export default class Game {
         this.canvas.width = window.innerWidth;
         this.ctx = this.canvas.getContext('2d');
         this.level = new Level1();
-        this.stop = false;
         this.levelUp = false;
         this.engine = new GameLoop(this);
         this.levelNumber = 1;
         this.players = [];
-        this.players.push(new Waluigi(this.canvas.height / 2, this.canvas.width / 2));
+        this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
+        this.players.push(new Waluigi(0, 0));
         console.log(this.canvas.width);
         console.log(this.canvas.height);
         this.engine.start();
     }
     processInput() {
+        this.level.processInput();
     }
     update(step) {
         if (this.level.update()) {
@@ -36,6 +36,8 @@ export default class Game {
         return false;
     }
     render() {
+        this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
+        this.level.render(this.ctx, this.canvas);
         this.players.forEach((player) => {
             player.render(this.ctx);
         });

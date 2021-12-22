@@ -1,13 +1,13 @@
 import KeyListener from './KeyListener.js';
 export default class Level {
     keyboard;
+    levelPass;
     constructor() {
         this.keyboard = new KeyListener();
+        this.levelPass = false;
     }
     update() {
-        let levelUp = false;
-        levelUp = this.checkLevelUp();
-        return levelUp;
+        return this.levelPass;
     }
 }
 //# sourceMappingURL=Level.js.map
