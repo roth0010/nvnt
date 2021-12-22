@@ -1,10 +1,10 @@
-import KeyListener from './KeyListener.js';
-export default class Level {
-    keyboard;
+import Screen from './Screen.js';
+export default class Level extends Screen {
     levelPass;
     constructor() {
-        this.keyboard = new KeyListener();
-        this.levelPass = false;
+        super();
+        this.levelPass = 0;
+        this.score = 0;
     }
     update() {
         return this.levelPass;

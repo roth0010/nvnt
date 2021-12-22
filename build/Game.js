@@ -2,11 +2,12 @@ import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
 import Waluigi from './Waluigi.js';
+import ScoreScreen from './ScoreScreen.js';
 export default class Game {
     canvas;
-    level;
+    levels;
     engine;
-    levelUp;
+    score;
     levelNumber;
     players;
     ctx;
@@ -15,43 +16,39 @@ export default class Game {
         this.canvas.height = window.innerHeight;
         this.canvas.width = window.innerWidth;
         this.ctx = this.canvas.getContext('2d');
-        this.level = new Level1();
-        this.levelUp = false;
+        this.levels = [];
+        this.score = 0;
         this.engine = new GameLoop(this);
         this.levelNumber = 1;
         this.players = [];
+        this.setUp();
         this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
-        this.players.push(new Waluigi(0, 0));
-        console.log(this.canvas.width);
-        console.log(this.canvas.height);
         this.engine.start();
     }
+    setUp() {
+        this.levels[0] = new Level1();
+        this.levels[1] = new Level1();
+        this.levels[2] = new ScoreScreen();
+        this.levels[3] = new Level2();
+        this.levels[4] = new ScoreScreen();
+    }
     processInput() {
-        this.level.processInput();
+        this.levels[this.levelNumber].processInput();
     }
     update(step) {
-        if (this.level.update()) {
-            this.increaseLevel(this.levelNumber + 1);
+        if (this.levels[this.levelNumber].update() === 1) {
+            this.setLevel(this.levelNumber + 1);
         }
         return false;
     }
     render() {
         this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-        this.level.render(this.ctx, this.canvas);
+        this.levels[this.levelNumber].render(this.ctx, this.canvas);
         this.players.forEach((player) => {
             player.render(this.ctx);
         });
     }
-    setLevelUp(input) {
-        this.levelUp = input;
-    }
-    increaseLevel(level) {
-        if (level === 1) {
-            this.level = new Level1();
-        }
-        else if (level === 2) {
-            this.level = new Level2();
-        }
+    setLevel(level) {
         this.levelNumber = level;
     }
 }

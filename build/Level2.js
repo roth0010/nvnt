@@ -5,13 +5,13 @@ export default class Level2 extends Level {
         super();
     }
     processInput() {
-        if (this.keyboard.isKeyDown(32)) {
-            this.levelPass = true;
+        if (this.keyboard.isKeyDown(69)) {
+            this.levelPass = 1;
         }
     }
     render(ctx, canvas) {
-        let image = Static.loadNewImage('./assets/img/Waluigi.png');
-        ctx.drawImage(image, canvas.width / 2, canvas.height / 2);
+        let image = Static.loadNewImage('./assets/img/levelonebackground.png');
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     }
 }
 //# sourceMappingURL=Level2.js.map

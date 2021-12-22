@@ -1,16 +1,23 @@
-import KeyListener from './KeyListener.js';
 import Screen from './Screen.js';
 
 export default abstract class Level extends Screen {
-  private levelPass: boolean;
+  protected levelPass: number;
 
+  /**
+   * Constructs a new Level class
+   */
   public constructor() {
     super();
-    this.levelPass = false;
+    this.levelPass = 0;
     this.score = 0;
   }
 
-  public update(): boolean {
+  /**
+   * updates the game
+   *
+   * @returns whether to move onto the next level
+   */
+  public update(): number {
     return this.levelPass;
   }
 }

@@ -5,8 +5,8 @@ export default class Level1 extends Level {
         super();
     }
     processInput() {
-        if (this.keyboard.isKeyDown(32)) {
-            this.levelPass = true;
+        if (this.keyboard.isKeyDown(69)) {
+            this.levelPass = 1;
         }
     }
     render(ctx, canvas) {

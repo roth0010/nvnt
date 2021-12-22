@@ -13,13 +13,19 @@ export default class Level2 extends Level {
    * processes input
    */
   public processInput(): void {
-    if (this.keyboard.isKeyDown(32)) {
-      this.levelPass = true;
+    if (this.keyboard.isKeyDown(69)) {
+      this.levelPass = 1;
     }
   }
 
+  /**
+   * Renders the level2
+   *
+   * @param ctx the canvas to render on
+   * @param canvas the canvas
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    let image = Static.loadNewImage('./assets/img/Waluigi.png');
-    ctx.drawImage(image, canvas.width / 2, canvas.height / 2);
+    let image = Static.loadNewImage('./assets/img/levelonebackground.png');
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
   }
 }

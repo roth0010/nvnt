@@ -1,14 +1,16 @@
-import Level from './Level.js';
+import Screen from './Screen.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
 import Waluigi from './Waluigi.js';
 import Player from './Player.js';
+import Level from './Level.js';
+import ScoreScreen from './ScoreScreen.js';
 
 export default class Game {
   private canvas: HTMLCanvasElement;
 
-  private level: Level;
+  private levels: Screen[];
 
   private engine: GameLoop;
 
@@ -30,22 +32,32 @@ export default class Game {
     this.canvas.height = window.innerHeight;
     this.canvas.width = window.innerWidth;
     this.ctx = this.canvas.getContext('2d');
-    this.level = new Level1();
+    this.levels = [];
     this.score = 0;
     this.engine = new GameLoop(this);
     this.levelNumber = 1;
     this.players = [];
+    this.setUp();
     this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
-    console.log(this.canvas.width);
-    console.log(this.canvas.height);
+    // console.log(this.canvas.width);
+    // console.log(this.canvas.height);
     this.engine.start();
   }
 
+  private setUp(): void {
+    // This first one should be a monster selection screen
+    this.levels[0] = new Level1();
+    this.levels[1] = new Level1();
+    this.levels[2] = new ScoreScreen();
+    this.levels[3] = new Level2();
+    this.levels[4] = new ScoreScreen();
+  }
+
   /**
-   * buzz off, it's not implemented yet.
+   * Tells the current screen to process input
    */
   public processInput(): void {
-    this.level.processInput();
+    this.levels[this.levelNumber].processInput();
   }
 
   /**
@@ -55,9 +67,9 @@ export default class Game {
    * @returns false. Always false or it breaks.
    */
   public update(step: number): boolean {
-    if (this.level.update()) {
-      this.increaseLevel(this.levelNumber + 1);
-      this.score = this.level.getScore();
+    if (this.levels[this.levelNumber].update() === 1) {
+      this.setLevel(this.levelNumber + 1);
+      // this.score = this.levels.getScore();
     }
     return false;
   }
@@ -67,18 +79,13 @@ export default class Game {
    */
   public render(): void {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    this.level.render(this.ctx, this.canvas);
+    this.levels[this.levelNumber].render(this.ctx, this.canvas);
     this.players.forEach((player) => {
       player.render(this.ctx);
     });
   }
 
-  private increaseLevel(level: number): void {
-    if (level === 1) {
-      this.level = new Level1();
-    } else if (level === 2) {
-      this.level = new Level2();
-    }
+  public setLevel(level: number): void {
     this.levelNumber = level;
   }
 }
