@@ -1,3 +1,4 @@
+import Game from './Game.js';
 import Screen from './Screen.js';
 
 export default class ScoreScreen extends Screen {
@@ -5,9 +6,11 @@ export default class ScoreScreen extends Screen {
 
   /**
    * Constructs a new ScoreScreen class
+   *
+   * @param game The game
    */
-  public constructor() {
-    super();
+  public constructor(game: Game) {
+    super(game);
     this.levelPass = 0;
   }
 
@@ -16,10 +19,11 @@ export default class ScoreScreen extends Screen {
    */
   public processInput(): void {
     // R key
-    if (this.keyboard.isKeyDown(82)) {
+    // console.log(this.score);
+    if (this.game.getScore() < 2) {
       this.levelPass = 2;
       // S key
-    } else if (this.score > 2 && this.keyboard.isKeyDown(83)) {
+    } else if (this.game.getScore() >= 2) {
       this.levelPass = 1;
     }
   }
@@ -30,7 +34,15 @@ export default class ScoreScreen extends Screen {
    * @returns whether to move onto the next level
    */
   public update(): number {
-    return this.levelPass;
+    // R key
+    if (this.levelPass === 2 && this.keyboard.isKeyDown(82)) {
+      return this.levelPass;
+    }
+    // S key
+    if (this.levelPass === 1 && this.keyboard.isKeyDown(83)) {
+      return this.levelPass;
+    }
+    return 0;
   }
 
   /**
@@ -41,9 +53,9 @@ export default class ScoreScreen extends Screen {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     if (this.levelPass === 2) {
-      this.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2);
+      this.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2, 30, 'Black');
     } else if (this.levelPass === 1) {
-      this.writeTextToCanvas(canvas, 'You nailed that! Press S to start the next level', canvas.width / 2, canvas.height / 2);
+      this.writeTextToCanvas(canvas, 'You nailed that! Press S to start the next level', canvas.width / 2, canvas.height / 2, 30, 'Black');
     }
   }
 }

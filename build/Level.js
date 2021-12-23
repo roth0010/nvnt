@@ -1,10 +1,10 @@
 import Screen from './Screen.js';
 export default class Level extends Screen {
     levelPass;
-    constructor() {
-        super();
+    constructor(game) {
+        super(game);
+        this.game.setScore(0);
         this.levelPass = 0;
-        this.score = 0;
     }
     update() {
         return this.levelPass;

@@ -37,7 +37,7 @@ export default abstract class Player {
    * @param ctx the canvas rendering context
    */
   public render(ctx: CanvasRenderingContext2D): void {
-    console.log('beans');
+    // console.log('beans');
     ctx.drawImage(this.image, this.xPosition, this.yPosition);
   }
 }

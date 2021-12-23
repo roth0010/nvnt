@@ -1,31 +1,20 @@
+import Game from './Game.js';
 import KeyListener from './KeyListener.js';
 
 export default abstract class Screen {
-  protected score: number;
-
   protected keyboard: KeyListener;
+
+  protected game: Game;
 
   /**
    * constructs a new Screen class
    */
-  public constructor() {
+  public constructor(game: Game) {
+    this.game = game;
     this.keyboard = new KeyListener();
   }
 
   public abstract update(): number;
-
-  /**
-   * Getter for the score
-   *
-   * @returns the score
-   */
-  public getScore(): number {
-    return this.score;
-  }
-
-  public increaseScore(amount: number) {
-    this.score += amount;
-  }
 
   public abstract processInput(): void;
 

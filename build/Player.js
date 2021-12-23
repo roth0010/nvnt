@@ -13,7 +13,6 @@ export default class Player {
         this.yPosition = yPosition;
     }
     render(ctx) {
-        console.log('beans');
         ctx.drawImage(this.image, this.xPosition, this.yPosition);
     }
 }
