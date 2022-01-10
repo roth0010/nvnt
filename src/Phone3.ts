@@ -1,7 +1,7 @@
 import Phone from './Phone.js';
 import Game from './Game.js';
 
-export default class Phone2 extends Phone {
+export default class Phone3 extends Phone {
   public constructor(game: Game) {
     super(game);
   }

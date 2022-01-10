@@ -2,33 +2,31 @@ import Phone from './Phone.js';
 import Game from './Game.js';
 
 export default class Phone1 extends Phone {
-  private answered: boolean;
-
-  private correct: boolean;
-
   public constructor(game: Game) {
     super(game);
-    this.answered = false;
-    this.correct = true;
   }
 
   public processInput(): void {
-    if (this.keyboard.isKeyDown(50)) {
-      this.answered = true;
-      this.correct = true;
-    } else if (
-      this.keyboard.isKeyDown(51)
-    || this.keyboard.isKeyDown(49)
-    || this.keyboard.isKeyDown(52)
-    ) {
-      this.answered = true;
-      this.correct = false;
-    }
-    if (this.answered === true) {
-      if (this.correct === true) {
-        this.game.increaseScore(3);
+    if (this.wait >= 15) {
+      if (this.keyboard.isKeyDown(50)) {
+        this.answered = true;
+        this.correct = true;
+      } else if (
+        this.keyboard.isKeyDown(51)
+        || this.keyboard.isKeyDown(49)
+        || this.keyboard.isKeyDown(52)
+      ) {
+        this.answered = true;
+        this.correct = false;
       }
-      this.levelPass = 1;
+      if (this.answered === true) {
+        if (this.correct === true) {
+          this.game.increaseScore(3);
+        }
+        this.levelPass = 1;
+      }
+    } else {
+      this.wait += 1;
     }
   }
 

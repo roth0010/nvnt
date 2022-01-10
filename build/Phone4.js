@@ -1,5 +1,5 @@
 import Phone from './Phone.js';
-export default class Phone2 extends Phone {
+export default class Phone4 extends Phone {
     constructor(game) {
         super(game);
     }
@@ -35,4 +35,4 @@ export default class Phone2 extends Phone {
         this.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), canvas.height - 200, 30, 'black');
     }
 }
-//# sourceMappingURL=Phone2.js.map
+//# sourceMappingURL=Phone4.js.map
