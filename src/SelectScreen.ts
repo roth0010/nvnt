@@ -3,6 +3,10 @@ import Game from './Game.js';
 import Static from './Static.js';
 
 export default class SelectScreen extends Screen {
+  private customMonsterName : string;
+
+  private namedMonster : boolean;
+
   private selected: boolean;
 
   private davy: HTMLImageElement;
@@ -30,6 +34,15 @@ export default class SelectScreen extends Screen {
     this.poppy = Static.loadNewImage('./assets/img/Poppy.png');
     this.whick = Static.loadNewImage('./assets/img/Whick.png');
     this.selected = false;
+    this.namedMonster = false;
+  }
+
+  /**
+   * returns the custom monster name the player has entered
+   * @returns customMonsterName
+   */
+  public getCustomMonstername() : string {
+    return this.customMonsterName;
   }
 
   /**
@@ -41,7 +54,7 @@ export default class SelectScreen extends Screen {
         this.game.setMonsterType('./assets/img/Davy.png');
         this.selected = true;
       }
-      
+
       if (this.keyboard.isKeyDown(50)) {
         this.game.setMonsterType('./assets/img/Jorgen.png');
         this.selected = true;
@@ -62,7 +75,6 @@ export default class SelectScreen extends Screen {
         this.selected = true;
       }
     }
-
     if (this.selected === true) {
       if (this.keyboard.isKeyDown(69)) {
         this.game.setNewSelectScreen();
@@ -77,6 +89,8 @@ export default class SelectScreen extends Screen {
    */
   public update(): number {
     if (this.selected === true && this.keyboard.isKeyDown(32)) {
+      this.customMonsterName = window.prompt('please name your monster!');
+      console.log(`the monster was named ${this.customMonsterName}`);
       return 1;
     }
     return 0;
@@ -90,6 +104,7 @@ export default class SelectScreen extends Screen {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     if (this.selected === false) {
+      this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.davy,
 
@@ -132,8 +147,9 @@ export default class SelectScreen extends Screen {
         this.whick.height * 0.35,
       );
       this.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
-      this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
     } else if (this.selected === true) {
+      this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
+      this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
       ctx.drawImage(
         this.selectedMonster,
@@ -142,8 +158,6 @@ export default class SelectScreen extends Screen {
         this.selectedMonster.width * 0.5,
         this.selectedMonster.height * 0.5,
       );
-      this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
-      this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
     }
   }
 }
