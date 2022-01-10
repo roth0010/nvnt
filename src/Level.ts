@@ -11,6 +11,7 @@ export default abstract class Level extends Screen {
    */
   public constructor(game: Game) {
     super(game);
+    console.log('sjehjtiawebvgtgoqyuwn');
     this.game.setScore(0);
     this.levelPass = 0;
   }

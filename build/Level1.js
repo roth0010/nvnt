@@ -6,14 +6,14 @@ export default class Level1 extends Level {
     }
     processInput() {
         if (this.keyboard.isKeyDown(69)) {
-            this.game.setScore(2);
+            this.game.increaseScore(2);
             this.levelPass = 1;
         }
     }
     render(ctx, canvas) {
-        this.writeTextToCanvas(canvas, 'Press E to pass the level', canvas.width / 2, 50, 30, 'black');
         const image = Static.loadNewImage('./assets/img/levelonebackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        this.writeTextToCanvas(canvas, 'Press E to pass the level', canvas.width / 2, 50, 30, 'black');
     }
 }
 //# sourceMappingURL=Level1.js.map

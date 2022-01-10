@@ -7,6 +7,7 @@ import Player from './Player.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone2 from './Phone2.js';
+import Phone1 from './Phone1.js';
 
 export default class Game {
   private canvas: HTMLCanvasElement;
@@ -50,10 +51,11 @@ export default class Game {
     // This first one should be a monster selection screen
     this.levels[0] = new SelectScreen(this);
     this.levels[1] = new Level1(this);
-    this.levels[2] = new Phone2(this);
+    this.levels[2] = new Phone1(this);
     this.levels[3] = new ScoreScreen(this);
     this.levels[4] = new Level2(this);
-    this.levels[5] = new ScoreScreen(this);
+    this.levels[5] = new Phone2(this);
+    this.levels[6] = new ScoreScreen(this);
   }
 
   /**
@@ -61,7 +63,7 @@ export default class Game {
    */
   public processInput(): void {
     this.levels[this.levelNumber].processInput();
-    console.log(this.levelNumber);
+    // console.log(this.levelNumber);
   }
 
   /**
@@ -76,7 +78,7 @@ export default class Game {
       this.setLevel(this.levelNumber + 1);
     }
     if (this.levels[this.levelNumber].update() === 2) {
-      this.setNewLevel(this.levelNumber - 1);
+      this.setNewLevel(this.levelNumber - 2);
     }
     return false;
   }
@@ -120,11 +122,22 @@ export default class Game {
     this.score = score;
   }
 
+  /**
+   * Sets the score to a specific amount. Use negatives to subtract.
+   *
+   * @param score the amount to add to the score
+   */
+  public increaseScore(score: number): void {
+    this.score += score;
+  }
+
   private setNewLevel(index: number): void {
     if (index === 1) {
       this.levels[1] = new Level1(this);
+      this.levels[2] = new Phone1(this);
     } else if (index === 4) {
       this.levels[4] = new Level2(this);
+      this.levels[5] = new Phone2(this);
     }
     this.levelNumber = index;
   }

@@ -85,7 +85,6 @@ export default class SelectScreen extends Screen {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     if (this.selected === false) {
-      this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.davy,
 
@@ -128,9 +127,8 @@ export default class SelectScreen extends Screen {
         this.whick.height * 0.35,
       );
       this.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
     } else if (this.selected === true) {
-      this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
-      this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
       ctx.drawImage(
         this.selectedMonster,
@@ -139,6 +137,8 @@ export default class SelectScreen extends Screen {
         this.selectedMonster.width * 0.5,
         this.selectedMonster.height * 0.5,
       );
+      this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
+      this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
     }
   }
 }
