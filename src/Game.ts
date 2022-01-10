@@ -6,6 +6,7 @@ import GameLoop from './GameLoop.js';
 import Player from './Player.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
+import Phone2 from './Phone2.js';
 
 export default class Game {
   private canvas: HTMLCanvasElement;
@@ -49,9 +50,10 @@ export default class Game {
     // This first one should be a monster selection screen
     this.levels[0] = new SelectScreen(this);
     this.levels[1] = new Level1(this);
-    this.levels[2] = new ScoreScreen(this);
-    this.levels[3] = new Level2(this);
-    this.levels[4] = new ScoreScreen(this);
+    this.levels[2] = new Phone2(this);
+    this.levels[3] = new ScoreScreen(this);
+    this.levels[4] = new Level2(this);
+    this.levels[5] = new ScoreScreen(this);
   }
 
   /**
@@ -59,7 +61,7 @@ export default class Game {
    */
   public processInput(): void {
     this.levels[this.levelNumber].processInput();
-    // console.log(this.levelNumber);
+    console.log(this.levelNumber);
   }
 
   /**
@@ -69,7 +71,7 @@ export default class Game {
    * @returns false. Always false or it breaks.
    */
   public update(step: number): boolean {
-    console.log(this.score);
+    // console.log(this.score);
     if (this.levels[this.levelNumber].update() === 1) {
       this.setLevel(this.levelNumber + 1);
     }
@@ -121,20 +123,33 @@ export default class Game {
   private setNewLevel(index: number): void {
     if (index === 1) {
       this.levels[1] = new Level1(this);
-    } else if (index === 3) {
-      this.levels[3] = new Level2(this);
+    } else if (index === 4) {
+      this.levels[4] = new Level2(this);
     }
     this.levelNumber = index;
   }
 
+  /**
+   * resets the level screen to a box-standard screen
+   */
   public setNewSelectScreen(): void {
     this.levels[0] = new SelectScreen(this);
   }
 
+  /**
+   * Sets the monster type
+   *
+   * @param type the type of monster
+   */
   public setMonsterType(type: string): void {
     this.monsterType = type;
   }
 
+  /**
+   * Returns the type of monster
+   *
+   * @returns The type of monster
+   */
   public getMonsterType(): string {
     return this.monsterType;
   }

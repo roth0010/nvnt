@@ -5,8 +5,6 @@ import Static from './Static.js';
 export default class SelectScreen extends Screen {
   private selected: boolean;
 
-  private waluigi: HTMLImageElement;
-
   private davy: HTMLImageElement;
 
   private jorgen: HTMLImageElement;
@@ -19,9 +17,13 @@ export default class SelectScreen extends Screen {
 
   private selectedMonster: HTMLImageElement;
 
+  /**
+   * creates a new Select Screen
+   *
+   * @param game the game object
+   */
   public constructor(game: Game) {
     super(game);
-    this.waluigi = Static.loadNewImage('./assets/img/Waluigi.png');
     this.davy = Static.loadNewImage('./assets/img/Davy.png');
     this.jorgen = Static.loadNewImage('./assets/img/Jorgen.png');
     this.ogalybogaly = Static.loadNewImage('./assets/img/Ogalybogaly.png');
@@ -30,6 +32,9 @@ export default class SelectScreen extends Screen {
     this.selected = false;
   }
 
+  /**
+   * processes input
+   */
   public processInput(): void {
     if (this.selected === false) {
       if (this.keyboard.isKeyDown(49)) {
@@ -60,6 +65,11 @@ export default class SelectScreen extends Screen {
     }
   }
 
+  /**
+   * Decides whether to advance the screen
+   *
+   * @returns number, 1 to advance, 0 to stay on the screen
+   */
   public update(): number {
     if (this.selected === true && this.keyboard.isKeyDown(32)) {
       return 1;
@@ -67,13 +77,19 @@ export default class SelectScreen extends Screen {
     return 0;
   }
 
+  /**
+   * renders the select screen
+   *
+   * @param ctx canvas rendering context 2d
+   * @param canvas the canvas to paint the game on
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     if (this.selected === false) {
       this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.davy,
-        canvas.width / 6 -  this.davy.width / 2,
-        canvas.height / 2 -  this.davy.height / 2,
+        canvas.width / 6 - this.davy.width / 2,
+        canvas.height / 2 - this.davy.height / 2,
       );
       this.writeTextToCanvas(canvas, '1: Wa', canvas.width / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(

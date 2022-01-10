@@ -2,7 +2,6 @@ import Screen from './Screen.js';
 import Static from './Static.js';
 export default class SelectScreen extends Screen {
     selected;
-    waluigi;
     davy;
     jorgen;
     ogalybogaly;
@@ -11,7 +10,6 @@ export default class SelectScreen extends Screen {
     selectedMonster;
     constructor(game) {
         super(game);
-        this.waluigi = Static.loadNewImage('./assets/img/Waluigi.png');
         this.davy = Static.loadNewImage('./assets/img/Davy.png');
         this.jorgen = Static.loadNewImage('./assets/img/Jorgen.png');
         this.ogalybogaly = Static.loadNewImage('./assets/img/Ogalybogaly.png');

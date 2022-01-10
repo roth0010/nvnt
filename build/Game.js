@@ -3,6 +3,7 @@ import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
+import Phone2 from './Phone2.js';
 export default class Game {
     canvas;
     levels;
@@ -28,15 +29,16 @@ export default class Game {
     setUp() {
         this.levels[0] = new SelectScreen(this);
         this.levels[1] = new Level1(this);
-        this.levels[2] = new ScoreScreen(this);
-        this.levels[3] = new Level2(this);
-        this.levels[4] = new ScoreScreen(this);
+        this.levels[2] = new Phone2(this);
+        this.levels[3] = new ScoreScreen(this);
+        this.levels[4] = new Level2(this);
+        this.levels[5] = new ScoreScreen(this);
     }
     processInput() {
         this.levels[this.levelNumber].processInput();
+        console.log(this.levelNumber);
     }
     update(step) {
-        console.log(this.score);
         if (this.levels[this.levelNumber].update() === 1) {
             this.setLevel(this.levelNumber + 1);
         }
@@ -62,8 +64,8 @@ export default class Game {
         if (index === 1) {
             this.levels[1] = new Level1(this);
         }
-        else if (index === 3) {
-            this.levels[3] = new Level2(this);
+        else if (index === 4) {
+            this.levels[4] = new Level2(this);
         }
         this.levelNumber = index;
     }

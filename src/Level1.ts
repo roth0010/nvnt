@@ -4,7 +4,7 @@ import Static from './Static.js';
 
 export default class Level1 extends Level {
   /**
-   * constructs a new Level1 class
+   * constructs a new Level1 class. This is the profile creation level
    *
    * @param game The game
    */

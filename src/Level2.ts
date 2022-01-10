@@ -4,7 +4,7 @@ import Game from './Game.js';
 
 export default class Level2 extends Level {
   /**
-   * constructs a new Level1 class
+   * constructs a new Level2 class.
    *
    * @param game The game
    */
