@@ -88,42 +88,56 @@ export default class SelectScreen extends Screen {
       this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.davy,
-        canvas.width / 6 - this.davy.width / 2,
-        canvas.height / 2 - this.davy.height / 2,
+
+        canvas.width / 4 - this.davy.width * 0.4,
+        canvas.height / 1.2 - this.davy.height * 0.4,
+        this.davy.width * 0.35,
+        this.davy.height * 0.35,
+
       );
-      this.writeTextToCanvas(canvas, '1: Wa', canvas.width / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, '[1] davy', canvas.width / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.jorgen,
-        (canvas.width * 2) / 6 - this.jorgen.width / 2,
-        canvas.height / 2 - this.jorgen.height / 2,
+        (canvas.width * 3) / 6 - this.jorgen.width / 2,
+        canvas.height / 1 - this.jorgen.height / 2,
+        this.jorgen.width * 0.35,
+        this.jorgen.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '2: Lu', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, '[2] jörgen', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.ogalybogaly,
-        (canvas.width * 3) / 6 - this.ogalybogaly.width / 2,
-        canvas.height / 2 - this.ogalybogaly.height / 2,
+        (canvas.width * 4.3) / 6 - this.ogalybogaly.width / 2,
+        canvas.height / 1 - this.ogalybogaly.height / 2,
+        this.ogalybogaly.width * 0.35,
+        this.ogalybogaly.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '3: i', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, '[3] ogalybogaly', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.poppy,
-        (canvas.width * 4) / 6 - this.poppy.width / 2,
-        canvas.height / 2 - this.poppy.height / 2,
+        (canvas.width * 5) / 6 - this.poppy.width / 2,
+        canvas.height / 1 - this.poppy.height / 2,
+        this.poppy.width * 0.35,
+        this.poppy.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '4: gi', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, '[4] poppy', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.whick,
-        (canvas.width * 5) / 6 - this.whick.width / 2,
-        canvas.height / 2 - this.whick.height / 2,
+        (canvas.width * 5) / 4.6 - this.whick.width / 2,
+        canvas.height / 1.05 - this.whick.height / 2,
+        this.whick.width * 0.35,
+        this.whick.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '5: irfin#dnsa ei', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
+      this.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
     } else if (this.selected === true) {
       this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
       this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
       ctx.drawImage(
         this.selectedMonster,
-        (canvas.width * 3) / 6 - this.selectedMonster.width / 2,
-        canvas.height / 2 - this.selectedMonster.height / 2,
+        (canvas.width * 2) / 3.5 - this.selectedMonster.width / 3,
+        canvas.height / 1.2 - this.selectedMonster.height / 2,
+        this.selectedMonster.width * 0.5,
+        this.selectedMonster.height * 0.5,
       );
     }
   }
