@@ -41,23 +41,28 @@ export default class SelectScreen extends Screen {
         this.game.setMonsterType('./assets/img/Davy.png');
         this.selected = true;
       }
+      
       if (this.keyboard.isKeyDown(50)) {
         this.game.setMonsterType('./assets/img/Jorgen.png');
         this.selected = true;
       }
+
       if (this.keyboard.isKeyDown(51)) {
         this.game.setMonsterType('./assets/img/Ogalybogaly.png');
         this.selected = true;
       }
+
       if (this.keyboard.isKeyDown(52)) {
         this.game.setMonsterType('./assets/img/Poppy.png');
         this.selected = true;
       }
+
       if (this.keyboard.isKeyDown(53)) {
         this.game.setMonsterType('./assets/img/Whick.png');
         this.selected = true;
       }
     }
+
     if (this.selected === true) {
       if (this.keyboard.isKeyDown(69)) {
         this.game.setNewSelectScreen();
