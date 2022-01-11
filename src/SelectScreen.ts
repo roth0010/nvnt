@@ -39,6 +39,10 @@ export default class SelectScreen extends Screen {
    *
    * @param customMonsterName the name for the monster
    */
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6d4c2a8a4d582e22c9a172e50dbb742747aea19f
   private setCustomMonstername(customMonsterName: string): void {
     this.game.setMonsterName(customMonsterName);
   }
