@@ -5,6 +5,12 @@ import Static from './Static.js';
 export default abstract class Phone extends Level {
   protected image: HTMLImageElement;
 
+  protected answered: boolean;
+
+  protected correct: boolean;
+
+  protected wait: number;
+
   /**
    * Abstract class phone creation thing. Yay.
    *
@@ -12,6 +18,10 @@ export default abstract class Phone extends Level {
    */
   public constructor(game: Game) {
     super(game);
+    this.correct = false;
+    this.answered = false;
+    this.wait = 0;
+    console.log('tests');
     this.image = Static.loadNewImage('./assets/img/Phone.png');
   }
 
