@@ -4,11 +4,6 @@ import Static from './Static.js';
 
 export default class SelectScreen extends Screen {
   private customMonsterName: string;
-<<<<<<< HEAD
-=======
-
-  private namedMonster: boolean;
->>>>>>> 8f437c5bf5e62d98fe7970851f98756526ebdb4a
 
   private selected: boolean;
 
@@ -43,13 +38,9 @@ export default class SelectScreen extends Screen {
    * returns the custom monster name the player has entered
    * @param customMonsterName
    */
-<<<<<<< HEAD
+
   private setCustomMonstername(customMonsterName: string): void {
     this.game.setMonsterName(customMonsterName);
-=======
-  public getCustomMonstername(): string {
-    return this.customMonsterName;
->>>>>>> 8f437c5bf5e62d98fe7970851f98756526ebdb4a
   }
 
   /**
