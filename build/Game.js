@@ -14,6 +14,7 @@ export default class Game {
     players;
     monsterType;
     ctx;
+    monsterName;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -24,6 +25,7 @@ export default class Game {
         this.engine = new GameLoop(this);
         this.levelNumber = 0;
         this.monsterType = '';
+        this.monsterName = '';
         this.setUp();
         this.engine.start();
     }
@@ -83,6 +85,12 @@ export default class Game {
     }
     getMonsterType() {
         return this.monsterType;
+    }
+    getMonsterName() {
+        return this.monsterName;
+    }
+    setMonsterName(customMonsterName) {
+        this.monsterName = customMonsterName;
     }
 }
 //# sourceMappingURL=Game.js.map

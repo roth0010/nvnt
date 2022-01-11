@@ -2,7 +2,6 @@ import Screen from './Screen.js';
 import Static from './Static.js';
 export default class SelectScreen extends Screen {
     customMonsterName;
-    namedMonster;
     selected;
     davy;
     jorgen;
@@ -18,10 +17,9 @@ export default class SelectScreen extends Screen {
         this.poppy = Static.loadNewImage('./assets/img/Poppy.png');
         this.whick = Static.loadNewImage('./assets/img/Whick.png');
         this.selected = false;
-        this.namedMonster = false;
     }
-    getCustomMonstername() {
-        return this.customMonsterName;
+    setCustomMonstername(customMonsterName) {
+        this.game.setMonsterName(customMonsterName);
     }
     processInput() {
         if (this.selected === false) {
@@ -55,6 +53,7 @@ export default class SelectScreen extends Screen {
     update() {
         if (this.selected === true && this.keyboard.isKeyDown(32)) {
             this.customMonsterName = window.prompt('please name your monster!');
+            this.setCustomMonstername(this.customMonsterName);
             console.log(`the monster was named ${this.customMonsterName}`);
             return 1;
         }

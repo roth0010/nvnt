@@ -26,6 +26,8 @@ export default class Game {
 
   private ctx: CanvasRenderingContext2D;
 
+  private monsterName: string;
+
   /**
    * creates a new Game class
    *
@@ -42,6 +44,7 @@ export default class Game {
     this.levelNumber = 0;
     // this.players = [];
     this.monsterType = '';
+    this.monsterName = '';
     this.setUp();
     // this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
     this.engine.start();
@@ -165,5 +168,23 @@ export default class Game {
    */
   public getMonsterType(): string {
     return this.monsterType;
+  }
+
+  /**
+   * Returns the species of the selected monster
+   *
+   * @returns the species of the selected monster
+   */
+  public getMonsterName(): string {
+    return this.monsterName;
+  }
+
+  /**
+   * sets the species of the selected monster
+   *
+   * @param species the species you want the monster to have(jorgen,davy,ogalybogaly,poppy,or whick)
+   */
+  public setMonsterName(customMonsterName: string): void {
+    this.monsterName = customMonsterName;
   }
 }
