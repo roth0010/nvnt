@@ -14,6 +14,9 @@ export default class Phone5 extends Phone {
     );
   }
 
+  /**
+   * processes input
+   */
   public processInput(): void {
     this.cat.processInput();
     if (this.keyboard.isKeyDown(51)) {
@@ -21,8 +24,8 @@ export default class Phone5 extends Phone {
       this.correct = true;
     } else if (
       this.keyboard.isKeyDown(50)
-    || this.keyboard.isKeyDown(49)
-    || this.keyboard.isKeyDown(52)
+      || this.keyboard.isKeyDown(49)
+      || this.keyboard.isKeyDown(52)
     ) {
       this.answered = true;
       this.correct = false;
@@ -35,6 +38,11 @@ export default class Phone5 extends Phone {
     }
   }
 
+  /**
+   * renders the page
+   * @param ctx ctx
+   * @param canvas ctx
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(
       this.image,
@@ -43,11 +51,28 @@ export default class Phone5 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'Filler Stuff', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    this.renderDM(ctx, canvas, 'Could you transfer me money?', 'raquish', './assets/img/Raquish.png');
+    Static.writeTextToCanvas(canvas, 'Filler Stuff(5)', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
     Static.writeTextToCanvas(canvas, '[1] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     Static.writeTextToCanvas(canvas, '[3] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
     Static.writeTextToCanvas(canvas, '[4] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
+  }
+
+  /**
+ * fills the phonescreen with a dm interface
+ * @param ctx ctx
+ * @param canvas canvas
+ * @param receivedMessage the message the user has received
+ * @param sender the sender of the message
+ * @param senderProfilePicture the profile picture of the sender
+ */
+   private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, receivedMessage: string, sender: string, senderProfilePicture: string): void {
+    const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture); // renders the profile picture
+    ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5),
+      this.image.height / 10);
+    Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40);
+    Static.writeTextToCanvas(canvas, receivedMessage, (canvas.width / 8), (Phone.YPOSITION + 650), 20);
   }
 }

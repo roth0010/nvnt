@@ -45,7 +45,7 @@ export default class Gato {
   }
 
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) : void {
-    console.log('donde esta el gatito?');
+    // console.log('donde esta el gatito?');
     ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
     if (this.power === true) {
       Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 40, this.yPosition - 40, 20, 'black');
