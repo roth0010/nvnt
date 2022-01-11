@@ -7,7 +7,7 @@ import Player from './Player.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone5 from './Phone5.js';
-import Phone1 from './Phone4.js';
+import Phone1 from './Phone1.js';
 import Phone2 from './Phone2.js';
 import Phone3 from './Phone3.js';
 import Phone4 from './Phone4.js';
@@ -82,6 +82,7 @@ export default class Game {
    * Set levelPass to 1 to advance a level
    * Set levelPass to 2 to go back two levels (level2 only)
    * set levelPass to 3 to go back five levels (level1 only)
+   *
    * @param step I don't really know yet tbh
    * @returns false. Always false or it breaks.
    */
@@ -129,10 +130,20 @@ export default class Game {
     return this.score;
   }
 
+  /**
+   * Getter for the height of the canvas
+   *
+   * @returns the height of the canvas
+   */
   public getCanvasHeight(): number {
     return this.canvas.height;
   }
 
+  /**
+   * Getter for the width of the canvas
+   *
+   * @returns the width of the canvas
+   */
   public getCanvasWidth(): number {
     return this.canvas.width;
   }
@@ -207,7 +218,8 @@ export default class Game {
   /**
    * sets the species of the selected monster
    *
-   * @param species the species you want the monster to have(jorgen,davy,ogalybogaly,poppy,or whick)
+   * @param customMonsterName the species you want the monster
+   * to have(jorgen,davy,ogalybogaly,poppy,or whick)
    */
   public setMonsterName(customMonsterName: string): void {
     this.monsterName = customMonsterName;

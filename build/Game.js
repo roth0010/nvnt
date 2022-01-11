@@ -4,7 +4,7 @@ import GameLoop from './GameLoop.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone5 from './Phone5.js';
-import Phone1 from './Phone4.js';
+import Phone1 from './Phone1.js';
 import Phone2 from './Phone2.js';
 import Phone3 from './Phone3.js';
 import Phone4 from './Phone4.js';

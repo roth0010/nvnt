@@ -74,10 +74,10 @@ export default class SelectScreen extends Screen {
             Static.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
         }
         else if (this.selected === true) {
-            Static.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
             Static.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
             this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
             ctx.drawImage(this.selectedMonster, (canvas.width * 2) / 3.5 - this.selectedMonster.width / 3, canvas.height / 1.2 - this.selectedMonster.height / 2, this.selectedMonster.width * 0.5, this.selectedMonster.height * 0.5);
+            Static.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
         }
     }
 }

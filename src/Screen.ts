@@ -8,6 +8,8 @@ export default abstract class Screen {
 
   /**
    * constructs a new Screen class
+   *
+   * @param game the game
    */
   public constructor(game: Game) {
     this.game = game;
