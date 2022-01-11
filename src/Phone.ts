@@ -1,6 +1,7 @@
 import Game from './Game.js';
 import Level from './Level.js';
 import Static from './Static.js';
+import Gato from './Gato.js';
 
 export default abstract class Phone extends Level {
   protected image: HTMLImageElement;
@@ -10,6 +11,10 @@ export default abstract class Phone extends Level {
   protected correct: boolean;
 
   protected wait: number;
+
+  protected static readonly YPOSITION = 50;
+
+  protected cat: Gato;
 
   /**
    * Abstract class phone creation thing. Yay.

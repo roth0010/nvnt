@@ -5,6 +5,8 @@ export default class Phone extends Level {
     answered;
     correct;
     wait;
+    static YPOSITION = 50;
+    cat;
     constructor(game) {
         super(game);
         this.correct = false;

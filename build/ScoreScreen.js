@@ -1,4 +1,5 @@
 import Screen from './Screen.js';
+import Static from './Static.js';
 export default class ScoreScreen extends Screen {
     levelPass;
     constructor(game) {
@@ -25,12 +26,12 @@ export default class ScoreScreen extends Screen {
         return 0;
     }
     render(ctx, canvas) {
-        this.writeTextToCanvas(canvas, `Your Score: ${this.game.getScore()}`, canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
+        Static.writeTextToCanvas(canvas, `Your Score: ${this.game.getScore()}`, canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
         if (this.levelPass === 2) {
-            this.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2, 30, 'Black');
+            Static.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2, 30, 'Black');
         }
         else if (this.levelPass === 1) {
-            this.writeTextToCanvas(canvas, 'You nailed that! Press S to start the next level', canvas.width / 2, canvas.height / 2, 30, 'Black');
+            Static.writeTextToCanvas(canvas, 'You nailed that! Press S to start the next level', canvas.width / 2, canvas.height / 2, 30, 'Black');
         }
     }
 }
