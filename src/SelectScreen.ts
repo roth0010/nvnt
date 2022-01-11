@@ -3,9 +3,9 @@ import Game from './Game.js';
 import Static from './Static.js';
 
 export default class SelectScreen extends Screen {
-  private customMonsterName : string;
+  private customMonsterName: string;
 
-  private namedMonster : boolean;
+  private namedMonster: boolean;
 
   private selected: boolean;
 
@@ -41,7 +41,7 @@ export default class SelectScreen extends Screen {
    * returns the custom monster name the player has entered
    * @returns customMonsterName
    */
-  public getCustomMonstername() : string {
+  public getCustomMonstername(): string {
     return this.customMonsterName;
   }
 
@@ -104,7 +104,6 @@ export default class SelectScreen extends Screen {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     if (this.selected === false) {
-      this.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.davy,
 
@@ -114,7 +113,7 @@ export default class SelectScreen extends Screen {
         this.davy.height * 0.35,
 
       );
-      this.writeTextToCanvas(canvas, '[1] davy', canvas.width / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[1] davy', canvas.width / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.jorgen,
         (canvas.width * 3) / 6 - this.jorgen.width / 2,
@@ -122,7 +121,7 @@ export default class SelectScreen extends Screen {
         this.jorgen.width * 0.35,
         this.jorgen.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '[2] jörgen', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[2] jörgen', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.ogalybogaly,
         (canvas.width * 4.3) / 6 - this.ogalybogaly.width / 2,
@@ -130,7 +129,7 @@ export default class SelectScreen extends Screen {
         this.ogalybogaly.width * 0.35,
         this.ogalybogaly.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '[3] ogalybogaly', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[3] ogalybogaly', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.poppy,
         (canvas.width * 5) / 6 - this.poppy.width / 2,
@@ -138,7 +137,8 @@ export default class SelectScreen extends Screen {
         this.poppy.width * 0.35,
         this.poppy.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '[4] poppy', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[4] poppy', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.whick,
         (canvas.width * 5) / 4.6 - this.whick.width / 2,
@@ -146,10 +146,10 @@ export default class SelectScreen extends Screen {
         this.whick.width * 0.35,
         this.whick.height * 0.35,
       );
-      this.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
     } else if (this.selected === true) {
-      this.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
-      this.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
       ctx.drawImage(
         this.selectedMonster,

@@ -126,6 +126,14 @@ export default class Game {
     return this.score;
   }
 
+  public getCanvasHeight(): number {
+    return this.canvas.height;
+  }
+
+  public getCanvasWidth(): number {
+    return this.canvas.width;
+  }
+
   /**
    * Sets the score to a specific amount
    *
@@ -152,9 +160,9 @@ export default class Game {
       this.levels[3] = new Phone2(this);
       this.levels[4] = new Phone3(this);
       this.levels[5] = new Phone4(this);
-    } else if (index === 4) {
-      this.levels[4] = new Level2(this);
-      this.levels[5] = new Phone5(this);
+    } else if (index === 7) {
+      this.levels[7] = new Level2(this);
+      this.levels[8] = new Phone5(this);
     }
     this.levelNumber = index;
   }
