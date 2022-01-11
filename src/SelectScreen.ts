@@ -4,11 +4,6 @@ import Static from './Static.js';
 
 export default class SelectScreen extends Screen {
   private customMonsterName: string;
-<<<<<<< HEAD
-=======
-
-  private namedMonster: boolean;
->>>>>>> 8f437c5bf5e62d98fe7970851f98756526ebdb4a
 
   private selected: boolean;
 
@@ -41,15 +36,11 @@ export default class SelectScreen extends Screen {
 
   /**
    * returns the custom monster name the player has entered
-   * @param customMonsterName
+   *
+   * @param customMonsterName the name for the monster
    */
-<<<<<<< HEAD
   private setCustomMonstername(customMonsterName: string): void {
     this.game.setMonsterName(customMonsterName);
-=======
-  public getCustomMonstername(): string {
-    return this.customMonsterName;
->>>>>>> 8f437c5bf5e62d98fe7970851f98756526ebdb4a
   }
 
   /**
@@ -156,7 +147,6 @@ export default class SelectScreen extends Screen {
       );
       Static.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
     } else if (this.selected === true) {
-      Static.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
       Static.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());
       ctx.drawImage(
@@ -166,6 +156,7 @@ export default class SelectScreen extends Screen {
         this.selectedMonster.width * 0.5,
         this.selectedMonster.height * 0.5,
       );
+      Static.writeTextToCanvas(canvas, 'Are you sure?', canvas.width / 2, 50, 30, 'black');
     }
   }
 }

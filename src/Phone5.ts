@@ -4,6 +4,11 @@ import Static from './Static.js';
 import Gato from './Gato.js';
 
 export default class Phone5 extends Phone {
+  /**
+   * Creates a new Phone5 class
+   *
+   * @param game the game class
+   */
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
@@ -14,6 +19,9 @@ export default class Phone5 extends Phone {
     );
   }
 
+  /**
+   * processes the input
+   */
   public processInput(): void {
     this.cat.processInput();
     if (this.keyboard.isKeyDown(51)) {
@@ -35,6 +43,12 @@ export default class Phone5 extends Phone {
     }
   }
 
+  /**
+   * Renders the phone5
+   *
+   * @param ctx the canvas rendering context
+   * @param canvas The canvas to render on
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(
       this.image,

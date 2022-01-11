@@ -22,6 +22,14 @@ export default class Gato {
 
   private game: Game;
 
+  /**
+   * Constructs a new Gato
+   *
+   * @param phrase the phrase the cat should say
+   * @param xPosition the x position of the kat
+   * @param yPosition the y position of the kat
+   * @param game the game object
+   */
   public constructor(phrase: string, xPosition: number, yPosition: number, game: Game) {
     this.game = game;
     this.phrase = phrase;
@@ -35,6 +43,9 @@ export default class Gato {
     this.image.width = this.image.height * Gato.ASPECTRATIO;
   }
 
+  /**
+   * processes the input for the cat
+   */
   public processInput() : void {
     if (this.keyboard.isKeyDown(67) && this.timer >= 15) {
       this.timer = 0;
@@ -44,6 +55,12 @@ export default class Gato {
     }
   }
 
+  /**
+   * renders the kat
+   *
+   * @param ctx the canvas rendering context 2d
+   * @param canvas the canvas the cat will paint on
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) : void {
     console.log('donde esta el gatito?');
     ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
@@ -54,11 +71,22 @@ export default class Gato {
     }
   }
 
+  /**
+   * Sets the position of the x and y
+   *
+   * @param xPosition the position to set the x to
+   * @param yPosition the position to set the y to
+   */
   public setPosition(xPosition: number, yPosition: number): void {
     this.xPosition = xPosition;
     this.yPosition = yPosition;
   }
 
+  /**
+   * changes the phrase the cat will say
+   *
+   * @param phrase the new phrase the cat will say
+   */
   public setPhrase(phrase: string): void {
     this.phrase = phrase;
   }

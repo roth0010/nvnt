@@ -14,5 +14,24 @@ export default class Static {
         ctx.textAlign = alignment;
         ctx.fillText(text, xCoordinate, yCoordinate);
     }
+    static getMonsterAR(monsterType) {
+        if (monsterType === './assets/img/Davy.png') {
+            return 0.6201;
+        }
+        if (monsterType === './assets/img/Jorgen.png') {
+            return 0.9104;
+        }
+        if (monsterType === './assets/img/Ogalybogaly.png') {
+            return 0.842;
+        }
+        if (monsterType === './assets/img/Poppy.png') {
+            return 0.8947;
+        }
+        if (monsterType === './assets/img/Whick.png') {
+            return 1.64624;
+        }
+        console.log('uh oh, looks like its broken');
+        return 0;
+    }
 }
 //# sourceMappingURL=Static.js.map

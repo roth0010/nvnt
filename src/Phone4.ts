@@ -4,6 +4,11 @@ import Static from './Static.js';
 import Gato from './Gato.js';
 
 export default class Phone4 extends Phone {
+  /**
+   * constructs a new game class
+   *
+   * @param game the game class
+   */
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
@@ -14,6 +19,9 @@ export default class Phone4 extends Phone {
     );
   }
 
+  /**
+   * Process input
+   */
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 15) {
@@ -39,6 +47,12 @@ export default class Phone4 extends Phone {
     }
   }
 
+  /**
+   * Renders the canvas, tee hee
+   *
+   * @param ctx The canvas rendering context
+   * @param canvas The canvas to render on
+   */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(
       this.image,

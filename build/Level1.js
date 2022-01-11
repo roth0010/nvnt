@@ -17,16 +17,14 @@ export default class Level1 extends Level {
     render(ctx, canvas) {
         const image = Static.loadNewImage('./assets/img/levelonebackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-<<<<<<< HEAD
-        this.writeTextToCanvas(canvas, 'Press E to pass the level', canvas.width / 2, 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'Press E to open phone', canvas.width / 2, 50, 30, 'black');
         const image2 = Static.loadNewImage(this.game.getMonsterType());
-        ctx.drawImage(image2, 50, 0, canvas.width, canvas.height);
+        image2.height = canvas.height / 2;
+        image2.width = (canvas.height / 2) * Static.getMonsterAR(this.game.getMonsterType());
+        ctx.drawImage(image2, ((canvas.width / 2) - (image2.width / 2)), (canvas.height / 2 - (image2.width / 2)), image2.width, image2.height);
         const monsterName = this.game.getMonsterName();
-        this.writeTextToCanvas(canvas, monsterName, canvas.width / 2, 110, 60, 'black');
-=======
-        Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, monsterName, canvas.width / 2, 110, 60, 'black');
         this.cat.render(ctx, canvas);
->>>>>>> 8f437c5bf5e62d98fe7970851f98756526ebdb4a
     }
 }
 //# sourceMappingURL=Level1.js.map
