@@ -17,6 +17,13 @@ import Level4 from './Level4.js';
 import Level5 from './Level5.js';
 import Phone7 from './Phone7.js';
 import Phone8 from './Phone8.js';
+import Phone9 from './Phone9.js';
+import Phone10 from './Phone10.js';
+import Phone11 from './Phone11.js';
+import Phone12 from './Phone12.js';
+
+
+
 
 export default class Game {
   private canvas: HTMLCanvasElement;
