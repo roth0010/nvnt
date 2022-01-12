@@ -25,7 +25,7 @@ export default class Level3 extends Level {
    * processes input
    */
   public processInput(): void {
-    this.game.setGoal(2);
+    this.game.setGoal(8);
     this.cat.processInput();
     // E key
     if (this.keyboard.isKeyDown(69)) {

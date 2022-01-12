@@ -12,7 +12,7 @@ export default class Phone6 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Do not light fireworks in tunnels!',
+      'Do you like Frijkandelbroodje?',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -25,11 +25,11 @@ export default class Phone6 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 15) {
-      if (this.keyboard.isKeyDown(50)) {
+      if (this.keyboard.isKeyDown(51)) {
         this.answered = true;
         this.correct = true;
       } else if (
-        this.keyboard.isKeyDown(51)
+        this.keyboard.isKeyDown(50)
         || this.keyboard.isKeyDown(49)
         || this.keyboard.isKeyDown(52)
       ) {
@@ -61,11 +61,11 @@ export default class Phone6 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'Filler Stuff final', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'A friend request from a famous person', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, '[1] Send them a message!', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 }

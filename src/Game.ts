@@ -76,12 +76,12 @@ export default class Game {
     this.levels[9] = new ScoreScreen(this);
     this.levels[10] = new Level3(this);
     this.levels[11] = new Phone6(this);
-    this.levels[12] = new ScoreScreen(this);
-    this.levels[13] = new Level4(this);
-    this.levels[14] = new Phone7(this);
-    this.levels[15] = new ScoreScreen(this);
-    this.levels[16] = new Level5(this);
-    this.levels[17] = new Phone8(this);
+    this.levels[12] = new Phone7(this);
+    this.levels[13] = new Phone8(this);
+    this.levels[14] = new ScoreScreen(this);
+    this.levels[15] = new Level4(this);
+    this.levels[16] = new ScoreScreen(this);
+    this.levels[17] = new Level5(this);
     this.levels[18] = new ScoreScreen(this);
   }
 
@@ -89,6 +89,7 @@ export default class Game {
    * Tells the current screen to process input
    */
   public processInput(): void {
+    console.log(this.levelNumber);
     this.levels[this.levelNumber].processInput();
     // console.log(this.levelNumber);
   }
