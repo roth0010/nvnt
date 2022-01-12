@@ -2,9 +2,13 @@ import Screen from './Screen.js';
 import Static from './Static.js';
 export default class ScoreScreen extends Screen {
     levelPass;
-    constructor(game) {
+    taco;
+    addTaco;
+    constructor(game, taco) {
         super(game);
         this.levelPass = 0;
+        this.taco = taco;
+        this.addTaco = false;
     }
     processInput() {
         if (this.game.getScore() < this.game.getGoal()) {
@@ -19,6 +23,10 @@ export default class ScoreScreen extends Screen {
             }
         }
         else if (this.game.getScore() >= this.game.getGoal()) {
+            if (this.addTaco === false) {
+                this.taco.increaseTaco(this.game.getScore() * 100);
+                this.addTaco = true;
+            }
             this.levelPass = 1;
         }
     }
@@ -35,6 +43,7 @@ export default class ScoreScreen extends Screen {
     }
     render(ctx, canvas) {
         Static.writeTextToCanvas(canvas, `Your Score: ${this.game.getScore()}`, canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
+        Static.writeTextToCanvas(canvas, `Total Number of Tacos: ${this.taco.getTaco()}`, canvas.width / 2, ((canvas.height / 2) + 100), 25, 'black');
         if (this.levelPass === 2 || this.levelPass === 3) {
             Static.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2, 30, 'Black');
         }

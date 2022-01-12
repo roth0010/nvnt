@@ -1,21 +1,20 @@
 import Phone from './Phone.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
-export default class Phone8 extends Phone {
+export default class Phone14 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Does this person seem good?', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Should you follow these people?', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
         if (this.wait >= 60) {
-            if (this.keyboard.isKeyDown(51)) {
+            if (this.keyboard.isKeyDown(50) || this.keyboard.isKeyDown(52)) {
                 this.answered = true;
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(50)
-                || this.keyboard.isKeyDown(49)
-                || this.keyboard.isKeyDown(52)) {
+                || this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;
             }
@@ -33,11 +32,11 @@ export default class Phone8 extends Phone {
     render(ctx, canvas) {
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'A friend request from a famous person', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-        Static.writeTextToCanvas(canvas, '[1] Send them a message!', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[1] A meme page with rude memes', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] An account that posts a fluffy bunny once per day', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] A roblox youtuber', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[4] An account that posts the same cheese sandwich every day', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
     }
 }
-//# sourceMappingURL=Phone8.js.map
+//# sourceMappingURL=Phone14.js.map

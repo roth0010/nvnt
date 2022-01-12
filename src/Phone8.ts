@@ -3,7 +3,7 @@ import Game from './Game.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
 
-export default class Phone6 extends Phone {
+export default class Phone8 extends Phone {
   /**
    * constructs a new game class
    *
@@ -12,7 +12,7 @@ export default class Phone6 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Do you like Frijkandelbroodje?',
+      'Does this person seem good?',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -24,7 +24,7 @@ export default class Phone6 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 15) {
+    if (this.wait >= 60) {
       if (this.keyboard.isKeyDown(51)) {
         this.answered = true;
         this.correct = true;

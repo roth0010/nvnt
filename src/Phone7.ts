@@ -3,7 +3,7 @@ import Game from './Game.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
 
-export default class Phone6 extends Phone {
+export default class Phone7 extends Phone {
   /**
    * constructs a new game class
    *
@@ -24,7 +24,7 @@ export default class Phone6 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 15) {
+    if (this.wait >= 60) {
       if (this.keyboard.isKeyDown(52)) {
         this.answered = true;
         this.correct = true;
