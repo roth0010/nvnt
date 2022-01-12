@@ -14,6 +14,12 @@ import Level4 from './Level4.js';
 import Level5 from './Level5.js';
 import Phone7 from './Phone7.js';
 import Phone8 from './Phone8.js';
+import Phone9 from './Phone9.js';
+import Phone10 from './Phone10.js';
+import Phone13 from './Phone13.js';
+import Phone15 from './Phone15.js';
+import Phone14 from './Phone14.js';
+import Taco from './Taco.js';
 export default class Game {
     canvas;
     levels;
@@ -25,6 +31,7 @@ export default class Game {
     ctx;
     monsterName;
     goal;
+    taco;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -33,6 +40,7 @@ export default class Game {
         this.levels = [];
         this.score = 0;
         this.engine = new GameLoop(this);
+        this.taco = new Taco();
         this.levelNumber = 0;
         this.monsterType = '';
         this.monsterName = '';
@@ -47,19 +55,24 @@ export default class Game {
         this.levels[3] = new Phone2(this);
         this.levels[4] = new Phone3(this);
         this.levels[5] = new Phone4(this);
-        this.levels[6] = new ScoreScreen(this);
+        this.levels[6] = new ScoreScreen(this, this.taco);
         this.levels[7] = new Level2(this);
         this.levels[8] = new Phone5(this);
-        this.levels[9] = new ScoreScreen(this);
+        this.levels[9] = new ScoreScreen(this, this.taco);
         this.levels[10] = new Level3(this);
         this.levels[11] = new Phone6(this);
         this.levels[12] = new Phone7(this);
         this.levels[13] = new Phone8(this);
-        this.levels[14] = new ScoreScreen(this);
+        this.levels[14] = new ScoreScreen(this, this.taco);
         this.levels[15] = new Level4(this);
-        this.levels[16] = new ScoreScreen(this);
-        this.levels[17] = new Level5(this);
-        this.levels[18] = new ScoreScreen(this);
+        this.levels[16] = new Phone9(this);
+        this.levels[17] = new Phone10(this);
+        this.levels[18] = new ScoreScreen(this, this.taco);
+        this.levels[19] = new Level5(this);
+        this.levels[20] = new Phone13(this);
+        this.levels[21] = new Phone14(this);
+        this.levels[22] = new Phone15(this);
+        this.levels[23] = new ScoreScreen(this, this.taco);
     }
     processInput() {
         console.log(this.levelNumber);
@@ -83,6 +96,9 @@ export default class Game {
     }
     setLevel(level) {
         this.levelNumber = level;
+    }
+    getTaco() {
+        return this.taco.getTaco();
     }
     getIndex() {
         return this.levelNumber;

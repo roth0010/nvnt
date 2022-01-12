@@ -49,4 +49,4 @@ export default class Phone10 extends Phone {
         }
     }
 }
-//# sourceMappingURL=phone10.js.map
+//# sourceMappingURL=Phone10.js.map

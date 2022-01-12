@@ -54,4 +54,4 @@ export default class Phone9 extends Phone {
         ctx.drawImage(a, 55, 460, 440, 250);
     }
 }
-//# sourceMappingURL=phone9.js.map
+//# sourceMappingURL=Phone9.js.map

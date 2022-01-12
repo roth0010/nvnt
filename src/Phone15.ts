@@ -3,7 +3,7 @@ import Game from './Game.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
 
-export default class Phone4 extends Phone {
+export default class Phone15 extends Phone {
   /**
    * constructs a new game class
    *
@@ -12,7 +12,7 @@ export default class Phone4 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'The less info, the better!',
+      'Which account inspires you more?',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -25,12 +25,12 @@ export default class Phone4 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 60) {
-      if (this.keyboard.isKeyDown(50)) {
+      if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = true;
       } else if (
-        this.keyboard.isKeyDown(51)
-        || this.keyboard.isKeyDown(49)
+        this.keyboard.isKeyDown(50)
+        || this.keyboard.isKeyDown(51)
         || this.keyboard.isKeyDown(52)
       ) {
         this.answered = true;
@@ -61,11 +61,11 @@ export default class Phone4 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'What is in your biography?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] I live at this place', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Leave it empty!', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, `[3] My real name is ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Which account should you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, '[1] A specific account of somethings you`re interested in', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] A Cryptocurrency account', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] An account selling fat-loss pills', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] An account telling you to invest in NFTs', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 }

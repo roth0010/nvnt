@@ -1,14 +1,14 @@
 import Phone from './Phone.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
-export default class Phone6 extends Phone {
+export default class Phone8 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Do you like Frijkandelbroodje?', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Does this person seem good?', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
-        if (this.wait >= 15) {
+        if (this.wait >= 60) {
             if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = true;
