@@ -1,10 +1,10 @@
 import Phone from './Phone.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
-export default class Phone1 extends Phone {
+export default class Phone6 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Keep your username anonymous!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Do not light fireworks in tunnels!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -32,12 +32,12 @@ export default class Phone1 extends Phone {
     }
     render(ctx, canvas) {
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
-        Static.writeTextToCanvas(canvas, 'What will your username be?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-        Static.writeTextToCanvas(canvas, `[1] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] GlitterLover123', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] MyHomeAddress', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] MyPhoneNumber', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'Filler Stuff final', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+        Static.writeTextToCanvas(canvas, '[1] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
     }
 }
-//# sourceMappingURL=Phone1.js.map
+//# sourceMappingURL=Phone8.js.map

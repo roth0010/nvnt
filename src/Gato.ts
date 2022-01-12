@@ -37,7 +37,7 @@ export default class Gato {
     this.xPosition = xPosition;
     this.yPosition = yPosition;
     this.keyboard = new KeyListener();
-    this.timer = 15;
+    this.timer = 45;
     this.image = Static.loadNewImage('./assets/img/cat.png');
     this.image.height = this.game.getCanvasHeight() / 5;
     this.image.width = this.image.height * Gato.ASPECTRATIO;

@@ -12,8 +12,8 @@ export default class Phone2 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Do not light fireworks in tunnels!',
-      this.game.getCanvasWidth() - 200,
+      'A good password should not be easy to guess! Use different characters',
+      (this.game.getCanvasWidth() * 2) / 3,
       this.game.getCanvasHeight() - 200,
       this.game,
     );
@@ -25,13 +25,13 @@ export default class Phone2 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 15) {
-      if (this.keyboard.isKeyDown(50)) {
+      if (this.keyboard.isKeyDown(52)) {
         this.answered = true;
         this.correct = true;
       } else if (
-        this.keyboard.isKeyDown(51)
+        this.keyboard.isKeyDown(50)
         || this.keyboard.isKeyDown(49)
-        || this.keyboard.isKeyDown(52)
+        || this.keyboard.isKeyDown(51)
       ) {
         this.answered = true;
         this.correct = false;
@@ -61,11 +61,11 @@ export default class Phone2 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'Filler Stuff', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Pick a Password!', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, '[1] simple', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] 1234', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, `[3] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] X6s62j', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 }

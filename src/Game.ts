@@ -11,6 +11,12 @@ import Phone1 from './Phone1.js';
 import Phone2 from './Phone2.js';
 import Phone3 from './Phone3.js';
 import Phone4 from './Phone4.js';
+import Level3 from './Level3.js';
+import Phone6 from './Phone6.js';
+import Level4 from './Level4.js';
+import Level5 from './Level5.js';
+import Phone7 from './Phone7.js';
+import Phone8 from './Phone8.js';
 
 export default class Game {
   private canvas: HTMLCanvasElement;
@@ -31,6 +37,8 @@ export default class Game {
 
   private monsterName: string;
 
+  private goal: number;
+
   /**
    * creates a new Game class
    *
@@ -48,6 +56,7 @@ export default class Game {
     // this.players = [];
     this.monsterType = '';
     this.monsterName = '';
+    this.goal = 0;
     this.setUp();
     // this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
     this.engine.start();
@@ -65,6 +74,15 @@ export default class Game {
     this.levels[7] = new Level2(this);
     this.levels[8] = new Level1(this); // Phone5
     this.levels[9] = new ScoreScreen(this);
+    this.levels[10] = new Level3(this);
+    this.levels[11] = new Phone6(this);
+    this.levels[12] = new ScoreScreen(this);
+    this.levels[13] = new Level4(this);
+    this.levels[14] = new Phone7(this);
+    this.levels[15] = new ScoreScreen(this);
+    this.levels[16] = new Level5(this);
+    this.levels[17] = new Phone8(this);
+    this.levels[18] = new ScoreScreen(this);
   }
 
   /**
@@ -101,7 +119,7 @@ export default class Game {
   }
 
   /**
-   * buzz off, it's not implemented yet.
+   * renders the various aspects of the screen
    */
   public render(): void {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -118,6 +136,15 @@ export default class Game {
    */
   public setLevel(level: number): void {
     this.levelNumber = level;
+  }
+
+  /**
+   * Getter for the Level Number
+   *
+   * @returns the current level number
+   */
+  public getIndex(): number {
+    return this.levelNumber;
   }
 
   /**
@@ -149,6 +176,24 @@ export default class Game {
   }
 
   /**
+   * Getter for the goal variable
+   *
+   * @returns the amount of the goal
+   */
+  public getGoal(): number {
+    return this.goal;
+  }
+
+  /**
+   * Sets Goal to a new number
+   *
+   * @param number the new number to set goal to
+   */
+  public setGoal(number: number): void {
+    this.goal = number;
+  }
+
+  /**
    * Sets the score to a specific amount
    *
    * @param score the new score to be set
@@ -177,6 +222,15 @@ export default class Game {
     } else if (index === 7) {
       this.levels[7] = new Level2(this);
       this.levels[8] = new Phone5(this);
+    } else if (index === 10) {
+      this.levels[10] = new Level3(this);
+      this.levels[11] = new Phone6(this);
+    } else if (index === 13) {
+      this.levels[13] = new Level4(this);
+      this.levels[14] = new Phone7(this);
+    } else if (index === 16) {
+      this.levels[16] = new Level5(this);
+      this.levels[17] = new Phone8(this);
     }
     this.levelNumber = index;
   }

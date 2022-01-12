@@ -3,16 +3,16 @@ import Game from './Game.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
 
-export default class Phone1 extends Phone {
+export default class Phone6 extends Phone {
   /**
-   * constructs a new phone1 class
+   * constructs a new game class
    *
-   * @param game the game object
+   * @param game the game class
    */
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Keep your username anonymous!',
+      'Do not light fireworks in tunnels!',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -20,7 +20,7 @@ export default class Phone1 extends Phone {
   }
 
   /**
-   * Processes the input
+   * Process input
    */
   public processInput(): void {
     this.cat.processInput();
@@ -48,10 +48,10 @@ export default class Phone1 extends Phone {
   }
 
   /**
-   * renders the phone1
+   * Renders the canvas, tee hee
    *
-   * @param ctx the canvas rendering context
-   * @param canvas the canvas to render on
+   * @param ctx The canvas rendering context
+   * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(
@@ -61,11 +61,11 @@ export default class Phone1 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'What will your username be?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, `[1] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] GlitterLover123', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] MyHomeAddress', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] MyPhoneNumber', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Filler Stuff 7', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, '[1] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 }

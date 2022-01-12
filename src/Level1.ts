@@ -26,10 +26,10 @@ export default class Level1 extends Level {
    * processes input
    */
   public processInput(): void {
+    this.game.setGoal(11);
     this.cat.processInput();
     // E key
     if (this.keyboard.isKeyDown(69)) {
-      this.game.increaseScore(2);
       this.levelPass = 1;
     }
   }
@@ -45,6 +45,7 @@ export default class Level1 extends Level {
     const image = Static.loadNewImage('./assets/img/levelonebackground.png');
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     Static.writeTextToCanvas(canvas, 'Press E to open phone', canvas.width / 2, 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Level 1: Making a Social Media account!', canvas.width / 2, 100, 30, 'black');
     const image2 = Static.loadNewImage(this.game.getMonsterType());
     image2.height = canvas.height / 2;
     image2.width = (canvas.height / 2) * Static.getMonsterAR(this.game.getMonsterType());
@@ -60,7 +61,7 @@ export default class Level1 extends Level {
      * this isn't necessary but it was to test if this screen can acess the name
      */
     const monsterName = this.game.getMonsterName();
-    Static.writeTextToCanvas(canvas, monsterName, canvas.width / 2, 110, 60, 'black');
+    Static.writeTextToCanvas(canvas, monsterName, canvas.width / 2, canvas.height - 50, 60, 'black');
     this.cat.render(ctx, canvas);
   }
 }

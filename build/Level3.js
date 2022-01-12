@@ -1,7 +1,7 @@
 import Level from './Level.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
-export default class Level2 extends Level {
+export default class Level3 extends Level {
     cat;
     constructor(game) {
         super(game);
@@ -21,4 +21,4 @@ export default class Level2 extends Level {
         this.cat.render(ctx, canvas);
     }
 }
-//# sourceMappingURL=Level2.js.map
+//# sourceMappingURL=Level3.js.map

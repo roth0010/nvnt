@@ -8,6 +8,12 @@ import Phone1 from './Phone1.js';
 import Phone2 from './Phone2.js';
 import Phone3 from './Phone3.js';
 import Phone4 from './Phone4.js';
+import Level3 from './Level3.js';
+import Phone6 from './Phone6.js';
+import Level4 from './Level4.js';
+import Level5 from './Level5.js';
+import Phone7 from './Phone7.js';
+import Phone8 from './Phone8.js';
 export default class Game {
     canvas;
     levels;
@@ -18,6 +24,7 @@ export default class Game {
     monsterType;
     ctx;
     monsterName;
+    goal;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -29,6 +36,7 @@ export default class Game {
         this.levelNumber = 0;
         this.monsterType = '';
         this.monsterName = '';
+        this.goal = 0;
         this.setUp();
         this.engine.start();
     }
@@ -43,6 +51,15 @@ export default class Game {
         this.levels[7] = new Level2(this);
         this.levels[8] = new Level1(this);
         this.levels[9] = new ScoreScreen(this);
+        this.levels[10] = new Level3(this);
+        this.levels[11] = new Phone6(this);
+        this.levels[12] = new ScoreScreen(this);
+        this.levels[13] = new Level4(this);
+        this.levels[14] = new Phone7(this);
+        this.levels[15] = new ScoreScreen(this);
+        this.levels[16] = new Level5(this);
+        this.levels[17] = new Phone8(this);
+        this.levels[18] = new ScoreScreen(this);
     }
     processInput() {
         this.levels[this.levelNumber].processInput();
@@ -66,6 +83,9 @@ export default class Game {
     setLevel(level) {
         this.levelNumber = level;
     }
+    getIndex() {
+        return this.levelNumber;
+    }
     getScore() {
         return this.score;
     }
@@ -74,6 +94,12 @@ export default class Game {
     }
     getCanvasWidth() {
         return this.canvas.width;
+    }
+    getGoal() {
+        return this.goal;
+    }
+    setGoal(number) {
+        this.goal = number;
     }
     setScore(score) {
         this.score = score;
@@ -92,6 +118,18 @@ export default class Game {
         else if (index === 7) {
             this.levels[7] = new Level2(this);
             this.levels[8] = new Phone5(this);
+        }
+        else if (index === 10) {
+            this.levels[10] = new Level3(this);
+            this.levels[11] = new Phone6(this);
+        }
+        else if (index === 13) {
+            this.levels[13] = new Level4(this);
+            this.levels[14] = new Phone7(this);
+        }
+        else if (index === 16) {
+            this.levels[16] = new Level5(this);
+            this.levels[17] = new Phone8(this);
         }
         this.levelNumber = index;
     }

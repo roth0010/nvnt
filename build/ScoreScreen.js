@@ -7,15 +7,23 @@ export default class ScoreScreen extends Screen {
         this.levelPass = 0;
     }
     processInput() {
-        if (this.game.getScore() < 2) {
-            this.levelPass = 2;
+        if (this.game.getScore() < this.game.getGoal()) {
+            if (this.game.getIndex() === 6) {
+                this.levelPass = 3;
+            }
+            if (this.game.getIndex() === 9
+                || this.game.getIndex() === 12
+                || this.game.getIndex() === 15
+                || this.game.getIndex() === 18) {
+                this.levelPass = 2;
+            }
         }
-        else if (this.game.getScore() >= 2) {
+        else if (this.game.getScore() >= this.game.getGoal()) {
             this.levelPass = 1;
         }
     }
     update() {
-        if (this.levelPass === 2 && this.keyboard.isKeyDown(82)) {
+        if (this.keyboard.isKeyDown(82) && (this.levelPass === 2 || this.levelPass === 3)) {
             this.game.setScore(0);
             return this.levelPass;
         }
@@ -27,7 +35,7 @@ export default class ScoreScreen extends Screen {
     }
     render(ctx, canvas) {
         Static.writeTextToCanvas(canvas, `Your Score: ${this.game.getScore()}`, canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
-        if (this.levelPass === 2) {
+        if (this.levelPass === 2 || this.levelPass === 3) {
             Static.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance. Press R to try again!', canvas.width / 2, canvas.height / 2, 30, 'Black');
         }
         else if (this.levelPass === 1) {
