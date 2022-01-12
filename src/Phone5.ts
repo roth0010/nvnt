@@ -12,7 +12,7 @@ export default class Phone5 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Do not light fireworks in tunnels!',
+      'Not everyone on the internet is a good person!',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -20,11 +20,7 @@ export default class Phone5 extends Phone {
   }
 
   /**
-<<<<<<< HEAD
-   * processes input
-=======
    * processes the input
->>>>>>> 42361fef10dafc5b4cd6b4bfdb1d69f2d6ca5a1e
    */
   public processInput(): void {
     this.cat.processInput();
@@ -60,15 +56,15 @@ export default class Phone5 extends Phone {
       -50,
       this.image.width,
       this.image.height,
-      );
+    );
 
-      // the first 5 parameters are required, line2 to line5 are extra lines for longer DMs
-      this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow'); 
-    Static.writeTextToCanvas(canvas, 'Filler Stuff(5)', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    // the first 5 parameters are required, line2 to line5 are extra lines for longer DMs
+    this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
+    Static.writeTextToCanvas(canvas, 'How do you respond to strangers?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, '[1] Give them your bank details', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Share his account with all your friends', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] Block Them', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] Have a normal conversation with them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 
@@ -84,7 +80,7 @@ export default class Phone5 extends Phone {
  * @param line4 optional parameter for fourth DM line
  * @param line5 optional parameter for fifth DM line
  */
-  private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, sender: string, senderProfilePicture: string, receivedMessage: 
+  private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, sender: string, senderProfilePicture: string, receivedMessage:
   string, line2?: string, line3?: string , line4?: string , line5?: string): void {
     const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture); // renders the profile picture
     ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10);

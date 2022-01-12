@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone5 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Do not light fireworks in tunnels!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Not everyone on the internet is a good person!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -28,11 +28,11 @@ export default class Phone5 extends Phone {
     render(ctx, canvas) {
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
-        Static.writeTextToCanvas(canvas, 'Filler Stuff(5)', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-        Static.writeTextToCanvas(canvas, '[1] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] Correct Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'How do you respond to strangers?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+        Static.writeTextToCanvas(canvas, '[1] Give them your bank details', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] Share his account with all your friends', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Block Them', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[4] Have a normal conversation with them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
     }
     renderDM(ctx, canvas, sender, senderProfilePicture, receivedMessage, line2, line3, line4, line5) {

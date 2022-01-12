@@ -5,7 +5,7 @@ export default class Level3 extends Level {
     cat;
     constructor(game) {
         super(game);
-        this.cat = new Gato('Do not give personal info to strangers!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Accept friend requests only from people you know!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.game.setGoal(2);
@@ -17,6 +17,7 @@ export default class Level3 extends Level {
     render(ctx, canvas) {
         const image = Static.loadNewImage('./assets/img/levelonebackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+        Static.writeTextToCanvas(canvas, 'Level 3: Making friends', canvas.width / 2, 50, 30, 'black');
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 50, 30, 'black');
         this.cat.render(ctx, canvas);
     }

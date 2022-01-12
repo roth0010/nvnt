@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone4 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Do not light fireworks in tunnels!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('The less info, the better!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();

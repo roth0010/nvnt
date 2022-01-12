@@ -42,8 +42,8 @@ export default class Level2 extends Level {
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     const image = Static.loadNewImage('./assets/img/levelonebackground.png');
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-    Static.writeTextToCanvas(canvas, 'Level 2: An unknown visitor', canvas.width / 2, 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Level 2: An unknown visitor', canvas.width / 2, 50, 40, 'black');
+    Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 }
