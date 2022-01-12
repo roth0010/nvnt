@@ -27,7 +27,7 @@ export default class Phone5 extends Phone {
     }
     render(ctx, canvas) {
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
-        this.renderDM(ctx, canvas, 'Could you transfer me money?', 'raquish', './assets/img/Raquish.png');
+        this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
         Static.writeTextToCanvas(canvas, 'Filler Stuff(5)', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
         Static.writeTextToCanvas(canvas, '[1] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
@@ -35,11 +35,14 @@ export default class Phone5 extends Phone {
         Static.writeTextToCanvas(canvas, '[4] Give them your credit card number Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
     }
-    renderDM(ctx, canvas, receivedMessage, sender, senderProfilePicture) {
+    renderDM(ctx, canvas, sender, senderProfilePicture, receivedMessage, line2, line3, line4, line5) {
         const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture);
         ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10);
-        Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40);
-        Static.writeTextToCanvas(canvas, receivedMessage, (canvas.width / 8), (Phone.YPOSITION + 650), 20);
+        const a = (arguments.length - 4);
+        for (let i = 0; i < a; i++) {
+            Static.writeTextToCanvas(canvas, (arguments[i + 4]), (Phone.YPOSITION + 40), (Phone.YPOSITION + (600 + (20 * i))), 20, 'white', 'left');
+        }
+        Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40, 'white', 'left');
     }
 }
 //# sourceMappingURL=Phone5.js.map

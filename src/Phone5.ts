@@ -60,8 +60,10 @@ export default class Phone5 extends Phone {
       -50,
       this.image.width,
       this.image.height,
-    );
-    this.renderDM(ctx, canvas, 'Could you transfer me money?', 'raquish', './assets/img/Raquish.png');
+      );
+
+      // the first 5 parameters are required, line2 to line5 are extra lines for longer DMs
+      this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow'); 
     Static.writeTextToCanvas(canvas, 'Filler Stuff(5)', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
     Static.writeTextToCanvas(canvas, '[1] Sketchy Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Funny Option', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
@@ -74,15 +76,22 @@ export default class Phone5 extends Phone {
  * fills the phonescreen with a dm interface
  * @param ctx ctx
  * @param canvas canvas
- * @param receivedMessage the message the user has received
  * @param sender the sender of the message
  * @param senderProfilePicture the profile picture of the sender
+ * @param receivedMessage the message the user has received
+ * @param line2 optional parameter for second DM line
+ * @param line3 optional parameter for third DM line
+ * @param line4 optional parameter for fourth DM line
+ * @param line5 optional parameter for fifth DM line
  */
-   private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, receivedMessage: string, sender: string, senderProfilePicture: string): void {
+  private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, sender: string, senderProfilePicture: string, receivedMessage: 
+  string, line2?: string, line3?: string , line4?: string , line5?: string): void {
     const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture); // renders the profile picture
-    ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5),
-      this.image.height / 10);
-    Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40);
-    Static.writeTextToCanvas(canvas, receivedMessage, (canvas.width / 8), (Phone.YPOSITION + 650), 20);
+    ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10);
+    const a : number = (arguments.length - 4);
+      for (let i = 0; i < a; i++) {
+        Static.writeTextToCanvas(canvas, (arguments[i+4]), (Phone.YPOSITION + 40), (Phone.YPOSITION + (600 + (20 * i))), 20, 'white', 'left');
+      }
+    Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40, 'white', 'left');
   }
 }

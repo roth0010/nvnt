@@ -56,14 +56,14 @@ export default class Game {
   private setUp(): void {
     // This first one should be a monster selection screen
     this.levels[0] = new SelectScreen(this);
-    this.levels[1] = new Level1(this);
+    this.levels[1] = new Phone5(this); // Level1
     this.levels[2] = new Phone1(this);
     this.levels[3] = new Phone2(this);
     this.levels[4] = new Phone3(this);
     this.levels[5] = new Phone4(this);
     this.levels[6] = new ScoreScreen(this);
     this.levels[7] = new Level2(this);
-    this.levels[8] = new Phone5(this);
+    this.levels[8] = new Level1(this); // Phone5
     this.levels[9] = new ScoreScreen(this);
   }
 
