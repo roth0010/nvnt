@@ -76,7 +76,6 @@ export default class Game {
         this.levels[23] = new ScoreScreen(this, this.taco);
     }
     processInput() {
-        console.log(this.levelNumber);
         this.levels[this.levelNumber].processInput();
     }
     update(step) {
@@ -84,10 +83,7 @@ export default class Game {
             this.setLevel(this.levelNumber + 1);
         }
         if (this.levels[this.levelNumber].update() === 2) {
-            this.setNewLevel(this.levelNumber - 2);
-        }
-        if (this.levels[this.levelNumber].update() === 3) {
-            this.setNewLevel(1);
+            this.setNewLevel(this.levelNumber);
         }
         return false;
     }
@@ -126,30 +122,40 @@ export default class Game {
         this.score += score;
     }
     setNewLevel(index) {
-        if (index === 1) {
+        if (index === 6) {
             this.levels[1] = new Level1(this);
             this.levels[2] = new Phone1(this);
             this.levels[3] = new Phone2(this);
             this.levels[4] = new Phone3(this);
             this.levels[5] = new Phone4(this);
+            console.log(this.levelNumber);
+            this.setLevel(1);
         }
-        else if (index === 7) {
+        else if (index === 9) {
             this.levels[7] = new Level2(this);
             this.levels[8] = new Phone5(this);
+            this.levelNumber = 7;
         }
-        else if (index === 10) {
+        else if (index === 14) {
             this.levels[10] = new Level3(this);
             this.levels[11] = new Phone6(this);
+            this.levels[12] = new Phone7(this);
+            this.levels[13] = new Phone8(this);
+            this.levelNumber = 10;
         }
-        else if (index === 13) {
-            this.levels[13] = new Level4(this);
-            this.levels[14] = new Phone7(this);
+        else if (index === 18) {
+            this.levels[15] = new Level4(this);
+            this.levels[16] = new Phone9(this);
+            this.levels[17] = new Phone10(this);
+            this.levelNumber = 15;
         }
-        else if (index === 16) {
-            this.levels[16] = new Level5(this);
-            this.levels[17] = new Phone8(this);
+        else if (index === 23) {
+            this.levels[19] = new Level5(this);
+            this.levels[20] = new Phone13(this);
+            this.levels[21] = new Phone14(this);
+            this.levels[22] = new Phone15(this);
+            this.levelNumber = 19;
         }
-        this.levelNumber = index;
     }
     setNewSelectScreen() {
         this.levels[0] = new SelectScreen(this);
