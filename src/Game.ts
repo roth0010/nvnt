@@ -49,6 +49,8 @@ export default class Game {
 
   private taco: Taco;
 
+  private chosenPost: string;
+
   /**
    * creates a new Game class
    *
@@ -157,6 +159,10 @@ export default class Game {
     this.levelNumber = level;
   }
 
+  /**
+   * getter for taco
+   * @returns taco count
+   */
   public getTaco(): number {
     return this.taco.getTaco();
   }
@@ -300,5 +306,21 @@ export default class Game {
    */
   public setMonsterName(customMonsterName: string): void {
     this.monsterName = customMonsterName;
+  }
+
+  /**
+   * getter for the chosen photo
+   * @returns the chosen photo to post
+   */
+  public getChosenPost(): string {
+    return this.chosenPost;
+  }
+
+  /**
+   * setter for the chosen photo
+   * @param chosenPost the chosen photo to post
+   */
+  public setChosenPost(chosenPost: string): void {
+    this.chosenPost = chosenPost;
   }
 }

@@ -16,8 +16,6 @@ export default abstract class Phone extends Level {
 
   protected cat: Gato;
 
-  protected chosenPhoto : string;
-
   /**
    * Abstract class phone creation thing. Yay.
    *

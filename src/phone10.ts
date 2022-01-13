@@ -71,8 +71,8 @@ export default class Phone10 extends Phone {
     ctx.strokeStyle = 'white';
     ctx.stroke();
 
-    if (this.chosenPhoto === './assets/img/levelOneBackground.png') {
-      const a = Static.loadNewImage(this.chosenPhoto);
+    if (this.game.getChosenPost() === './assets/img/levelOneBackground.png') {
+      const a = Static.loadNewImage(this.game.getChosenPost());
       ctx.drawImage(a, 55, 200, 440, 250);
     } else {
       const a = Static.loadNewImage(this.game.getMonsterType());

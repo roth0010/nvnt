@@ -32,6 +32,7 @@ export default class Game {
     monsterName;
     goal;
     taco;
+    chosenPost;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -164,6 +165,12 @@ export default class Game {
     }
     setMonsterName(customMonsterName) {
         this.monsterName = customMonsterName;
+    }
+    getChosenPost() {
+        return this.chosenPost;
+    }
+    setChosenPost(chosenPost) {
+        this.chosenPost = chosenPost;
     }
 }
 //# sourceMappingURL=Game.js.map

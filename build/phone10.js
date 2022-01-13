@@ -39,8 +39,8 @@ export default class Phone10 extends Phone {
         ctx.rect((canvas.width / 35), (Phone.YPOSITION + 150), 440, 250);
         ctx.strokeStyle = 'white';
         ctx.stroke();
-        if (this.chosenPhoto === './assets/img/levelOneBackground.png') {
-            const a = Static.loadNewImage(this.chosenPhoto);
+        if (this.game.getChosenPost() === './assets/img/levelOneBackground.png') {
+            const a = Static.loadNewImage(this.game.getChosenPost());
             ctx.drawImage(a, 55, 200, 440, 250);
         }
         else {

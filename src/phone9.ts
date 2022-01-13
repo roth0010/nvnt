@@ -26,15 +26,15 @@ export default class Phone9 extends Phone {
     this.cat.processInput();
     if (this.wait >= 15) {
       if (this.keyboard.isKeyDown(50)) {
-        this.chosenPhoto = './assets/img/levelOneBackground.png';
-        console.log(`player chose ${this.chosenPhoto}`);
+        this.game.setChosenPost('./assets/img/levelOneBackground.png');
+        console.log(`player chose ${this.game.getChosenPost()}`);
         this.answered = true;
         this.correct = true;
       } else if (
         this.keyboard.isKeyDown(49)
       ) {
-        this.chosenPhoto = this.game.getMonsterType();
-        console.log(`player chose ${this.chosenPhoto}`);
+        this.game.setChosenPost(this.game.getMonsterType());
+        console.log(`player chose ${this.game.getChosenPost()}`);
         this.answered = true;
         this.correct = false;
       }
