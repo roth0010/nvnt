@@ -14,6 +14,7 @@ export default class Level1 extends Level {
    */
   public constructor(game: Game) {
     super(game);
+    console.log('constructor');
     this.cat = new Gato(
       'Do not feed the seagulls',
       this.game.getCanvasWidth() - 200,
