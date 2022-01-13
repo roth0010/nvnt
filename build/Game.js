@@ -20,6 +20,7 @@ import Phone13 from './Phone13.js';
 import Phone15 from './Phone15.js';
 import Phone14 from './Phone14.js';
 import Taco from './Taco.js';
+import VictoryScreen from './VicoryScreen.js';
 export default class Game {
     canvas;
     levels;
@@ -74,6 +75,7 @@ export default class Game {
         this.levels[21] = new Phone14(this);
         this.levels[22] = new Phone15(this);
         this.levels[23] = new ScoreScreen(this, this.taco);
+        this.levels[24] = new VictoryScreen(this, this.taco);
     }
     processInput() {
         this.levels[this.levelNumber].processInput();
