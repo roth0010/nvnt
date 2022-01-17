@@ -35,6 +35,7 @@ export default class VictoryScreen extends Screen {
     }
     render(ctx, canvas) {
         Static.writeTextToCanvas(canvas, 'You beat the game! good job!', canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
+        Static.writeTextToCanvas(canvas, 'Press F5 to play again!', canvas.width / 2, ((canvas.height / 2) + 100), 20, 'Red');
     }
 }
 //# sourceMappingURL=VicoryScreen.js.map
