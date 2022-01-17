@@ -9,15 +9,25 @@ export default class Phone1 extends Phone {
     processInput() {
         this.cat.processInput();
         if (this.wait >= 60) {
-            if (this.keyboard.isKeyDown(50)) {
-                this.answered = true;
-                this.correct = true;
-            }
-            else if (this.keyboard.isKeyDown(51)
-                || this.keyboard.isKeyDown(49)
-                || this.keyboard.isKeyDown(52)) {
+            if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;
+                this.game.setProfileInfo(this.game.getMonsterName());
+            }
+            else if (this.keyboard.isKeyDown(50)) {
+                this.answered = true;
+                this.correct = true;
+                this.game.setProfileInfo('GlitterLover123');
+            }
+            else if (this.keyboard.isKeyDown(51)) {
+                this.answered = true;
+                this.correct = false;
+                this.game.setProfileInfo('Middelburger');
+            }
+            else if (this.keyboard.isKeyDown(52)) {
+                this.answered = true;
+                this.correct = false;
+                this.game.setProfileInfo(`${this.game.getMonsterName()}@monster.com`);
             }
             if (this.answered === true) {
                 if (this.correct === true) {
@@ -35,8 +45,9 @@ export default class Phone1 extends Phone {
         Static.writeTextToCanvas(canvas, 'What will your username be?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
         Static.writeTextToCanvas(canvas, `[1] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] GlitterLover123', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] MyHomeAddress', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] MyPhoneNumber', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Middelburger', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, `[4] ${this.game.getMonsterName()}@monster.com`, ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'create a profile', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
         this.cat.render(ctx, canvas);
     }
 }

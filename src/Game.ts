@@ -52,6 +52,10 @@ export default class Game {
 
   private chosenPost: string;
 
+  private profileInfo: string[];
+
+  private profileArray: string[];
+
   /**
    * creates a new Game class
    *
@@ -71,6 +75,8 @@ export default class Game {
     this.monsterType = '';
     this.monsterName = '';
     this.goal = 0;
+    this.profileInfo = [];
+    this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
     this.setUp();
     // this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
     this.engine.start();
@@ -330,5 +336,30 @@ export default class Game {
    */
   public setChosenPost(chosenPost: string): void {
     this.chosenPost = chosenPost;
+  }
+
+  /**
+   * @param element the array number to return
+   * @returns this.profileInfo array
+   */
+  public getProfileInfo(element : number): string {
+    return this.profileInfo[element];
+  }
+
+  /**
+   * setter for the chosenPost
+   * @param profileInfo the variable to add to the array
+   */
+  public setProfileInfo(profileInfo: string): void {
+    console.log(`${profileInfo} was added to array`);
+    this.profileInfo.push(profileInfo);
+  }
+
+  /**
+   * @param element the array number to return
+   * @returns this.profileArray array
+   */
+  public getProfileArray(element : number): string {
+    return this.profileArray[element];
   }
 }

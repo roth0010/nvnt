@@ -34,6 +34,8 @@ export default class Game {
     goal;
     taco;
     chosenPost;
+    profileInfo;
+    profileArray;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -47,6 +49,8 @@ export default class Game {
         this.monsterType = '';
         this.monsterName = '';
         this.goal = 0;
+        this.profileInfo = [];
+        this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
         this.setUp();
         this.engine.start();
     }
@@ -179,6 +183,16 @@ export default class Game {
     }
     setChosenPost(chosenPost) {
         this.chosenPost = chosenPost;
+    }
+    getProfileInfo(element) {
+        return this.profileInfo[element];
+    }
+    setProfileInfo(profileInfo) {
+        console.log(`${profileInfo} was added to array`);
+        this.profileInfo.push(profileInfo);
+    }
+    getProfileArray(element) {
+        return this.profileArray[element];
     }
 }
 //# sourceMappingURL=Game.js.map

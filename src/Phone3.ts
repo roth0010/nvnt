@@ -25,12 +25,14 @@ export default class Phone3 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 60) {
-      if (this.keyboard.isKeyDown(49)) {
+      if (this.keyboard.isKeyDown(49)) { // correct option
         this.answered = true;
         this.correct = true;
+        this.game.setProfileInfo('Private');
       } else if (this.keyboard.isKeyDown(50)) {
         this.answered = true;
         this.correct = false;
+        this.game.setProfileInfo('Public');
       }
       if (this.answered === true) {
         if (this.correct === true) {
@@ -61,5 +63,12 @@ export default class Phone3 extends Phone {
     Static.writeTextToCanvas(canvas, '[1] Private', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Public', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     this.cat.render(ctx, canvas);
+    Static.writeTextToCanvas(canvas, 'your profile:', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+    let textYCoord = 0;
+    for (let i = 0; i < 2; i++) {
+      textYCoord += 120;
+      Static.writeTextToCanvas(canvas, `${this.game.getProfileArray(i)}`, (canvas.width / 20), (Phone.YPOSITION + (45 + textYCoord)), 40, 'white', 'left');
+      Static.writeTextToCanvas(canvas, `${this.game.getProfileInfo(i)}`, (canvas.width / 20), (Phone.YPOSITION + (95 + textYCoord)), 40, 'white', 'left');
+    }
   }
 }
