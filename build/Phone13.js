@@ -34,7 +34,7 @@ export default class Phone13 extends Phone {
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'Who do you choose to follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
         Static.writeTextToCanvas(canvas, '[1] Your parents', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] A person who do not know', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] A person you do not know', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
         Static.writeTextToCanvas(canvas, '[3] A conspiracy theory account', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, '[4] A sketchy news outlet', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);

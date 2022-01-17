@@ -25,7 +25,7 @@ import Phone13 from './Phone13.js';
 import Phone15 from './Phone15.js';
 import Phone14 from './Phone14.js';
 import Taco from './Taco.js';
-import VictoryScreen from './VicoryScreen.js';
+import VictoryScreen from './VictoryScreen.js';
 
 export default class Game {
   private canvas: HTMLCanvasElement;
@@ -137,6 +137,9 @@ export default class Game {
     }
     if (this.levels[this.levelNumber].update() === 2) {
       this.setNewLevel(this.levelNumber);
+    }
+    if (this.levels[this.levelNumber].update() === 3) {
+      this.resetLevels();
     }
     return false;
   }
@@ -276,6 +279,35 @@ export default class Game {
       this.levelNumber = 19;
     }
     // this.levelNumber = index;
+  }
+
+  private resetLevels() {
+    this.levels[1] = new Level1(this);
+    this.levels[2] = new Phone1(this);
+    this.levels[3] = new Phone2(this);
+    this.levels[4] = new Phone3(this);
+    this.levels[5] = new Phone4(this);
+    this.levels[6] = new ScoreScreen(this, this.taco);
+    this.levels[7] = new Level2(this);
+    this.levels[8] = new Phone5(this);
+    this.levels[9] = new ScoreScreen(this, this.taco);
+    this.levels[10] = new Level3(this);
+    this.levels[11] = new Phone6(this);
+    this.levels[12] = new Phone7(this);
+    this.levels[13] = new Phone8(this);
+    this.levels[14] = new ScoreScreen(this, this.taco);
+    this.levels[15] = new Level4(this);
+    this.levels[16] = new Phone9(this);
+    this.levels[17] = new Phone10(this);
+    this.levels[18] = new ScoreScreen(this, this.taco);
+    // choosing who to follow
+    this.levels[19] = new Level5(this);
+    this.levels[20] = new Phone13(this);
+    this.levels[21] = new Phone14(this);
+    this.levels[22] = new Phone15(this);
+    this.levels[23] = new ScoreScreen(this, this.taco);
+    this.levels[24] = new VictoryScreen(this, this.taco);
+    this.levelNumber = 1;
   }
 
   /**

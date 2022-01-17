@@ -28,17 +28,7 @@ export default class VictoryScreen extends Screen {
    */
   public processInput(): void {
     // R key
-    // console.log(this.score);
-    if (this.game.getScore() < this.game.getGoal()) {
-      this.levelPass = 2;
-      // S key
-    } else if (this.game.getScore() >= this.game.getGoal()) {
-      if (this.addTaco === false) {
-        this.taco.increaseTaco(this.game.getScore() * 100);
-        this.addTaco = true;
-      }
-      this.levelPass = 1;
-    }
+    this.levelPass = 3;
   }
 
   /**
@@ -47,14 +37,9 @@ export default class VictoryScreen extends Screen {
    * @returns whether to move onto the next level
    */
   public update(): number {
-    // console.log(this.levelPass);
     // R key
-    if (this.keyboard.isKeyDown(82) && this.levelPass === 2) {
-      this.game.setScore(0);
-      return this.levelPass;
-    }
-    // S key
-    if (this.levelPass === 1 && this.keyboard.isKeyDown(83)) {
+    if (this.keyboard.isKeyDown(82) && this.levelPass === 3) {
+      console.log(this.levelPass);
       this.game.setScore(0);
       return this.levelPass;
     }
@@ -69,6 +54,6 @@ export default class VictoryScreen extends Screen {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     Static.writeTextToCanvas(canvas, 'You beat the game! good job!', canvas.width / 2, ((canvas.height / 2) + 50), 30, 'Red');
-    Static.writeTextToCanvas(canvas, 'Press F5 to play again!', canvas.width / 2, ((canvas.height / 2) + 100), 20, 'Red');
+    Static.writeTextToCanvas(canvas, 'Press R to play again!', canvas.width / 2, ((canvas.height / 2) + 100), 20, 'Red');
   }
 }

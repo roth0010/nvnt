@@ -60,7 +60,7 @@ export default class Phone14 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'A friend request from a famous person', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, 'What page will you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
     Static.writeTextToCanvas(canvas, '[1] A meme page with rude memes', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] An account that posts a fluffy bunny once per day', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     Static.writeTextToCanvas(canvas, '[3] A roblox youtuber', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
