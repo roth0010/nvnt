@@ -19,8 +19,6 @@ import Phone7 from './Phone7.js';
 import Phone8 from './Phone8.js';
 import Phone9 from './Phone9.js';
 import Phone10 from './Phone10.js';
-import Phone11 from './Phone11.js';
-import Phone12 from './Phone12.js';
 import Phone13 from './Phone13.js';
 import Phone15 from './Phone15.js';
 import Phone14 from './Phone14.js';
@@ -166,6 +164,7 @@ export default class Game {
 
   /**
    * getter for taco
+   *
    * @returns taco count
    */
   public getTaco(): number {
@@ -356,6 +355,7 @@ export default class Game {
 
   /**
    * getter for the chosen photo
+   *
    * @returns the chosen photo to post
    */
   public getChosenPost(): string {
@@ -364,6 +364,7 @@ export default class Game {
 
   /**
    * setter for the chosen photo
+   *
    * @param chosenPost the chosen photo to post
    */
   public setChosenPost(chosenPost: string): void {
@@ -380,6 +381,7 @@ export default class Game {
 
   /**
    * setter for the chosenPost
+   *
    * @param profileInfo the variable to add to the array
    */
   public setProfileInfo(profileInfo: string): void {
