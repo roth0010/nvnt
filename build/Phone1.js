@@ -47,7 +47,7 @@ export default class Phone1 extends Phone {
         Static.writeTextToCanvas(canvas, '[2] GlitterLover123', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
         Static.writeTextToCanvas(canvas, '[3] Middelburger', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, `[4] ${this.game.getMonsterName()}@monster.com`, ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
-        Static.writeTextToCanvas(canvas, 'create a profile', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'Create a profile', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
         this.cat.render(ctx, canvas);
     }
 }

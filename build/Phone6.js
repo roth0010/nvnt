@@ -13,11 +13,17 @@ export default class Phone6 extends Phone {
                 this.answered = true;
                 this.correct = true;
             }
-            else if (this.keyboard.isKeyDown(51)
-                || this.keyboard.isKeyDown(50)
-                || this.keyboard.isKeyDown(52)) {
+            else if (this.keyboard.isKeyDown(50)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
+            }
+            else if (this.keyboard.isKeyDown(51)) {
+                this.answered = true;
+                this.correct = true;
+            }
+            else if (this.keyboard.isKeyDown(52)) {
+                this.answered = true;
+                this.correct = true;
             }
             if (this.answered === true) {
                 if (this.correct === true) {
@@ -38,6 +44,18 @@ export default class Phone6 extends Phone {
         Static.writeTextToCanvas(canvas, '[3] Block', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, '[4] Make a cheese sandwich', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
+        Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
+        if (this.game.getMonsterType() === './assets/img/Whick.png') {
+            ctx.drawImage(Static.loadNewImage('./assets/img/Jorgen.png'), (canvas.width / 10), (Phone.YPOSITION + 190), (this.image.width / 2.5), this.image.height / 5);
+            Static.writeTextToCanvas(canvas, 'JörgenBurger352', (canvas.width / 15), (Phone.YPOSITION + 400), 40, 'white', 'left');
+            Static.writeTextToCanvas(canvas, 'bio: "hi, my name is Jörgen!"', (canvas.width / 15), (Phone.YPOSITION + 440), 25, 'grey', 'left');
+        }
+        else {
+            ctx.drawImage(Static.loadNewImage('./assets/img/Whick.png'), (canvas.width / 10), (Phone.YPOSITION + 200), (this.image.width / 3), this.image.height / 10);
+            Static.writeTextToCanvas(canvas, 'RealWhicky6395', (canvas.width / 15), (Phone.YPOSITION + 325), 40, 'white', 'left');
+            Static.writeTextToCanvas(canvas, 'bio: "hi, my name is Whick!"', (canvas.width / 15), (Phone.YPOSITION + 385), 25, 'grey', 'left');
+        }
     }
 }
 //# sourceMappingURL=Phone6.js.map

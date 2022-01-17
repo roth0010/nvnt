@@ -9,15 +9,21 @@ export default class Phone11 extends Phone {
     processInput() {
         this.cat.processInput();
         if (this.wait >= 15) {
-            if (this.keyboard.isKeyDown(51)) {
+            if (this.keyboard.isKeyDown(49)) {
+                this.answered = true;
+                this.correct = false;
+            }
+            else if (this.keyboard.isKeyDown(50)) {
+                this.answered = true;
+                this.correct = false;
+            }
+            else if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = true;
             }
-            else if (this.keyboard.isKeyDown(50)
-                || this.keyboard.isKeyDown(49)
-                || this.keyboard.isKeyDown(52)) {
+            else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
             }
             if (this.answered === true) {
                 if (this.correct === true) {

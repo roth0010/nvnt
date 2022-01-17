@@ -25,16 +25,18 @@ export default class Phone7 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 60) {
-      if (this.keyboard.isKeyDown(52)) {
-        this.answered = true;
-        this.correct = true;
-      } else if (
-        this.keyboard.isKeyDown(51)
-        || this.keyboard.isKeyDown(49)
-        || this.keyboard.isKeyDown(50)
-      ) {
+      if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
+      } else if (this.keyboard.isKeyDown(50)) { // correct option
+        this.answered = true;
+        this.correct = true;
+      } else if (this.keyboard.isKeyDown(51)) {
+        this.answered = true;
+        this.correct = false;
+      } else if (this.keyboard.isKeyDown(52)) { // correct option
+        this.answered = true;
+        this.correct = true;
       }
       if (this.answered === true) {
         if (this.correct === true) {
@@ -67,6 +69,11 @@ export default class Phone7 extends Phone {
     Static.writeTextToCanvas(canvas, '[2] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
     Static.writeTextToCanvas(canvas, '[3] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+    Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
     this.cat.render(ctx, canvas);
+    ctx.drawImage(Static.loadNewImage('./assets/img/Raquish.png'), (canvas.width / 10), (Phone.YPOSITION + 150), 150, 150);
+    Static.writeTextToCanvas(canvas, 'RaquishBoss563', (canvas.width / 15), (Phone.YPOSITION + 345), 40, 'white', 'left');
+    Static.writeTextToCanvas(canvas, 'bio: "don ka shendi akem zalec"', (canvas.width / 15), (Phone.YPOSITION + 385), 25, 'grey', 'left');
   }
 }

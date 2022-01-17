@@ -9,15 +9,21 @@ export default class Phone8 extends Phone {
     processInput() {
         this.cat.processInput();
         if (this.wait >= 60) {
-            if (this.keyboard.isKeyDown(51)) {
+            if (this.keyboard.isKeyDown(49)) {
+                this.answered = true;
+                this.correct = false;
+            }
+            else if (this.keyboard.isKeyDown(50)) {
+                this.answered = true;
+                this.correct = false;
+            }
+            else if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = true;
             }
-            else if (this.keyboard.isKeyDown(50)
-                || this.keyboard.isKeyDown(49)
-                || this.keyboard.isKeyDown(52)) {
+            else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
             }
             if (this.answered === true) {
                 if (this.correct === true) {
@@ -37,6 +43,12 @@ export default class Phone8 extends Phone {
         Static.writeTextToCanvas(canvas, '[2] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
         Static.writeTextToCanvas(canvas, '[3] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
+        ctx.drawImage(Static.loadNewImage('./assets/img/MarkRutte.png'), (canvas.width / 10), (Phone.YPOSITION + 150), 150, 150);
+        Static.writeTextToCanvas(canvas, 'markrutten3543', (canvas.width / 20), (Phone.YPOSITION + 345), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'bio: "hoi. dit is het akkound van', (canvas.width / 20), (Phone.YPOSITION + 385), 25, 'grey', 'left');
+        Static.writeTextToCanvas(canvas, 'mark rutte"', (canvas.width / 20), (Phone.YPOSITION + 410), 25, 'grey', 'left');
         this.cat.render(ctx, canvas);
     }
 }
