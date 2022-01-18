@@ -46,4 +46,4 @@ export default class Phone12 extends Phone {
         this.cat.render(ctx, canvas);
     }
 }
-//# sourceMappingURL=Phone12.js.map
+//# sourceMappingURL=phone12.js.map
