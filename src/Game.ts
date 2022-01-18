@@ -2,7 +2,6 @@ import Screen from './Screen.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
-// import Waluigi from './Waluigi.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone5 from './Phone5.js';
@@ -104,7 +103,7 @@ export default class Game {
     this.levels[21] = new Phone14(this);
     this.levels[22] = new Phone15(this);
     this.levels[23] = new ScoreScreen(this, this.taco);
-    this.levels[24] = new VictoryScreen(this, this.taco);
+    this.levels[24] = new VictoryScreen(this);
   }
 
   /**
@@ -290,7 +289,7 @@ export default class Game {
       this.levels[21] = new Phone14(this);
       this.levels[22] = new Phone15(this);
       this.levels[23] = new ScoreScreen(this, this.taco);
-      this.levels[24] = new VictoryScreen(this, this.taco);
+      this.levels[24] = new VictoryScreen(this);
       this.levelNumber = 19;
     }
     if (target <= 4) {

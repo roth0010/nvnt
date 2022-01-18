@@ -1,26 +1,18 @@
 import Game from './Game.js';
 import Screen from './Screen.js';
 import Static from './Static.js';
-import Taco from './Taco.js';
 
 export default class VictoryScreen extends Screen {
   private levelPass: number;
-
-  private taco: Taco;
-
-  private addTaco: boolean;
 
   /**
    * Constructs a new VictoryScreen class
    *
    * @param game The game
-   * @param taco The taco class
    */
-  public constructor(game: Game, taco: Taco) {
+  public constructor(game: Game) {
     super(game);
     this.levelPass = 0;
-    this.taco = taco;
-    this.addTaco = false;
   }
 
   /**
