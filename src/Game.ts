@@ -3,7 +3,6 @@ import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
 // import Waluigi from './Waluigi.js';
-import Player from './Player.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone5 from './Phone5.js';
@@ -35,8 +34,6 @@ export default class Game {
   private score: number;
 
   private levelNumber: number;
-
-  private players: Player[];
 
   private monsterType: string;
 
@@ -115,7 +112,6 @@ export default class Game {
    */
   public processInput(): void {
     this.levels[this.levelNumber].processInput();
-    // console.log(this.levelNumber);
   }
 
   /**
@@ -129,15 +125,26 @@ export default class Game {
    * @returns false. Always false or it breaks.
    */
   public update(step: number): boolean {
-    // console.log(this.levelNumber);
     if (this.levels[this.levelNumber].update() === 1) {
-      this.setLevel(this.levelNumber + 1);
+      this.levelNumber += 1;
     }
     if (this.levels[this.levelNumber].update() === 2) {
       this.setNewLevel(this.levelNumber);
     }
     if (this.levels[this.levelNumber].update() === 3) {
-      this.resetLevels();
+      this.resetLevels(1);
+    }
+    if (this.levels[this.levelNumber].update() === 4) {
+      this.resetLevels(2);
+    }
+    if (this.levels[this.levelNumber].update() === 5) {
+      this.resetLevels(3);
+    }
+    if (this.levels[this.levelNumber].update() === 6) {
+      this.resetLevels(4);
+    }
+    if (this.levels[this.levelNumber].update() === 7) {
+      this.resetLevels(5);
     }
     return false;
   }
@@ -148,9 +155,6 @@ export default class Game {
   public render(): void {
     this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
     this.levels[this.levelNumber].render(this.ctx, this.canvas);
-    // this.players.forEach((player) => {
-    //   player.render(this.ctx);
-    // });
   }
 
   /**
@@ -253,8 +257,7 @@ export default class Game {
       this.levels[4] = new Phone3(this);
       this.levels[5] = new Phone4(this);
       console.log(this.levelNumber);
-      this.setLevel(1);
-      // console.log(this.levelNumber);
+      this.levelNumber = 1;
     } else if (index === 9) {
       this.levels[7] = new Level2(this);
       this.levels[8] = new Phone5(this);
@@ -280,33 +283,46 @@ export default class Game {
     // this.levelNumber = index;
   }
 
-  private resetLevels() {
-    this.levels[1] = new Level1(this);
-    this.levels[2] = new Phone1(this);
-    this.levels[3] = new Phone2(this);
-    this.levels[4] = new Phone3(this);
-    this.levels[5] = new Phone4(this);
-    this.levels[6] = new ScoreScreen(this, this.taco);
-    this.levels[7] = new Level2(this);
-    this.levels[8] = new Phone5(this);
-    this.levels[9] = new ScoreScreen(this, this.taco);
-    this.levels[10] = new Level3(this);
-    this.levels[11] = new Phone6(this);
-    this.levels[12] = new Phone7(this);
-    this.levels[13] = new Phone8(this);
-    this.levels[14] = new ScoreScreen(this, this.taco);
-    this.levels[15] = new Level4(this);
-    this.levels[16] = new Phone9(this);
-    this.levels[17] = new Phone10(this);
-    this.levels[18] = new ScoreScreen(this, this.taco);
-    // choosing who to follow
-    this.levels[19] = new Level5(this);
-    this.levels[20] = new Phone13(this);
-    this.levels[21] = new Phone14(this);
-    this.levels[22] = new Phone15(this);
-    this.levels[23] = new ScoreScreen(this, this.taco);
-    this.levels[24] = new VictoryScreen(this, this.taco);
-    this.levelNumber = 1;
+  private resetLevels(target: number): void {
+    if (target <= 5) {
+      this.levels[19] = new Level5(this);
+      this.levels[20] = new Phone13(this);
+      this.levels[21] = new Phone14(this);
+      this.levels[22] = new Phone15(this);
+      this.levels[23] = new ScoreScreen(this, this.taco);
+      this.levels[24] = new VictoryScreen(this, this.taco);
+      this.levelNumber = 19;
+    }
+    if (target <= 4) {
+      this.levels[15] = new Level4(this);
+      this.levels[16] = new Phone9(this);
+      this.levels[17] = new Phone10(this);
+      this.levels[18] = new ScoreScreen(this, this.taco);
+      this.levelNumber = 15;
+    }
+    if (target <= 3) {
+      this.levels[10] = new Level3(this);
+      this.levels[11] = new Phone6(this);
+      this.levels[12] = new Phone7(this);
+      this.levels[13] = new Phone8(this);
+      this.levels[14] = new ScoreScreen(this, this.taco);
+      this.levelNumber = 10;
+    }
+    if (target <= 2) {
+      this.levels[7] = new Level2(this);
+      this.levels[8] = new Phone5(this);
+      this.levels[9] = new ScoreScreen(this, this.taco);
+      this.levelNumber = 7;
+    }
+    if (target === 1) {
+      this.levels[1] = new Level1(this);
+      this.levels[2] = new Phone1(this);
+      this.levels[3] = new Phone2(this);
+      this.levels[4] = new Phone3(this);
+      this.levels[5] = new Phone4(this);
+      this.levels[6] = new ScoreScreen(this, this.taco);
+      this.levelNumber = 1;
+    }
   }
 
   /**
@@ -375,7 +391,7 @@ export default class Game {
    * @param element the array number to return
    * @returns this.profileInfo array
    */
-  public getProfileInfo(element : number): string {
+  public getProfileInfo(element: number): string {
     return this.profileInfo[element];
   }
 
@@ -385,7 +401,7 @@ export default class Game {
    * @param profileInfo the variable to add to the array
    */
   public setProfileInfo(profileInfo: string): void {
-    console.log(`${profileInfo} was added to array`);
+    // console.log(`${profileInfo} was added to array`);
     this.profileInfo.push(profileInfo);
   }
 
@@ -393,7 +409,7 @@ export default class Game {
    * @param element the array number to return
    * @returns this.profileArray array
    */
-  public getProfileArray(element : number): string {
+  public getProfileArray(element: number): string {
     return this.profileArray[element];
   }
 }
