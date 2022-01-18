@@ -2,7 +2,6 @@ import Screen from './Screen.js';
 import Level1 from './Level1.js';
 import Level2 from './Level2.js';
 import GameLoop from './GameLoop.js';
-// import Waluigi from './Waluigi.js';
 import ScoreScreen from './ScoreScreen.js';
 import SelectScreen from './SelectScreen.js';
 import Phone5 from './Phone5.js';
@@ -66,19 +65,16 @@ export default class Game {
     this.engine = new GameLoop(this);
     this.taco = new Taco();
     this.levelNumber = 0;
-    // this.players = [];
     this.monsterType = '';
     this.monsterName = '';
     this.goal = 0;
     this.profileInfo = [];
     this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
     this.setUp();
-    // this.players.push(new Waluigi(this.canvas.width / 2, this.canvas.height / 2));
     this.engine.start();
   }
 
   private setUp(): void {
-    // This first one should be a monster selection screen
     this.levels[0] = new SelectScreen(this);
     this.levels[1] = new Level1(this);
     this.levels[2] = new Phone1(this);
@@ -98,13 +94,12 @@ export default class Game {
     this.levels[16] = new Phone9(this);
     this.levels[17] = new Phone10(this);
     this.levels[18] = new ScoreScreen(this, this.taco);
-    // choosing who to follow
     this.levels[19] = new Level5(this);
     this.levels[20] = new Phone13(this);
     this.levels[21] = new Phone14(this);
     this.levels[22] = new Phone15(this);
     this.levels[23] = new ScoreScreen(this, this.taco);
-    this.levels[24] = new VictoryScreen(this, this.taco);
+    this.levels[24] = new VictoryScreen(this);
   }
 
   /**
@@ -120,8 +115,9 @@ export default class Game {
    * Set levelPass to 0 to stay on the current level
    * Set levelPass to 1 to advance a level
    * Set levelPass to 2 to go back
+   * Set other numbers to go to specific levels
    *
-   * @param step I don't really know yet tbh
+   * @param step This doesn't do anything, but it breaks if it's not here.
    * @returns false. Always false or it breaks.
    */
   public update(step: number): boolean {
@@ -249,6 +245,11 @@ export default class Game {
   }
 
   // TODO always adjust this after adding new levels
+  /**
+   * Sets the game back a level, resetting levels previously attempted
+   * .
+   * @param index the current level number
+   */
   private setNewLevel(index: number): void {
     if (index === 6) {
       this.levels[1] = new Level1(this);
@@ -280,9 +281,12 @@ export default class Game {
       this.levels[22] = new Phone15(this);
       this.levelNumber = 19;
     }
-    // this.levelNumber = index;
   }
 
+  /**
+   * Resets the entire game, setting the level to the desired level.
+   * @param target the level to set the game to
+   */
   private resetLevels(target: number): void {
     if (target <= 5) {
       this.levels[19] = new Level5(this);
@@ -290,7 +294,7 @@ export default class Game {
       this.levels[21] = new Phone14(this);
       this.levels[22] = new Phone15(this);
       this.levels[23] = new ScoreScreen(this, this.taco);
-      this.levels[24] = new VictoryScreen(this, this.taco);
+      this.levels[24] = new VictoryScreen(this);
       this.levelNumber = 19;
     }
     if (target <= 4) {
