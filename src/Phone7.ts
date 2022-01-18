@@ -24,7 +24,7 @@ export default class Phone7 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 60) {
+    if (this.wait >= 15) {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
@@ -56,6 +56,8 @@ export default class Phone7 extends Phone {
    * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const background = Static.loadNewImage('./assets/img/levelthreebackground.png');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
@@ -63,12 +65,12 @@ export default class Phone7 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'A stranger requests to be your friend,', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, 'and spams your messages!', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] Tell them to stop messaging you', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'A stranger requests to be your friend,', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
+    Static.writeTextToCanvas(canvas, 'and spams your messages!', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 42, 'black');
+    Static.writeTextToCanvas(canvas, '[1] Tell them to stop messaging you', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Deny the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 350, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] Accept the request', ((canvas.width * 2) / 3), Phone.YPOSITION + 400, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] Block them', ((canvas.width * 2) / 3), Phone.YPOSITION + 450, 30, 'black');
     Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
     this.cat.render(ctx, canvas);

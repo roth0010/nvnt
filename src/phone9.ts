@@ -56,6 +56,8 @@ export default class Phone9 extends Phone {
    * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const background = Static.loadNewImage('./assets/img/levelfourbackground.png');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
@@ -63,9 +65,9 @@ export default class Phone9 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'Which photo will you post?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] A photo of yourself', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] A photo of the forest', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Which photo will you post?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
+    Static.writeTextToCanvas(canvas, '[1] A photo of yourself', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] A photo of the forest', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
     this.cat.render(ctx, canvas);
     Static.writeTextToCanvas(canvas, 'Choose from gallery', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     Static.writeTextToCanvas(canvas, 'to post:', (canvas.width / 20), (Phone.YPOSITION + 85), 40, 'white', 'left');

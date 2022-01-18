@@ -4,11 +4,11 @@ import Gato from './Gato.js';
 export default class Phone2 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('A good password should not be easy to guess! Use different characters', (this.game.getCanvasWidth() * 2) / 3, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('A good password should not be easy to guess! Use different characters', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
-        if (this.wait >= 60) {
+        if (this.wait >= 15) {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;
@@ -41,8 +41,10 @@ export default class Phone2 extends Phone {
         }
     }
     render(ctx, canvas) {
+        const background = Static.loadNewImage('./assets/img/levelonebackground.png');
+        ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
-        Static.writeTextToCanvas(canvas, 'Pick a Password!', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+        Static.writeTextToCanvas(canvas, 'Pick a Password!', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] admin', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] qwerty', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
         Static.writeTextToCanvas(canvas, `[3] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');

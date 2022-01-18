@@ -55,9 +55,9 @@ export default class Game {
     }
     setUp() {
         this.levels[0] = new SelectScreen(this);
-        this.levels[1] = new Phone13(this);
-        this.levels[2] = new Phone14(this);
-        this.levels[3] = new Phone15(this);
+        this.levels[1] = new Level1(this);
+        this.levels[2] = new Phone1(this);
+        this.levels[3] = new Phone2(this);
         this.levels[4] = new Phone3(this);
         this.levels[5] = new Phone4(this);
         this.levels[6] = new ScoreScreen(this, this.taco);
@@ -85,7 +85,7 @@ export default class Game {
     }
     update(step) {
         if (this.levels[this.levelNumber].update() === 1) {
-            this.setLevel(this.levelNumber + 1);
+            this.levelNumber += 1;
         }
         if (this.levels[this.levelNumber].update() === 2) {
             this.setNewLevel(this.levelNumber);
@@ -149,7 +149,7 @@ export default class Game {
             this.levels[4] = new Phone3(this);
             this.levels[5] = new Phone4(this);
             console.log(this.levelNumber);
-            this.setLevel(1);
+            this.levelNumber = 1;
         }
         else if (index === 9) {
             this.levels[7] = new Level2(this);
@@ -243,7 +243,6 @@ export default class Game {
         return this.profileInfo[element];
     }
     setProfileInfo(profileInfo) {
-        console.log(`${profileInfo} was added to array`);
         this.profileInfo.push(profileInfo);
     }
     getProfileArray(element) {

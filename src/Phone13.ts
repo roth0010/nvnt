@@ -24,7 +24,7 @@ export default class Phone13 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 60) {
+    if (this.wait >= 15) {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
@@ -63,7 +63,7 @@ export default class Phone13 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'Who do you choose to follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, 'Who do you choose to follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] Your mother', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] A person from your school you do not know', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     Static.writeTextToCanvas(canvas, '[3] An account that denies global warming', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');

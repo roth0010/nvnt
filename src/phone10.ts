@@ -52,6 +52,8 @@ export default class Phone10 extends Phone {
    * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const background = Static.loadNewImage('./assets/img/levelfourbackground.png');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
@@ -59,9 +61,9 @@ export default class Phone10 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'will you add your location to the photo?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
-    Static.writeTextToCanvas(canvas, '[1] Yes', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] No', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'will you add your location to the photo?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
+    Static.writeTextToCanvas(canvas, '[1] Yes', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] No', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
 
     Static.writeTextToCanvas(canvas, 'add location tag?', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     this.cat.render(ctx, canvas);

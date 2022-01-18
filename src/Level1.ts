@@ -16,7 +16,7 @@ export default class Level1 extends Level {
     super(game);
     console.log('constructor');
     this.cat = new Gato(
-      'Do not feed the seagulls',
+      `never make online payments to someone you don't trust`,
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -53,16 +53,12 @@ export default class Level1 extends Level {
     ctx.drawImage(
       image2,
       ((canvas.width / 2) - (image2.width / 2)),
-      (canvas.height / 2 - (image2.height / 2)),
+      (canvas.height / 1.6 - (image2.height / 2)),
       image2.width,
       image2.height,
     );
-    /**
-     * these two lines put the user typed monster on screen,
-     * this isn't necessary but it was to test if this screen can acess the name
-     */
-    const monsterName = this.game.getMonsterName();
-    Static.writeTextToCanvas(canvas, monsterName, canvas.width / 2, canvas.height - 50, 60, 'black');
+
+    Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
     Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 50, 40, 'red');
     Static.writeTextToCanvas(canvas, 'Taco shop coming soon!', canvas.width / 10, canvas.height - 50, 20, 'black');
     this.cat.render(ctx, canvas);

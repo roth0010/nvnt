@@ -60,6 +60,8 @@ export default class Phone4 extends Phone {
    * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const background = Static.loadNewImage('./assets/img/levelonebackground.png');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
@@ -67,7 +69,7 @@ export default class Phone4 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'What is in your biography?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, 'What is in your biography?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] I live in Middelburg', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Leave it empty', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     Static.writeTextToCanvas(canvas, `[3] My real name is ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');

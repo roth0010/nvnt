@@ -15,26 +15,21 @@ export default class VictoryScreen extends Screen {
     }
     update() {
         if (this.keyboard.isKeyDown(49) && this.levelPass === 3) {
-            console.log(this.levelPass);
             return 3;
         }
         if (this.keyboard.isKeyDown(50) && this.levelPass === 3) {
-            console.log(this.levelPass);
             this.game.setScore(0);
             return 4;
         }
         if (this.keyboard.isKeyDown(51) && this.levelPass === 3) {
-            console.log(this.levelPass);
             this.game.setScore(0);
             return 5;
         }
         if (this.keyboard.isKeyDown(52) && this.levelPass === 3) {
-            console.log(this.levelPass);
             this.game.setScore(0);
             return 6;
         }
-        if (this.keyboard.isKeyDown(51) && this.levelPass === 3) {
-            console.log(this.levelPass);
+        if (this.keyboard.isKeyDown(53) && this.levelPass === 3) {
             this.game.setScore(0);
             return 7;
         }

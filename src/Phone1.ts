@@ -24,7 +24,7 @@ export default class Phone1 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 60) {
+    if (this.wait >= 15) {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
@@ -60,6 +60,8 @@ export default class Phone1 extends Phone {
    * @param canvas the canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const background = Static.loadNewImage('./assets/img/levelonebackground.png');
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
@@ -67,7 +69,7 @@ export default class Phone1 extends Phone {
       this.image.width,
       this.image.height,
     );
-    Static.writeTextToCanvas(canvas, 'What will your username be?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'red');
+    Static.writeTextToCanvas(canvas, 'What will your username be?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
     Static.writeTextToCanvas(canvas, `[1] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] GlitterLover123', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
     Static.writeTextToCanvas(canvas, '[3] Middelburger', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
