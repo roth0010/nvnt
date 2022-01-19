@@ -56,7 +56,7 @@ export default class Phone15 extends Phone {
             ctx.strokeStyle = 'white';
             ctx.stroke();
             const nameArray = ['WarTrek2000_Fans', 'CRYPT0NEWS', 'Pilltoxquickly', 'nightwatchhackers'];
-            const bioArray = ['Welcome! I post the latest news and videos from a univer...', `Sharing #crypto's Biggest Headlines Since 2016 ⬇ For A...`, 'Simple Two-Step pilltox Program 💊 || Made In Meskander', 'Hire our hackers to get professionals who love doing their...'];
+            const bioArray = ['Welcome! I post the latest news and videos from a univer...', 'Sharing #crypto`s Biggest Headlines Since 2016 ⬇ For A...', 'Simple Two-Step pilltox Program 💊 || Made In Meskander', 'Hire our hackers to get professionals who love doing their...'];
             Static.writeTextToCanvas(canvas, nameArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 35), 25, 'white', 'left');
             Static.writeTextToCanvas(canvas, bioArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 55), 15, 'grey', 'left');
         }

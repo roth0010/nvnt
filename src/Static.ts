@@ -49,6 +49,13 @@ export default class Static {
     ctx.fillText(text, xCoordinate, yCoordinate);
   }
 
+  /**
+   * Returns a precalculated number to determine the ratio of height to width of the monster's
+   * image to ensure no distortion when resizing the monster's image.
+   *
+   * @param monsterType the type of monster
+   * @returns the aspect ratio of the monster
+   */
   public static getMonsterAR(monsterType: string): number {
     if (monsterType === './assets/img/Davy.png') {
       return 0.6201;

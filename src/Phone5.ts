@@ -71,25 +71,39 @@ export default class Phone5 extends Phone {
   }
 
   /**
- * fills the phonescreen with a dm interface
- * @param ctx ctx
- * @param canvas canvas
- * @param sender the sender of the message
- * @param senderProfilePicture the profile picture of the sender
- * @param receivedMessage the message the user has received
- * @param line2 optional parameter for second DM line
- * @param line3 optional parameter for third DM line
- * @param line4 optional parameter for fourth DM line
- * @param line5 optional parameter for fifth DM line
- */
-  private renderDM(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement, sender: string, senderProfilePicture: string, receivedMessage:
-  string, line2?: string, line3?: string , line4?: string , line5?: string): void {
-    const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture); // renders the profile picture
-    ctx.drawImage(senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10);
+   * fills the phonescreen with a dm interface
+   *
+   * @param ctx ctx
+   * @param canvas canvas
+   * @param sender the sender of the message
+   * @param senderProfilePicture the profile picture of the sender
+   * @param receivedMessage the message the user has received
+   * @param line2 optional parameter for second DM line
+   * @param line3 optional parameter for third DM line
+   * @param line4 optional parameter for fourth DM line
+   * @param line5 optional parameter for fifth DM line
+   */
+  private renderDM(
+    ctx: CanvasRenderingContext2D,
+    canvas: HTMLCanvasElement,
+    sender: string,
+    senderProfilePicture:
+    string,
+    receivedMessage: string,
+    line2?: string,
+    line3?: string,
+    line4?: string,
+    line5?: string,
+  ): void {
+    // renders the profile picture
+    const senderRenderedProfilePicture = Static.loadNewImage(senderProfilePicture);
+    ctx.drawImage(
+      senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10,
+    );
     const a : number = (arguments.length - 4);
-      for (let i = 0; i < a; i++) {
-        Static.writeTextToCanvas(canvas, (arguments[i+4]), (Phone.YPOSITION + 40), (Phone.YPOSITION + (600 + (20 * i))), 20, 'white', 'left');
-      }
+    for (let i = 0; i < a; i++) {
+      Static.writeTextToCanvas(canvas, (arguments[i + 4]), (Phone.YPOSITION + 40), (Phone.YPOSITION + (600 + (20 * i))), 20, 'white', 'left');
+    }
     Static.writeTextToCanvas(canvas, sender, (canvas.width / 8), (Phone.YPOSITION + 45), 40, 'white', 'left');
   }
 }

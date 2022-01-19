@@ -1,6 +1,5 @@
 import Game from './Game.js';
 import Level from './Level.js';
-// import SelectScreen from './SelectScreen.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
 

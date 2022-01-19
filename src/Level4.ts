@@ -14,7 +14,7 @@ export default class Level3 extends Level {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      `once something is on the internet, it can't be removed`,
+      'once something is on the internet, it can`t be removed',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,

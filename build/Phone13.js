@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone13 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato(`People on the internet don't always tell the truth`, this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('People on the internet don`t always tell the truth', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -56,7 +56,7 @@ export default class Phone13 extends Phone {
             ctx.strokeStyle = 'white';
             ctx.stroke();
             const nameArray = ['Jolinda_mnst', 'CarolinL0ve', 'W4KEUP2F4K3S', 'KylePranksOfficial'];
-            const bioArray = ['Proud mother of two children!', 'I go to Helten University. ✨live laugh love✨', `birds aren't real. Wake up sheeple. Hexafluoride is put int...`, 'Monstuber, Prankster, Monsterworld Citizen, 24, Support...'];
+            const bioArray = ['Proud mother of two children!', 'I go to Helten University. ✨live laugh love✨', 'birds aren`t real. Wake up sheeple. Hexafluoride is put int...', 'Monstuber, Prankster, Monsterworld Citizen, 24, Support...'];
             Static.writeTextToCanvas(canvas, nameArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 35), 25, 'white', 'left');
             Static.writeTextToCanvas(canvas, bioArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 55), 15, 'grey', 'left');
         }

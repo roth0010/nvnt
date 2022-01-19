@@ -5,7 +5,7 @@ export default class Level3 extends Level {
     cat;
     constructor(game) {
         super(game);
-        this.cat = new Gato(`once something is on the internet, it can't be removed`, this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('once something is on the internet, it can`t be removed', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
     }
     processInput() {
         this.game.setGoal(2);

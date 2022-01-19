@@ -1,6 +1,5 @@
 import Screen from './Screen.js';
 import Game from './Game.js';
-import Static from './Static.js';
 
 export default abstract class Level extends Screen {
   protected levelPass: number;
