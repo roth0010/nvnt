@@ -27,7 +27,7 @@ export default class Phone14 extends Phone {
     if (this.wait >= 15) {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
-        this.correct = false;
+        this.correct = true;
       } else if (this.keyboard.isKeyDown(50)) { // correct option
         this.answered = true;
         this.correct = true;
@@ -36,7 +36,7 @@ export default class Phone14 extends Phone {
         this.correct = false;
       } else if (this.keyboard.isKeyDown(52)) {
         this.answered = true;
-        this.correct = false;
+        this.correct = true;
       }
       if (this.answered === true) {
         if (this.correct === true) {

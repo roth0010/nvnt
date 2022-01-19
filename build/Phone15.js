@@ -11,7 +11,7 @@ export default class Phone15 extends Phone {
         if (this.wait >= 15) {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
             }
             else if (this.keyboard.isKeyDown(50)) {
                 this.answered = true;
