@@ -40,7 +40,7 @@ export default class Level3 extends Level {
    * @param canvas the canvas
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    const image = Static.loadNewImage('./assets/img/levelonebackground.png');
+    const image = Static.loadNewImage('./assets/img/levelfivebackground.png');
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     const image2 = Static.loadNewImage(this.game.getMonsterType());
     image2.height = canvas.height / 2;

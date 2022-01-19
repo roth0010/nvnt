@@ -2,13 +2,9 @@ import Screen from './Screen.js';
 import Static from './Static.js';
 export default class VictoryScreen extends Screen {
     levelPass;
-    taco;
-    addTaco;
-    constructor(game, taco) {
+    constructor(game) {
         super(game);
         this.levelPass = 0;
-        this.taco = taco;
-        this.addTaco = false;
     }
     processInput() {
         this.levelPass = 3;

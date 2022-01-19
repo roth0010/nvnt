@@ -78,7 +78,7 @@ export default class Game {
         this.levels[21] = new Phone14(this);
         this.levels[22] = new Phone15(this);
         this.levels[23] = new ScoreScreen(this, this.taco);
-        this.levels[24] = new VictoryScreen(this, this.taco);
+        this.levels[24] = new VictoryScreen(this);
     }
     processInput() {
         this.levels[this.levelNumber].processInput();
@@ -184,7 +184,7 @@ export default class Game {
             this.levels[21] = new Phone14(this);
             this.levels[22] = new Phone15(this);
             this.levels[23] = new ScoreScreen(this, this.taco);
-            this.levels[24] = new VictoryScreen(this, this.taco);
+            this.levels[24] = new VictoryScreen(this);
             this.levelNumber = 19;
         }
         if (target <= 4) {
