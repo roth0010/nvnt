@@ -74,7 +74,7 @@ export default class Phone7 extends Phone {
     Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
     this.cat.render(ctx, canvas);
-    ctx.drawImage(Static.loadNewImage('./assets/img/Raquish.png'), (canvas.width / 10), (Phone.YPOSITION + 150), 150, 150);
+    ctx.drawImage(Static.loadNewImage('./assets/img/scary.png'), (canvas.width / 10), (Phone.YPOSITION + 150), 150, 150);
     Static.writeTextToCanvas(canvas, 'RaquishBoss563', (canvas.width / 15), (Phone.YPOSITION + 345), 40, 'white', 'left');
     Static.writeTextToCanvas(canvas, 'bio: "don ka shendi akem zalec"', (canvas.width / 15), (Phone.YPOSITION + 385), 25, 'grey', 'left');
   }

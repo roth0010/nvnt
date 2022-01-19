@@ -61,7 +61,7 @@ export default class Phone5 extends Phone {
     );
 
     // the first 5 parameters are required, line2 to line5 are extra lines for longer DMs
-    this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
+    this.renderDM(ctx, canvas, 'raquish', './assets/img/scary.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
     Static.writeTextToCanvas(canvas, 'How do you respond to this stranger?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] Give them your bank details', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Share his account with all your friends', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');

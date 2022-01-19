@@ -11,7 +11,7 @@ export default class Phone13 extends Phone {
         if (this.wait >= 15) {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
             }
             else if (this.keyboard.isKeyDown(50)) {
                 this.answered = true;
@@ -23,7 +23,7 @@ export default class Phone13 extends Phone {
             }
             else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
-                this.correct = false;
+                this.correct = true;
             }
             if (this.answered === true) {
                 if (this.correct === true) {
@@ -37,6 +37,8 @@ export default class Phone13 extends Phone {
         }
     }
     render(ctx, canvas) {
+        const image = Static.loadNewImage('./assets/img/levelfivebackground.png');
+        ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'Who do you choose to follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] Your mother', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');

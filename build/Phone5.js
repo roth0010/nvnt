@@ -29,7 +29,7 @@ export default class Phone5 extends Phone {
         const background = Static.loadNewImage('./assets/img/leveltwobackground.png');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
-        this.renderDM(ctx, canvas, 'raquish', './assets/img/Raquish.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
+        this.renderDM(ctx, canvas, 'raquish', './assets/img/scary.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');
         Static.writeTextToCanvas(canvas, 'How do you respond to this stranger?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] Give them your bank details', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] Share his account with all your friends', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
