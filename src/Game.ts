@@ -247,7 +247,7 @@ export default class Game {
   // TODO always adjust this after adding new levels
   /**
    * Sets the game back a level, resetting levels previously attempted
-   * .
+   *
    * @param index the current level number
    */
   private setNewLevel(index: number): void {
@@ -285,6 +285,7 @@ export default class Game {
 
   /**
    * Resets the entire game, setting the level to the desired level.
+   *
    * @param target the level to set the game to
    */
   private resetLevels(target: number): void {
