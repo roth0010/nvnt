@@ -56,6 +56,8 @@ export default class Phone13 extends Phone {
    * @param canvas The canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
+    const image = Static.loadNewImage('./assets/img/levelfivebackground.png');
+    ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
       25,
