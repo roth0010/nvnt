@@ -28,9 +28,9 @@ export default class SelectScreen extends Screen {
     super(game);
     this.davy = Static.loadNewImage('./assets/img/Davy.png');
     this.jorgen = Static.loadNewImage('./assets/img/Jorgen.png');
-    this.ogalybogaly = Static.loadNewImage('./assets/img/Ogalybogaly.png');
+    this.ogalybogaly = Static.loadNewImage('./assets/img/ogalybogaly.png');
     this.poppy = Static.loadNewImage('./assets/img/Poppy.png');
-    this.whick = Static.loadNewImage('./assets/img/Whick.png');
+    this.whick = Static.loadNewImage('./assets/img/whick.png');
     this.selected = false;
   }
 
@@ -60,7 +60,7 @@ export default class SelectScreen extends Screen {
       }
 
       if (this.keyboard.isKeyDown(51)) {
-        this.game.setMonsterType('./assets/img/Ogalybogaly.png');
+        this.game.setMonsterType('./assets/img/ogalybogaly.png');
         this.selected = true;
       }
 
@@ -70,7 +70,7 @@ export default class SelectScreen extends Screen {
       }
 
       if (this.keyboard.isKeyDown(53)) {
-        this.game.setMonsterType('./assets/img/Whick.png');
+        this.game.setMonsterType('./assets/img/whick.png');
         this.selected = true;
       }
     }
@@ -113,7 +113,7 @@ export default class SelectScreen extends Screen {
         this.davy.height * 0.35,
 
       );
-      Static.writeTextToCanvas(canvas, '[1] davy', canvas.width / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[1] Davy', canvas.width / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.jorgen,
         (canvas.width * 3) / 6 - this.jorgen.width / 2,
@@ -121,7 +121,7 @@ export default class SelectScreen extends Screen {
         this.jorgen.width * 0.35,
         this.jorgen.height * 0.35,
       );
-      Static.writeTextToCanvas(canvas, '[2] jörgen', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[2] Jörgen', (canvas.width * 2) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.ogalybogaly,
         (canvas.width * 4.3) / 6 - this.ogalybogaly.width / 2,
@@ -129,7 +129,7 @@ export default class SelectScreen extends Screen {
         this.ogalybogaly.width * 0.35,
         this.ogalybogaly.height * 0.35,
       );
-      Static.writeTextToCanvas(canvas, '[3] ogalybogaly', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[3] Ogalybogaly', (canvas.width * 3) / 6, canvas.height - 50, 30, 'black');
       ctx.drawImage(
         this.poppy,
         (canvas.width * 5) / 6 - this.poppy.width / 2,
@@ -137,7 +137,7 @@ export default class SelectScreen extends Screen {
         this.poppy.width * 0.35,
         this.poppy.height * 0.35,
       );
-      Static.writeTextToCanvas(canvas, '[4] poppy', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[4] Poppy', (canvas.width * 4) / 6, canvas.height - 50, 30, 'black');
       Static.writeTextToCanvas(canvas, 'Press the matching number to choose the monster', canvas.width / 2, 50, 30, 'black');
       ctx.drawImage(
         this.whick,
@@ -146,7 +146,7 @@ export default class SelectScreen extends Screen {
         this.whick.width * 0.35,
         this.whick.height * 0.35,
       );
-      Static.writeTextToCanvas(canvas, '[5] whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, '[5] Whick', (canvas.width * 5) / 6, canvas.height - 50, 30, 'black');
     } else if (this.selected === true) {
       Static.writeTextToCanvas(canvas, 'Press the space bar to continue, press E to go back', canvas.width / 2, canvas.height - 50, 30, 'black');
       this.selectedMonster = Static.loadNewImage(this.game.getMonsterType());

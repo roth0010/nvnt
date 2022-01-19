@@ -63,13 +63,13 @@ export default class Static {
     if (monsterType === './assets/img/Jorgen.png') {
       return 0.9104;
     }
-    if (monsterType === './assets/img/Ogalybogaly.png') {
+    if (monsterType === './assets/img/ogalybogaly.png') {
       return 0.842;
     }
     if (monsterType === './assets/img/Poppy.png') {
       return 0.8947;
     }
-    if (monsterType === './assets/img/Whick.png') {
+    if (monsterType === './assets/img/whick.png') {
       return 1.64624;
     }
     console.log('uh oh, looks like its broken');

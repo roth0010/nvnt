@@ -73,12 +73,12 @@ export default class Phone6 extends Phone {
     this.cat.render(ctx, canvas);
     Static.writeTextToCanvas(canvas, 'You have 1 request', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     Static.writeTextToCanvas(canvas, 'from:', (canvas.width / 20), (Phone.YPOSITION + 90), 40, 'white', 'left');
-    if (this.game.getMonsterType() === './assets/img/Whick.png') {
+    if (this.game.getMonsterType() === './assets/img/whick.png') {
       ctx.drawImage(Static.loadNewImage('./assets/img/Jorgen.png'), (canvas.width / 10), (Phone.YPOSITION + 190), (this.image.width / 2.5), this.image.height / 5);
       Static.writeTextToCanvas(canvas, 'JörgenBurger352', (canvas.width / 15), (Phone.YPOSITION + 400), 40, 'white', 'left');
       Static.writeTextToCanvas(canvas, 'bio: "hi, my name is Jörgen!"', (canvas.width / 15), (Phone.YPOSITION + 440), 25, 'grey', 'left');
     } else {
-      ctx.drawImage(Static.loadNewImage('./assets/img/Whick.png'), (canvas.width / 10), (Phone.YPOSITION + 200), (this.image.width / 3), this.image.height / 10);
+      ctx.drawImage(Static.loadNewImage('./assets/img/whick.png'), (canvas.width / 10), (Phone.YPOSITION + 200), (this.image.width / 3), this.image.height / 10);
       Static.writeTextToCanvas(canvas, 'RealWhicky6395', (canvas.width / 15), (Phone.YPOSITION + 325), 40, 'white', 'left');
       Static.writeTextToCanvas(canvas, 'bio: "hi, my name is Whick!"', (canvas.width / 15), (Phone.YPOSITION + 385), 25, 'grey', 'left');
     }
