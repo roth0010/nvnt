@@ -42,7 +42,7 @@ export default class Level1 extends Level {
    * @param canvas the canvas
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    const image = Static.loadNewImage('./assets/img/levelonebackground.png');
+    const image = Static.loadNewImage('./assets/img/levelOneBackground.png');
     ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
     Static.writeTextToCanvas(canvas, 'Press E to open phone', canvas.width / 2, 50, 30, 'black');
     Static.writeTextToCanvas(canvas, 'Level 1: Making a Social Media account!', canvas.width / 2, 100, 30, 'black');

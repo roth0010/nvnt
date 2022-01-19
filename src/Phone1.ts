@@ -60,7 +60,7 @@ export default class Phone1 extends Phone {
    * @param canvas the canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    const background = Static.loadNewImage('./assets/img/levelonebackground.png');
+    const background = Static.loadNewImage('./assets/img/levelOneBackground.png');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
     ctx.drawImage(
       this.image,
