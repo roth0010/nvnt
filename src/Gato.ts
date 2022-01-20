@@ -87,7 +87,9 @@ export default class Gato {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
+    console.log(this.catHat);
     if (this.catHat !== 0) {
+      console.log(this.hat);
       ctx.drawImage(
         this.hat,
         this.xPosition - 20,
