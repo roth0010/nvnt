@@ -60,9 +60,10 @@ export default class Shop {
 
   public processInput() : void {
     if (this.timer >= 30) {
-      if (this.keyboard.isKeyDown(83)) {
+      if (this.keyboard.isKeyDown(84)) {
         this.active = !this.active;
         this.timer = 0;
+        console.log(this.active);
       }
       if (this.keyboard.isKeyDown(49) && this.affordGreenHat && !this.ownGreenHat) {
         this.taco.increaseTaco(-500);
@@ -171,7 +172,8 @@ export default class Shop {
         Static.writeTextToCanvas(canvas, 'Owned!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
     } else {
-      Static.writeTextToCanvas(canvas, 'Press T to open the Taco Shop!', canvas.width / 8, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'open the Taco Shop!', canvas.width / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'Press T to', canvas.width / 6, canvas.height - 85, 30, 'black');
     }
   }
 
