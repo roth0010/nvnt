@@ -41,6 +41,8 @@ export default class Phone7 extends Phone {
       if (this.answered === true) {
         if (this.correct === true) {
           this.game.increaseScore(3);
+        } else {
+          this.game.increaseMistakeScore(3);
         }
         this.levelPass = 1;
       }
@@ -65,6 +67,7 @@ export default class Phone7 extends Phone {
       this.image.width,
       this.image.height,
     );
+    this.game.renderHP(ctx, canvas, 9);
     Static.writeTextToCanvas(canvas, 'A stranger requests to be your friend,', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
     Static.writeTextToCanvas(canvas, 'and spams your messages!', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] Tell them to stop messaging you', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');

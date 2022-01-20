@@ -22,6 +22,7 @@ import Phone14 from './Phone14.js';
 import Taco from './Taco.js';
 import VictoryScreen from './VictoryScreen.js';
 import Shop from './Shop.js';
+import Static from './Static.js';
 export default class Game {
     canvas;
     levels;
@@ -38,6 +39,7 @@ export default class Game {
     profileArray;
     catHat;
     shop;
+    mistakeScore;
     constructor(canvas) {
         console.log('version 1.1.7');
         this.canvas = canvas;
@@ -54,6 +56,7 @@ export default class Game {
         this.monsterName = '';
         this.catHat = 0;
         this.goal = 0;
+        this.mistakeScore = 0;
         this.profileInfo = [];
         this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
         this.setUp();
@@ -146,6 +149,12 @@ export default class Game {
     }
     increaseScore(score) {
         this.score += score;
+    }
+    setMistakeScore(mistakeScore) {
+        this.mistakeScore = mistakeScore;
+    }
+    increaseMistakeScore(mistakeScore) {
+        this.mistakeScore += mistakeScore;
     }
     setNewLevel(index) {
         if (index === 6) {
@@ -259,6 +268,39 @@ export default class Game {
     }
     getProfileArray(element) {
         return this.profileArray[element];
+    }
+    renderHP(ctx, canvas, totalScore) {
+        const barXPos = ((canvas.width * 2) / 3) - 200;
+        const barYPos = (canvas.height - 100);
+        const barThickness = 7;
+        const barHeight = 40;
+        const barWidth = 400;
+        const image = Static.loadNewImage(this.getMonsterType());
+        if (this.getMonsterType() === './assets/img/whick.png') {
+            image.height = canvas.height / 3;
+            image.width = (canvas.height / 3) * Static.getMonsterAR(this.getMonsterType());
+            ctx.drawImage(image, ((barXPos + (barWidth / 2)) - (image.width / 2)), (canvas.height / 1.3 - (image.height / 2)), image.width, image.height);
+        }
+        else {
+            image.height = canvas.height / 2;
+            image.width = (canvas.height / 2) * Static.getMonsterAR(this.getMonsterType());
+            ctx.drawImage(image, ((barXPos + (barWidth / 2)) - (image.width / 2)), (canvas.height / 1.55 - (image.height / 2)), image.width, image.height);
+        }
+        ctx.beginPath();
+        ctx.lineWidth = 20;
+        ctx.rect((barXPos), (barYPos), (barWidth), (barHeight));
+        ctx.fillStyle = 'white';
+        ctx.fill();
+        ctx.beginPath();
+        ctx.lineWidth = barThickness;
+        ctx.rect(barXPos, barYPos, barWidth, barHeight);
+        ctx.strokeStyle = 'black';
+        ctx.stroke();
+        ctx.beginPath();
+        ctx.lineWidth = 20;
+        ctx.rect((barXPos + barThickness), (barYPos + barThickness), (barWidth - (barThickness * 2)) * (1 - (this.mistakeScore) / totalScore), (barHeight - (barThickness * 2)));
+        ctx.fillStyle = 'red';
+        ctx.fill();
     }
 }
 //# sourceMappingURL=Game.js.map

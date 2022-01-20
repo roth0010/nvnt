@@ -41,6 +41,8 @@ export default class Phone6 extends Phone {
       if (this.answered === true) {
         if (this.correct === true) {
           this.game.increaseScore(3);
+        } else {
+          this.game.increaseMistakeScore(3);
         }
         this.levelPass = 1;
       }
@@ -65,6 +67,7 @@ export default class Phone6 extends Phone {
       this.image.width,
       this.image.height,
     );
+    this.game.renderHP(ctx, canvas, 9);
     Static.writeTextToCanvas(canvas, 'A Classmate sends a friend request!', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] Accept', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] Deny', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');

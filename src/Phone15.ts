@@ -41,6 +41,8 @@ export default class Phone15 extends Phone {
       if (this.answered === true) {
         if (this.correct === true) {
           this.game.increaseScore(3);
+        } else {
+          this.game.increaseMistakeScore(3);
         }
         this.levelPass = 1;
       }
@@ -65,6 +67,7 @@ export default class Phone15 extends Phone {
       this.image.width,
       this.image.height,
     );
+    this.game.renderHP(ctx, canvas, 9);
     Static.writeTextToCanvas(canvas, 'Which account should you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
     Static.writeTextToCanvas(canvas, '[1] An account about your favorite movie series', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
     Static.writeTextToCanvas(canvas, '[2] A Cryptocurrency account', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');

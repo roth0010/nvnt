@@ -21,6 +21,9 @@ export default class Phone10 extends Phone {
                 if (this.correct === true) {
                     this.game.increaseScore(3);
                 }
+                else {
+                    this.game.increaseMistakeScore(3);
+                }
                 this.levelPass = 1;
             }
         }
@@ -32,6 +35,7 @@ export default class Phone10 extends Phone {
         const background = Static.loadNewImage('./assets/img/levelFourBackground.png');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
+        this.game.renderHP(ctx, canvas, 6);
         Static.writeTextToCanvas(canvas, 'will you add your location to the photo?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] Yes', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] No', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');

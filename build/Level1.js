@@ -6,7 +6,7 @@ export default class Level1 extends Level {
     constructor(game, shop) {
         super(game);
         console.log('constructor');
-        this.cat = new Gato('Never make online payments to someone you don`t trust', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('hi, i`m here to help you!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
         this.shop = shop;
     }
     processInput() {

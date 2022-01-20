@@ -17,7 +17,7 @@ export default class Level1 extends Level {
     super(game);
     console.log('constructor');
     this.cat = new Gato(
-      'Never make online payments to someone you don`t trust',
+      'hi, i`m here to help you!',
       this.game.getCanvasWidth() - 200,
       this.game.getCanvasHeight() - 200,
       this.game,
@@ -60,7 +60,6 @@ export default class Level1 extends Level {
       image2.width,
       image2.height,
     );
-
     Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
     Static.writeTextToCanvas(canvas, 'Level 1: Making Your Account!', canvas.width / 2, 50, 40, 'black');
     Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');

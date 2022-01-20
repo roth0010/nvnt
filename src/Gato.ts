@@ -69,7 +69,7 @@ export default class Gato {
 
   public update(): void {
     this.catHat = this.game.getCatHat();
-    console.log(this.catHat);
+    // console.log(this.catHat);
     if (this.catHat === 1) {
       this.hat = Static.loadNewImage('./assets/img/greenhat.png');
     } else if (this.catHat === 2) {
@@ -91,9 +91,9 @@ export default class Gato {
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
     ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
-    console.log(this.catHat);
+    // console.log(this.catHat);
     if (this.catHat !== 0) {
-      console.log(this.hat);
+      // console.log(this.hat);
       ctx.drawImage(
         this.hat,
         this.xPosition - 20,

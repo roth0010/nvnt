@@ -37,7 +37,6 @@ export default class Gato {
     }
     update() {
         this.catHat = this.game.getCatHat();
-        console.log(this.catHat);
         if (this.catHat === 1) {
             this.hat = Static.loadNewImage('./assets/img/greenhat.png');
         }
@@ -56,9 +55,7 @@ export default class Gato {
     }
     render(ctx, canvas) {
         ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
-        console.log(this.catHat);
         if (this.catHat !== 0) {
-            console.log(this.hat);
             ctx.drawImage(this.hat, this.xPosition - 20, this.yPosition - 5, this.hat.width, this.hat.height);
         }
         if (this.power === true) {

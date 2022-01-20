@@ -51,11 +51,13 @@ export default class ScoreScreen extends Screen {
     // R key
     if (this.keyboard.isKeyDown(82) && this.levelPass === 2) {
       this.game.setScore(0);
+      this.game.setMistakeScore(0);
       return this.levelPass;
     }
     // S key
     if (this.levelPass === 1 && this.keyboard.isKeyDown(83)) {
       this.game.setScore(0);
+      this.game.setMistakeScore(0);
       return this.levelPass;
     }
     return 0;
