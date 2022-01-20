@@ -30,9 +30,9 @@ export default class Level1 extends Level {
    */
   public processInput(): void {
     this.game.setGoal(11);
+    this.shop.update();
     this.cat.processInput();
     this.shop.processInput();
-    this.shop.update();
     // E key
     if (this.keyboard.isKeyDown(69)) {
       this.shop.setActive(false);

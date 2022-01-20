@@ -11,9 +11,9 @@ export default class Level1 extends Level {
     }
     processInput() {
         this.game.setGoal(11);
+        this.shop.update();
         this.cat.processInput();
         this.shop.processInput();
-        this.shop.update();
         if (this.keyboard.isKeyDown(69)) {
             this.shop.setActive(false);
             this.levelPass = 1;
