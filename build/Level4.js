@@ -28,9 +28,9 @@ export default class Level3 extends Level {
         Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
         Static.writeTextToCanvas(canvas, 'Level 4: Making a Post', canvas.width / 2, 250, 40, 'black');
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 300, 30, 'black');
-        Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 250, 40, 'black');
         this.cat.render(ctx, canvas);
         this.shop.render(canvas);
+        Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 250, 40, 'black');
     }
 }
 //# sourceMappingURL=Level4.js.map
