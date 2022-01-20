@@ -34,6 +34,7 @@ export default class Gato {
             this.timer += 1;
         }
         this.catHat = this.game.getCatHat();
+        console.log(this.catHat);
         if (this.catHat === 1) {
             this.hat = Static.loadNewImage('./assets/img/greenhat.png');
         }
