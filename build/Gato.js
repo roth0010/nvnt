@@ -47,6 +47,9 @@ export default class Gato {
         else if (this.catHat === 4) {
             this.hat = Static.loadNewImage('./assets/img/witchhat.png');
         }
+        else {
+            this.hat = Static.loadNewImage('./assets/img/blank.png');
+        }
     }
     render(ctx, canvas) {
         ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);

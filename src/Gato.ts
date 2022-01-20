@@ -74,6 +74,8 @@ export default class Gato {
       this.hat = Static.loadNewImage('./assets/img/birthdayhat.png');
     } else if (this.catHat === 4) {
       this.hat = Static.loadNewImage('./assets/img/witchhat.png');
+    } else {
+      this.hat = Static.loadNewImage('./assets/img/blank.png');
     }
   }
 
