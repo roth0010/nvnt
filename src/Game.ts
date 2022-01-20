@@ -61,7 +61,7 @@ export default class Game {
    * @param canvas the canvas
    */
   public constructor(canvas: HTMLCanvasElement) {
-    console.log('version 1.1.4');
+    console.log('version 1.1.5');
     this.canvas = canvas;
     this.canvas.width = window.innerWidth;
     this.canvas.height = window.innerHeight;

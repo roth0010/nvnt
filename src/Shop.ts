@@ -134,7 +134,8 @@ export default class Shop {
     const ctx = canvas.getContext('2d');
     if (this.active === true) {
       ctx.beginPath();
-      ctx.fillRect(20, 20, canvas.width - 40, canvas.height - 40);
+      ctx.rect(20, 20, canvas.width - 40, canvas.height - 40);
+      ctx.fillStyle = 'white';
       ctx.stroke();
       this.cat.render(ctx, canvas);
       Static.writeTextToCanvas(canvas, 'Taco Shop', canvas.width / 2, 100, 40, 'black');
