@@ -157,8 +157,11 @@ export default class Shop {
             }
         }
         else {
-            Static.writeTextToCanvas(canvas, 'Press T to open the Taco Shop!', canvas.width / 10, canvas.height - 50, 30, 'black');
+            Static.writeTextToCanvas(canvas, 'Press T to open the Taco Shop!', canvas.width / 8, canvas.height - 50, 30, 'black');
         }
+    }
+    setActive(state) {
+        this.active = state;
     }
 }
 //# sourceMappingURL=Shop.js.map

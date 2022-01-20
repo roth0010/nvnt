@@ -14,6 +14,7 @@ export default class Level2 extends Level {
         this.shop.processInput();
         this.shop.update();
         if (this.keyboard.isKeyDown(69)) {
+            this.shop.setActive(false);
             this.levelPass = 1;
         }
     }

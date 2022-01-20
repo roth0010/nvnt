@@ -15,14 +15,13 @@ export default class Level1 extends Level {
         this.shop.processInput();
         this.shop.update();
         if (this.keyboard.isKeyDown(69)) {
+            this.shop.setActive(false);
             this.levelPass = 1;
         }
     }
     render(ctx, canvas) {
         const image = Static.loadNewImage('./assets/img/levelOneBackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
-        Static.writeTextToCanvas(canvas, 'Press E to open phone', canvas.width / 2, 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, 'Level 1: Making a Social Media account!', canvas.width / 2, 100, 30, 'black');
         const image2 = Static.loadNewImage(this.game.getMonsterType());
         image2.height = canvas.height / 2;
         image2.width = (canvas.height / 2) * Static.getMonsterAR(this.game.getMonsterType());
