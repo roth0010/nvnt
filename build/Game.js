@@ -39,7 +39,8 @@ export default class Game {
     catHat;
     shop;
     constructor(canvas) {
-        console.log('version 1.1.1');
+        console.log('version 1.1.2');
+        console.log('version 1.1.2');
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
         this.canvas.height = window.innerHeight;

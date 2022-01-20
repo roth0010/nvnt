@@ -23,7 +23,7 @@ export default class Gato {
         this.image = Static.loadNewImage('./assets/img/cat.png');
         this.image.height = this.game.getCanvasHeight() / 5;
         this.image.width = this.image.height * Gato.ASPECTRATIO;
-        this.catHat = this.game.getCatHat();
+        this.update();
     }
     processInput() {
         if (this.keyboard.isKeyDown(67) && this.timer >= 15) {
@@ -33,6 +33,9 @@ export default class Gato {
         else {
             this.timer += 1;
         }
+        this.update();
+    }
+    update() {
         this.catHat = this.game.getCatHat();
         console.log(this.catHat);
         if (this.catHat === 1) {
