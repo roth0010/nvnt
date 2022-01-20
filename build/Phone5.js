@@ -4,28 +4,34 @@ import Gato from './Gato.js';
 export default class Phone5 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Not everyone on the internet is a good person!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Not everyone on the internet is a good person!', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
     }
     processInput() {
         this.cat.processInput();
-        if (this.keyboard.isKeyDown(51)) {
-            this.answered = true;
-            this.correct = true;
-        }
-        else if (this.keyboard.isKeyDown(50)
-            || this.keyboard.isKeyDown(49)
-            || this.keyboard.isKeyDown(52)) {
-            this.answered = true;
-            this.correct = false;
-        }
-        if (this.answered === true) {
-            if (this.correct === true) {
-                this.game.increaseScore(3);
+        console.log(this.wait);
+        if (this.wait >= Phone.WAIT_TIME) {
+            if (this.keyboard.isKeyDown(51)) {
+                this.answered = true;
+                this.correct = true;
             }
-            else {
-                this.game.increaseMistakeScore(3);
+            else if (this.keyboard.isKeyDown(50)
+                || this.keyboard.isKeyDown(49)
+                || this.keyboard.isKeyDown(52)) {
+                this.answered = true;
+                this.correct = false;
             }
-            this.levelPass = 1;
+            if (this.answered === true) {
+                if (this.correct === true) {
+                    this.game.increaseScore(3);
+                }
+                else {
+                    this.game.increaseMistakeScore(3);
+                }
+                this.levelPass = 1;
+            }
+        }
+        else {
+            this.wait += 1;
         }
     }
     render(ctx, canvas) {

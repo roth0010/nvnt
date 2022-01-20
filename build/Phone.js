@@ -1,11 +1,14 @@
 import Level from './Level.js';
 import Static from './Static.js';
 export default class Phone extends Level {
+    static CAT_PHONE_Y_POSITION = 300;
+    static CAT_PHONE_X_POSITION = 200;
+    static WAIT_TIME = 20;
+    static YPOSITION = 50;
     image;
     answered;
     correct;
     wait;
-    static YPOSITION = 50;
     cat;
     constructor(game) {
         super(game);

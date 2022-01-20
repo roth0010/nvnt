@@ -17,9 +17,9 @@ export default class Level1 extends Level {
     super(game);
     console.log('constructor');
     this.cat = new Gato(
-      'hi, i`m here to help you!',
-      this.game.getCanvasWidth() - 200,
-      this.game.getCanvasHeight() - 200,
+      'Hi, I`m here to help you!',
+      this.game.getCanvasWidth() - Level.CAT_X_POSITION,
+      this.game.getCanvasHeight() - Level.CAT_Y_POSITION,
       this.game,
     );
     this.shop = shop;

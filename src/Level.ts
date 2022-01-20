@@ -3,6 +3,10 @@ import Game from './Game.js';
 import Shop from './Shop.js';
 
 export default abstract class Level extends Screen {
+  protected static readonly CAT_Y_POSITION = 300;
+
+  protected static readonly CAT_X_POSITION = 200;
+
   protected levelPass: number;
 
   protected shop: Shop;

@@ -1,5 +1,7 @@
 import Screen from './Screen.js';
 export default class Level extends Screen {
+    static CAT_Y_POSITION = 300;
+    static CAT_X_POSITION = 200;
     levelPass;
     shop;
     constructor(game) {

@@ -13,8 +13,8 @@ export default class Phone9 extends Phone {
     super(game);
     this.cat = new Gato(
       'hallo',
-      this.game.getCanvasWidth() - 200,
-      this.game.getCanvasHeight() - 200,
+      this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION,
+      this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION,
       this.game,
     );
   }

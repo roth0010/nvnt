@@ -3,6 +3,8 @@ import Static from './Static.js';
 import Game from './Game.js';
 
 export default class Gato {
+  private static readonly HAT_WIDTH = 4;
+
   private static readonly ASPECTRATIO = 0.72933753;
 
   private phrase: string;
@@ -25,6 +27,8 @@ export default class Gato {
   private catHat: number;
 
   private hat: HTMLImageElement;
+
+  private hatYPosition: number;
 
   /**
    * Constructs a new Gato
@@ -49,8 +53,9 @@ export default class Gato {
     this.keyboard = new KeyListener();
     this.timer = 45;
     this.image = Static.loadNewImage('./assets/img/cat.png');
-    this.image.height = this.game.getCanvasHeight() / 5;
+    this.image.height = this.game.getCanvasHeight() / 3;
     this.image.width = this.image.height * Gato.ASPECTRATIO;
+    this.hatYPosition = 0;
     this.update();
   }
 
@@ -72,14 +77,29 @@ export default class Gato {
     // console.log(this.catHat);
     if (this.catHat === 1) {
       this.hat = Static.loadNewImage('./assets/img/greenhat.png');
+      this.hat.width = this.image.width / Gato.HAT_WIDTH;
+      this.hat.height = this.hat.width * 0.77328;
+      this.hatYPosition = 5;
     } else if (this.catHat === 2) {
       this.hat = Static.loadNewImage('./assets/img/springhat.png');
+      this.hat.width = this.image.width / Gato.HAT_WIDTH;
+      this.hat.height = this.hat.width * 0.49726;
+      this.hatYPosition = this.hat.height / 2;
     } else if (this.catHat === 3) {
       this.hat = Static.loadNewImage('./assets/img/birthdayhat.png');
+      this.hat.width = this.image.width / Gato.HAT_WIDTH;
+      this.hat.height = this.hat.width * 1.7;
+      this.hatYPosition = -this.hat.height / 2;
     } else if (this.catHat === 4) {
       this.hat = Static.loadNewImage('./assets/img/witchhat.png');
+      this.hat.width = this.image.width / Gato.HAT_WIDTH;
+      this.hat.height = this.hat.width * 0.76411;
+      this.hatYPosition = 0;
     } else {
       this.hat = Static.loadNewImage('./assets/img/blank.png');
+      this.hat.height = this.image.height / Gato.HAT_WIDTH;
+      this.hat.width = 0;
+      this.hatYPosition = 0;
     }
   }
 
@@ -96,15 +116,17 @@ export default class Gato {
       // console.log(this.hat);
       ctx.drawImage(
         this.hat,
-        this.xPosition - 20,
-        this.yPosition - 5,
+        this.xPosition + (this.image.width / 5),
+        this.yPosition + this.hatYPosition,
         this.hat.width,
         this.hat.height,
       );
     }
     if (this.power === true) {
+      Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 39, this.yPosition - 39, 20, 'white');
       Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 40, this.yPosition - 40, 20, 'black');
     } else {
+      Static.writeTextToCanvas(canvas, 'Press C for Cat Tips', this.xPosition - 41, this.yPosition - 41, 20, 'white');
       Static.writeTextToCanvas(canvas, 'Press C for Cat Tips', this.xPosition - 40, this.yPosition - 40, 20, 'black');
     }
   }

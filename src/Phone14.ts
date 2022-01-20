@@ -13,8 +13,8 @@ export default class Phone14 extends Phone {
     super(game);
     this.cat = new Gato(
       'What kind of account do you want to support?',
-      this.game.getCanvasWidth() - 200,
-      this.game.getCanvasHeight() - 200,
+      this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION,
+      this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION,
       this.game,
     );
   }
@@ -24,7 +24,7 @@ export default class Phone14 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 15) {
+    if (this.wait >= Phone.WAIT_TIME) {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = true;

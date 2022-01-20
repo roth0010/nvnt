@@ -5,7 +5,7 @@ export default class Level2 extends Level {
     cat;
     constructor(game, shop) {
         super(game);
-        this.cat = new Gato('Do not give personal info to strangers!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('Do not give personal info to strangers!', this.game.getCanvasWidth() - Level.CAT_X_POSITION, this.game.getCanvasHeight() - Level.CAT_Y_POSITION, this.game);
         this.shop = shop;
     }
     processInput() {

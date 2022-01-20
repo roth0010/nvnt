@@ -4,11 +4,11 @@ import Gato from './Gato.js';
 export default class Phone2 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('A good password should not be easy to guess! Use different characters', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.cat = new Gato('A good password should not be easy to guess! Use different characters', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
     }
     processInput() {
         this.cat.processInput();
-        if (this.wait >= 15) {
+        if (this.wait >= Phone.WAIT_TIME) {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;

@@ -13,8 +13,8 @@ export default class Phone5 extends Phone {
     super(game);
     this.cat = new Gato(
       'Not everyone on the internet is a good person!',
-      this.game.getCanvasWidth() - 200,
-      this.game.getCanvasHeight() - 200,
+      this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION,
+      this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION,
       this.game,
     );
   }
@@ -24,24 +24,29 @@ export default class Phone5 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.keyboard.isKeyDown(51)) {
-      this.answered = true;
-      this.correct = true;
-    } else if (
-      this.keyboard.isKeyDown(50)
-      || this.keyboard.isKeyDown(49)
-      || this.keyboard.isKeyDown(52)
-    ) {
-      this.answered = true;
-      this.correct = false;
-    }
-    if (this.answered === true) {
-      if (this.correct === true) {
-        this.game.increaseScore(3);
-      } else {
-        this.game.increaseMistakeScore(3);
+    console.log(this.wait);
+    if (this.wait >= Phone.WAIT_TIME) {
+      if (this.keyboard.isKeyDown(51)) {
+        this.answered = true;
+        this.correct = true;
+      } else if (
+        this.keyboard.isKeyDown(50)
+        || this.keyboard.isKeyDown(49)
+        || this.keyboard.isKeyDown(52)
+      ) {
+        this.answered = true;
+        this.correct = false;
       }
-      this.levelPass = 1;
+      if (this.answered === true) {
+        if (this.correct === true) {
+          this.game.increaseScore(3);
+        } else {
+          this.game.increaseMistakeScore(3);
+        }
+        this.levelPass = 1;
+      }
+    } else {
+      this.wait += 1;
     }
   }
 
@@ -90,7 +95,7 @@ export default class Phone5 extends Phone {
     canvas: HTMLCanvasElement,
     sender: string,
     senderProfilePicture:
-    string,
+      string,
     receivedMessage: string,
     line2?: string,
     line3?: string,
@@ -102,7 +107,7 @@ export default class Phone5 extends Phone {
     ctx.drawImage(
       senderRenderedProfilePicture, 55, 40, (this.image.width / 5), this.image.height / 10,
     );
-    const a : number = (arguments.length - 4);
+    const a: number = (arguments.length - 4);
     for (let i = 0; i < a; i++) {
       Static.writeTextToCanvas(canvas, (arguments[i + 4]), (Phone.YPOSITION + 40), (Phone.YPOSITION + (600 + (20 * i))), 20, 'white', 'left');
     }
