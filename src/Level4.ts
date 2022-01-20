@@ -34,6 +34,7 @@ export default class Level3 extends Level {
     this.shop.update();
     // E key
     if (this.keyboard.isKeyDown(69)) {
+      this.shop.setActive(false);
       this.levelPass = 1;
     }
   }

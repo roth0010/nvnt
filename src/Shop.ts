@@ -171,7 +171,11 @@ export default class Shop {
         Static.writeTextToCanvas(canvas, 'Owned!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
     } else {
-      Static.writeTextToCanvas(canvas, 'Press T to open the Taco Shop!', canvas.width / 10, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'Press T to open the Taco Shop!', canvas.width / 8, canvas.height - 50, 30, 'black');
     }
+  }
+
+  public setActive(state: boolean): void {
+    this.active = state;
   }
 }
