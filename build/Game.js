@@ -21,6 +21,7 @@ import Phone15 from './Phone15.js';
 import Phone14 from './Phone14.js';
 import Taco from './Taco.js';
 import VictoryScreen from './VictoryScreen.js';
+import Shop from './Shop.js';
 export default class Game {
     canvas;
     levels;
@@ -35,6 +36,8 @@ export default class Game {
     chosenPost;
     profileInfo;
     profileArray;
+    catHat;
+    shop;
     constructor(canvas) {
         this.canvas = canvas;
         this.canvas.width = window.innerWidth;
@@ -44,9 +47,11 @@ export default class Game {
         this.score = 0;
         this.engine = new GameLoop(this);
         this.taco = new Taco();
+        this.shop = new Shop(this.taco, this);
         this.levelNumber = 0;
         this.monsterType = '';
         this.monsterName = '';
+        this.catHat = 0;
         this.goal = 0;
         this.profileInfo = [];
         this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
@@ -55,25 +60,25 @@ export default class Game {
     }
     setUp() {
         this.levels[0] = new SelectScreen(this);
-        this.levels[1] = new Level1(this);
+        this.levels[1] = new Level1(this, this.shop);
         this.levels[2] = new Phone1(this);
         this.levels[3] = new Phone2(this);
         this.levels[4] = new Phone3(this);
         this.levels[5] = new Phone4(this);
         this.levels[6] = new ScoreScreen(this, this.taco);
-        this.levels[7] = new Level2(this);
+        this.levels[7] = new Level2(this, this.shop);
         this.levels[8] = new Phone5(this);
         this.levels[9] = new ScoreScreen(this, this.taco);
-        this.levels[10] = new Level3(this);
+        this.levels[10] = new Level3(this, this.shop);
         this.levels[11] = new Phone6(this);
         this.levels[12] = new Phone7(this);
         this.levels[13] = new Phone8(this);
         this.levels[14] = new ScoreScreen(this, this.taco);
-        this.levels[15] = new Level4(this);
+        this.levels[15] = new Level4(this, this.shop);
         this.levels[16] = new Phone9(this);
         this.levels[17] = new Phone10(this);
         this.levels[18] = new ScoreScreen(this, this.taco);
-        this.levels[19] = new Level5(this);
+        this.levels[19] = new Level5(this, this.shop);
         this.levels[20] = new Phone13(this);
         this.levels[21] = new Phone14(this);
         this.levels[22] = new Phone15(this);
@@ -143,7 +148,7 @@ export default class Game {
     }
     setNewLevel(index) {
         if (index === 6) {
-            this.levels[1] = new Level1(this);
+            this.levels[1] = new Level1(this, this.shop);
             this.levels[2] = new Phone1(this);
             this.levels[3] = new Phone2(this);
             this.levels[4] = new Phone3(this);
@@ -152,25 +157,25 @@ export default class Game {
             this.levelNumber = 1;
         }
         else if (index === 9) {
-            this.levels[7] = new Level2(this);
+            this.levels[7] = new Level2(this, this.shop);
             this.levels[8] = new Phone5(this);
             this.levelNumber = 7;
         }
         else if (index === 14) {
-            this.levels[10] = new Level3(this);
+            this.levels[10] = new Level3(this, this.shop);
             this.levels[11] = new Phone6(this);
             this.levels[12] = new Phone7(this);
             this.levels[13] = new Phone8(this);
             this.levelNumber = 10;
         }
         else if (index === 18) {
-            this.levels[15] = new Level4(this);
+            this.levels[15] = new Level4(this, this.shop);
             this.levels[16] = new Phone9(this);
             this.levels[17] = new Phone10(this);
             this.levelNumber = 15;
         }
         else if (index === 23) {
-            this.levels[19] = new Level5(this);
+            this.levels[19] = new Level5(this, this.shop);
             this.levels[20] = new Phone13(this);
             this.levels[21] = new Phone14(this);
             this.levels[22] = new Phone15(this);
@@ -179,7 +184,7 @@ export default class Game {
     }
     resetLevels(target) {
         if (target <= 5) {
-            this.levels[19] = new Level5(this);
+            this.levels[19] = new Level5(this, this.shop);
             this.levels[20] = new Phone13(this);
             this.levels[21] = new Phone14(this);
             this.levels[22] = new Phone15(this);
@@ -188,14 +193,14 @@ export default class Game {
             this.levelNumber = 19;
         }
         if (target <= 4) {
-            this.levels[15] = new Level4(this);
+            this.levels[15] = new Level4(this, this.shop);
             this.levels[16] = new Phone9(this);
             this.levels[17] = new Phone10(this);
             this.levels[18] = new ScoreScreen(this, this.taco);
             this.levelNumber = 15;
         }
         if (target <= 3) {
-            this.levels[10] = new Level3(this);
+            this.levels[10] = new Level3(this, this.shop);
             this.levels[11] = new Phone6(this);
             this.levels[12] = new Phone7(this);
             this.levels[13] = new Phone8(this);
@@ -203,13 +208,13 @@ export default class Game {
             this.levelNumber = 10;
         }
         if (target <= 2) {
-            this.levels[7] = new Level2(this);
+            this.levels[7] = new Level2(this, this.shop);
             this.levels[8] = new Phone5(this);
             this.levels[9] = new ScoreScreen(this, this.taco);
             this.levelNumber = 7;
         }
         if (target === 1) {
-            this.levels[1] = new Level1(this);
+            this.levels[1] = new Level1(this, this.shop);
             this.levels[2] = new Phone1(this);
             this.levels[3] = new Phone2(this);
             this.levels[4] = new Phone3(this);
@@ -220,6 +225,12 @@ export default class Game {
     }
     setNewSelectScreen() {
         this.levels[0] = new SelectScreen(this);
+    }
+    setCatHat(number) {
+        this.catHat = number;
+    }
+    getCatHat() {
+        return this.catHat;
     }
     setMonsterType(type) {
         this.monsterType = type;

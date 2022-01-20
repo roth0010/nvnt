@@ -37,7 +37,7 @@ export default class Phone15 extends Phone {
         }
     }
     render(ctx, canvas) {
-        const image = Static.loadNewImage('./assets/img/levelfivebackground.png');
+        const image = Static.loadNewImage('./assets/img/levelFiveBackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'Which account should you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');

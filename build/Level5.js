@@ -3,19 +3,22 @@ import Static from './Static.js';
 import Gato from './Gato.js';
 export default class Level3 extends Level {
     cat;
-    constructor(game) {
+    constructor(game, shop) {
         super(game);
         this.cat = new Gato('Be careful who you follow!', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.shop = shop;
     }
     processInput() {
         this.game.setGoal(8);
         this.cat.processInput();
+        this.shop.processInput();
+        this.shop.update();
         if (this.keyboard.isKeyDown(69)) {
             this.levelPass = 1;
         }
     }
     render(ctx, canvas) {
-        const image = Static.loadNewImage('./assets/img/levelfivebackground.png');
+        const image = Static.loadNewImage('./assets/img/levelFiveBackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         const image2 = Static.loadNewImage(this.game.getMonsterType());
         image2.height = canvas.height / 2;
@@ -25,8 +28,8 @@ export default class Level3 extends Level {
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
         Static.writeTextToCanvas(canvas, 'Final Level: Choosing who to follow', canvas.width / 2, 50, 40, 'black');
         Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 50, 40, 'red');
-        Static.writeTextToCanvas(canvas, 'Taco shop coming soon!', canvas.width / 10, canvas.height - 50, 20, 'black');
         this.cat.render(ctx, canvas);
+        this.shop.render(canvas);
     }
 }
 //# sourceMappingURL=Level5.js.map

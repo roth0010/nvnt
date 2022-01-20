@@ -3,19 +3,22 @@ import Static from './Static.js';
 import Gato from './Gato.js';
 export default class Level3 extends Level {
     cat;
-    constructor(game) {
+    constructor(game, shop) {
         super(game);
         this.cat = new Gato('once something is on the internet, it can`t be removed', this.game.getCanvasWidth() - 200, this.game.getCanvasHeight() - 200, this.game);
+        this.shop = shop;
     }
     processInput() {
         this.game.setGoal(2);
         this.cat.processInput();
+        this.shop.processInput();
+        this.shop.update();
         if (this.keyboard.isKeyDown(69)) {
             this.levelPass = 1;
         }
     }
     render(ctx, canvas) {
-        const image = Static.loadNewImage('./assets/img/levelfourbackground.png');
+        const image = Static.loadNewImage('./assets/img/levelFourBackground.png');
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         const image2 = Static.loadNewImage(this.game.getMonsterType());
         image2.height = canvas.height / 2;
@@ -25,8 +28,8 @@ export default class Level3 extends Level {
         Static.writeTextToCanvas(canvas, 'Level 4: Making a Post', canvas.width / 2, 250, 40, 'black');
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 300, 30, 'black');
         Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 250, 40, 'black');
-        Static.writeTextToCanvas(canvas, 'Taco shop coming soon!', canvas.width / 10, canvas.height - 50, 20, 'black');
         this.cat.render(ctx, canvas);
+        this.shop.render(canvas);
     }
 }
 //# sourceMappingURL=Level4.js.map

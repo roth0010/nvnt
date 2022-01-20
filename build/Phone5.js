@@ -26,7 +26,7 @@ export default class Phone5 extends Phone {
         }
     }
     render(ctx, canvas) {
-        const background = Static.loadNewImage('./assets/img/leveltwobackground.png');
+        const background = Static.loadNewImage('./assets/img/levelTwoBackground.png');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.renderDM(ctx, canvas, 'raquish', './assets/img/scary.png', 'Could you transfer me money?', 'I promise i will pay you back', 'double the amount tomorrow');

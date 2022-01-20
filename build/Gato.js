@@ -10,6 +10,8 @@ export default class Gato {
     timer;
     image;
     game;
+    catHat;
+    hat;
     constructor(phrase, xPosition, yPosition, game) {
         this.game = game;
         this.phrase = phrase;
@@ -21,6 +23,7 @@ export default class Gato {
         this.image = Static.loadNewImage('./assets/img/cat.png');
         this.image.height = this.game.getCanvasHeight() / 5;
         this.image.width = this.image.height * Gato.ASPECTRATIO;
+        this.catHat = this.game.getCatHat();
     }
     processInput() {
         if (this.keyboard.isKeyDown(67) && this.timer >= 15) {
@@ -30,9 +33,25 @@ export default class Gato {
         else {
             this.timer += 1;
         }
+        this.catHat = this.game.getCatHat();
+        if (this.catHat === 1) {
+            this.hat = Static.loadNewImage('./assets/img/greenhat.png');
+        }
+        else if (this.catHat === 2) {
+            this.hat = Static.loadNewImage('./assets/img/springhat.png');
+        }
+        else if (this.catHat === 3) {
+            this.hat = Static.loadNewImage('./assets/img/birthdayhat.png');
+        }
+        else if (this.catHat === 4) {
+            this.hat = Static.loadNewImage('./assets/img/witchhat.png');
+        }
     }
     render(ctx, canvas) {
         ctx.drawImage(this.image, this.xPosition, this.yPosition, this.image.width, this.image.height);
+        if (this.catHat !== 0) {
+            ctx.drawImage(this.hat, this.xPosition - 20, this.yPosition - 5, this.hat.width, this.hat.height);
+        }
         if (this.power === true) {
             Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 40, this.yPosition - 40, 20, 'black');
         }

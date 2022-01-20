@@ -41,7 +41,7 @@ export default class Phone4 extends Phone {
         }
     }
     render(ctx, canvas) {
-        const background = Static.loadNewImage('./assets/img/levelonebackground.png');
+        const background = Static.loadNewImage('./assets/img/levelOneBackground.png');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'What is in your biography?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');

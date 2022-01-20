@@ -29,7 +29,7 @@ export default class Phone10 extends Phone {
         }
     }
     render(ctx, canvas) {
-        const background = Static.loadNewImage('./assets/img/levelfourbackground.png');
+        const background = Static.loadNewImage('./assets/img/levelFourBackground.png');
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         Static.writeTextToCanvas(canvas, 'will you add your location to the photo?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');

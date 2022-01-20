@@ -1,8 +1,11 @@
 import Screen from './Screen.js';
 import Game from './Game.js';
+import Shop from './Shop.js';
 
 export default abstract class Level extends Screen {
   protected levelPass: number;
+
+  protected shop: Shop;
 
   /**
    * Constructs a new Level class

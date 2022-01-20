@@ -2,6 +2,7 @@ import Game from './Game.js';
 import Level from './Level.js';
 import Static from './Static.js';
 import Gato from './Gato.js';
+import Shop from './Shop.js';
 
 export default class Level1 extends Level {
   private cat: Gato;
@@ -10,8 +11,9 @@ export default class Level1 extends Level {
    * constructs a new Level1 class. This is the profile creation level
    *
    * @param game The game
+   * @param shop The Taco Shop
    */
-  public constructor(game: Game) {
+  public constructor(game: Game, shop: Shop) {
     super(game);
     console.log('constructor');
     this.cat = new Gato(
@@ -20,6 +22,7 @@ export default class Level1 extends Level {
       this.game.getCanvasHeight() - 200,
       this.game,
     );
+    this.shop = shop;
   }
 
   /**
@@ -28,6 +31,8 @@ export default class Level1 extends Level {
   public processInput(): void {
     this.game.setGoal(11);
     this.cat.processInput();
+    this.shop.processInput();
+    this.shop.update();
     // E key
     if (this.keyboard.isKeyDown(69)) {
       this.levelPass = 1;
@@ -58,8 +63,10 @@ export default class Level1 extends Level {
     );
 
     Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
+    Static.writeTextToCanvas(canvas, 'Level 1: Making Your Account!', canvas.width / 2, 50, 40, 'black');
+    Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
     Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 50, 40, 'red');
-    Static.writeTextToCanvas(canvas, 'Taco shop coming soon!', canvas.width / 10, canvas.height - 50, 20, 'black');
     this.cat.render(ctx, canvas);
+    this.shop.render(canvas);
   }
 }
