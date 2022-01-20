@@ -136,7 +136,7 @@ export default class Shop {
       ctx.beginPath();
       ctx.rect(20, 20, canvas.width - 40, canvas.height - 40);
       ctx.fillStyle = 'white';
-      ctx.stroke();
+      ctx.fill();
       this.cat.render(ctx, canvas);
       Static.writeTextToCanvas(canvas, 'Taco Shop', canvas.width / 2, 100, 40, 'black');
       Static.writeTextToCanvas(canvas, 'You can buy a hat for the cat!', canvas.width / 2, 150, 25, 'black');
