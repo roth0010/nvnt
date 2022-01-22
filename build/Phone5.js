@@ -8,17 +8,25 @@ export default class Phone5 extends Phone {
     }
     processInput() {
         this.cat.processInput();
-        console.log(this.wait);
         if (this.wait >= Phone.WAIT_TIME) {
-            if (this.keyboard.isKeyDown(51)) {
+            if (this.keyboard.isKeyDown(49)) {
+                this.answered = true;
+                this.correct = false;
+                this.game.setFeedback('This is called an advanced fee scam, this person is lying and will never repay you');
+            }
+            else if (this.keyboard.isKeyDown(50)) {
+                this.answered = true;
+                this.correct = false;
+                this.game.setFeedback('Even if it may seem funny, it`s not worth the risk to talk to shady people');
+            }
+            else if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = true;
             }
-            else if (this.keyboard.isKeyDown(50)
-                || this.keyboard.isKeyDown(49)
-                || this.keyboard.isKeyDown(52)) {
+            else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
                 this.correct = false;
+                this.game.setFeedback('Even if it may seem funny, it`s not worth the risk to talk to shady people');
             }
             if (this.answered === true) {
                 if (this.correct === true) {

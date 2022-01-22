@@ -58,6 +58,8 @@ export default class Game {
 
   private mistakeScore: number;
 
+  private feedback: string[];
+
   /**
    * creates a new Game class
    *
@@ -81,6 +83,7 @@ export default class Game {
     this.goal = 0;
     this.mistakeScore = 0;
     this.profileInfo = [];
+    this.feedback = [];
     this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
     this.setUp();
     this.engine.start();
@@ -262,6 +265,14 @@ export default class Game {
    */
   public setMistakeScore(mistakeScore: number): void {
     this.mistakeScore = mistakeScore;
+  }
+
+  /**
+   * getter for the mistake score
+   * @returns mistakeScore
+   */
+  public getMistakeScore() : number {
+    return this.mistakeScore;
   }
 
   /**
@@ -464,6 +475,12 @@ export default class Game {
     return this.profileArray[element];
   }
 
+  /**
+   * 
+   * @param ctx canvas rendering context
+   * @param canvas canvas element
+   * @param totalScore the total score you can get for a level
+   */
   public renderHP(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement,
     totalScore: number): void {
     const barXPos = ((canvas.width * 2) / 3) - 200;
@@ -506,5 +523,37 @@ export default class Game {
       , (barHeight - (barThickness * 2)));
     ctx.fillStyle = 'red';
     ctx.fill();
+  }
+
+  /**
+   * getter for the feedback
+   * @returns feedback
+   * @param index the index of the string to return
+   */
+  public getFeedback() : string[] {
+    return this.feedback;
+  }
+
+  /**
+   * adds feedback to the array
+   * @param userFeedback the feedback to add to the array
+   */
+  public setFeedback(userFeedback: string) : void {
+    this.feedback.push(userFeedback);
+  }
+
+  /**
+   * empties the feedback array
+   */
+  public clearFeedback() : void {
+    this.feedback = [];
+  }
+
+  /**
+   * getter for the levelNumber
+   * @returns this.levelNumber
+   */
+  public getLevelNumber() : number {
+    return this.levelNumber;
   }
 }

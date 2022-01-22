@@ -18,10 +18,12 @@ export default class Phone15 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(51)) {
+                this.game.setFeedback('A lot of `lost weight fast` accounts are false and some even sell or advise dangerous treatments');
                 this.answered = true;
                 this.correct = false;
             }
             else if (this.keyboard.isKeyDown(52)) {
+                this.game.setFeedback('Most `hacking services` on social media are fake and will only try to extort money from you');
                 this.answered = true;
                 this.correct = false;
             }
@@ -56,6 +58,7 @@ export default class Phone15 extends Phone {
         for (let i = 0; i < 4; i++) {
             a += 75;
             ctx.beginPath();
+            ctx.lineWidth = 1;
             ctx.rect((canvas.width / 35), (Phone.YPOSITION + a), 440, 70);
             ctx.strokeStyle = 'white';
             ctx.stroke();

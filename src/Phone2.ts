@@ -12,7 +12,7 @@ export default class Phone2 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'A good password should not be easy to guess! Use different characters',
+      'A good password should not be easy to guess!',
       this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION,
       this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION,
       this.game,
@@ -28,15 +28,18 @@ export default class Phone2 extends Phone {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
+        this.game.setFeedback('The more complicated and the longer a password is, the longer it takes for a computer or person to guess it.');
         this.game.setProfileInfo('admin');
       } else if (this.keyboard.isKeyDown(50)) {
         this.answered = true;
         this.correct = false;
         this.game.setProfileInfo('qwerty');
+        this.game.setFeedback('querty is the 4th most used password in the world, and it takes a computer under one second to guess it');
       } else if (this.keyboard.isKeyDown(51)) {
         this.answered = true;
         this.correct = false;
         this.game.setProfileInfo(`${this.game.getMonsterName()}`);
+        this.game.setFeedback('Using your name in a password is a bad idea because people can easily guess it.');
       } else if (this.keyboard.isKeyDown(52)) { // correct option
         this.answered = true;
         this.correct = true;

@@ -12,6 +12,7 @@ export default class Phone1 extends Phone {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;
+                this.game.setFeedback('People with bad intentions can use information about you for things like identity theft.');
                 this.game.setProfileInfo(this.game.getMonsterName());
             }
             else if (this.keyboard.isKeyDown(50)) {
@@ -22,11 +23,13 @@ export default class Phone1 extends Phone {
             else if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = false;
+                this.game.setFeedback('People with bad intentions can use information about you for things like identity theft.');
                 this.game.setProfileInfo('Middelburger');
             }
             else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
                 this.correct = false;
+                this.game.setFeedback('People with bad intentions can use information about you for things like identity theft.');
                 this.game.setProfileInfo(`${this.game.getMonsterName()}@monster.com`);
             }
             if (this.answered === true) {

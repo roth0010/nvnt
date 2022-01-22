@@ -29,6 +29,7 @@ export default class Phone4 extends Phone {
         this.answered = true;
         this.correct = false;
         this.game.setProfileInfo('I live in Middelburg');
+        this.game.setFeedback('Your adress can be used for identity theft or even stalking!');
       } else if (this.keyboard.isKeyDown(50)) { // correct option
         this.answered = true;
         this.correct = true;
@@ -37,7 +38,8 @@ export default class Phone4 extends Phone {
         this.answered = true;
         this.correct = false;
         this.game.setProfileInfo(`My real name is ${this.game.getMonsterName()}`);
-      } else if (this.keyboard.isKeyDown(52)) {
+        this.game.setFeedback('Putting your real name in your bio is just as bad as putting it in your username.');
+      } else if (this.keyboard.isKeyDown(52)) { // correct option
         this.answered = true;
         this.correct = true;
         this.game.setProfileInfo('A funny joke');

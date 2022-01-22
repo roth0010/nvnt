@@ -33,6 +33,7 @@ export default class Phone3 extends Phone {
         this.answered = true;
         this.correct = false;
         this.game.setProfileInfo('Public');
+        this.game.setFeedback('On most social media, "public" means anyone can view your profile. that`s like putting your profile on a billboard!');
       }
       if (this.answered === true) {
         if (this.correct === true) {

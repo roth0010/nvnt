@@ -10,7 +10,7 @@ export default class Level1 extends Level {
         this.shop = shop;
     }
     processInput() {
-        this.game.setGoal(11);
+        this.game.setGoal(8);
         this.shop.update();
         this.cat.processInput();
         this.shop.processInput();

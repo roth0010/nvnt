@@ -25,16 +25,17 @@ export default class Phone14 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= Phone.WAIT_TIME) {
-      if (this.keyboard.isKeyDown(49)) {
+      if (this.keyboard.isKeyDown(49)) { // correct option
         this.answered = true;
         this.correct = true;
       } else if (this.keyboard.isKeyDown(50)) { // correct option
         this.answered = true;
         this.correct = true;
       } else if (this.keyboard.isKeyDown(51)) {
+        this.game.setFeedback('No matter how enticing, you shouldn`t support cyberbullying anyone');
         this.answered = true;
         this.correct = false;
-      } else if (this.keyboard.isKeyDown(52)) {
+      } else if (this.keyboard.isKeyDown(52)) { // correct option
         this.answered = true;
         this.correct = true;
       }
@@ -80,6 +81,7 @@ export default class Phone14 extends Phone {
     for (let i = 0; i < 4; i++) {
       a += 75;
       ctx.beginPath();
+      ctx.lineWidth = 1;
       ctx.rect((canvas.width / 35), (Phone.YPOSITION + a), 440, 70);
       ctx.strokeStyle = 'white';
       ctx.stroke();

@@ -10,6 +10,7 @@ export default class Phone7 extends Phone {
         this.cat.processInput();
         if (this.wait >= Phone.WAIT_TIME) {
             if (this.keyboard.isKeyDown(49)) {
+                this.game.setFeedback('You should always be wary of strangers, and spamming messages may mean this person has bad intentions');
                 this.answered = true;
                 this.correct = false;
             }
@@ -18,6 +19,7 @@ export default class Phone7 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(51)) {
+                this.game.setFeedback('You should always be wary of strangers, and spamming messages may mean this person has bad intentions');
                 this.answered = true;
                 this.correct = false;
             }

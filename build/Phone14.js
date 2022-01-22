@@ -18,6 +18,7 @@ export default class Phone14 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(51)) {
+                this.game.setFeedback('No matter how enticing, you shouldn`t support cyberbullying anyone');
                 this.answered = true;
                 this.correct = false;
             }
@@ -56,6 +57,7 @@ export default class Phone14 extends Phone {
         for (let i = 0; i < 4; i++) {
             a += 75;
             ctx.beginPath();
+            ctx.lineWidth = 1;
             ctx.rect((canvas.width / 35), (Phone.YPOSITION + a), 440, 70);
             ctx.strokeStyle = 'white';
             ctx.stroke();

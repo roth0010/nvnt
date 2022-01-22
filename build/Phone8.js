@@ -10,10 +10,12 @@ export default class Phone8 extends Phone {
         this.cat.processInput();
         if (this.wait >= Phone.WAIT_TIME) {
             if (this.keyboard.isKeyDown(49)) {
+                this.game.setFeedback('You can see from the typos that this account is most likely fake and thus can`t be trusted');
                 this.answered = true;
                 this.correct = false;
             }
             else if (this.keyboard.isKeyDown(50)) {
+                this.game.setFeedback('You can see from the typos that this account is most likely fake and thus can`t be trusted');
                 this.answered = true;
                 this.correct = false;
             }

@@ -28,7 +28,7 @@ export default class Level3 extends Level {
    * processes input
    */
   public processInput(): void {
-    this.game.setGoal(8);
+    this.game.setGoal(5);
     this.shop.update();
     this.cat.processInput();
     this.shop.processInput();

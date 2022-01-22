@@ -40,6 +40,7 @@ export default class Game {
     catHat;
     shop;
     mistakeScore;
+    feedback;
     constructor(canvas) {
         console.log('version 1.1.7');
         this.canvas = canvas;
@@ -58,6 +59,7 @@ export default class Game {
         this.goal = 0;
         this.mistakeScore = 0;
         this.profileInfo = [];
+        this.feedback = [];
         this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
         this.setUp();
         this.engine.start();
@@ -152,6 +154,9 @@ export default class Game {
     }
     setMistakeScore(mistakeScore) {
         this.mistakeScore = mistakeScore;
+    }
+    getMistakeScore() {
+        return this.mistakeScore;
     }
     increaseMistakeScore(mistakeScore) {
         this.mistakeScore += mistakeScore;
@@ -301,6 +306,18 @@ export default class Game {
         ctx.rect((barXPos + barThickness), (barYPos + barThickness), (barWidth - (barThickness * 2)) * (1 - (this.mistakeScore) / totalScore), (barHeight - (barThickness * 2)));
         ctx.fillStyle = 'red';
         ctx.fill();
+    }
+    getFeedback() {
+        return this.feedback;
+    }
+    setFeedback(userFeedback) {
+        this.feedback.push(userFeedback);
+    }
+    clearFeedback() {
+        this.feedback = [];
+    }
+    getLevelNumber() {
+        return this.levelNumber;
     }
 }
 //# sourceMappingURL=Game.js.map
