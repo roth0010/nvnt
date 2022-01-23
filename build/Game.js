@@ -23,6 +23,7 @@ import Taco from './Taco.js';
 import VictoryScreen from './VictoryScreen.js';
 import Shop from './Shop.js';
 import Static from './Static.js';
+import StartScreen from './StartScreen.js';
 export default class Game {
     canvas;
     levels;
@@ -52,7 +53,7 @@ export default class Game {
         this.engine = new GameLoop(this);
         this.taco = new Taco();
         this.shop = new Shop(this.taco, this);
-        this.levelNumber = 0;
+        this.levelNumber = -1;
         this.monsterType = '';
         this.monsterName = '';
         this.catHat = 0;
@@ -65,6 +66,7 @@ export default class Game {
         this.engine.start();
     }
     setUp() {
+        this.levels[-1] = new StartScreen(this);
         this.levels[0] = new SelectScreen(this);
         this.levels[1] = new Level1(this, this.shop);
         this.levels[2] = new Phone1(this);

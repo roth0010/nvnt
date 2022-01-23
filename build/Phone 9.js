@@ -8,7 +8,7 @@ export default class Phone9 extends Phone {
     }
     processInput() {
         this.cat.processInput();
-        if (this.wait >= 15) {
+        if (this.wait >= Phone.WAIT_TIME) {
             if (this.keyboard.isKeyDown(50)) {
                 this.game.setChosenPost('./assets/img/levelOneBackground.png');
                 console.log(`player chose ${this.game.getChosenPost()}`);

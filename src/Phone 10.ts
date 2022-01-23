@@ -24,7 +24,7 @@ export default class Phone10 extends Phone {
    */
   public processInput(): void {
     this.cat.processInput();
-    if (this.wait >= 15) {
+    if (this.wait >= Phone.WAIT_TIME) {
       if (this.keyboard.isKeyDown(50)) {
         this.answered = true;
         this.correct = true;
