@@ -25,9 +25,10 @@ export default class Phone9 extends Phone {
   public processInput(): void {
     this.cat.processInput();
     if (this.wait >= 15) {
-      if (this.keyboard.isKeyDown(50)) {
+      if (this.keyboard.isKeyDown(50)) { // correct option
         this.game.setChosenPost('./assets/img/levelOneBackground.png');
         console.log(`player chose ${this.game.getChosenPost()}`);
+        this.game.setFeedback('people can use photos of you for things like identity theft');
         this.answered = true;
         this.correct = true;
       } else if (

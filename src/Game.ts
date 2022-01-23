@@ -476,7 +476,6 @@ export default class Game {
   }
 
   /**
-   * 
    * @param ctx canvas rendering context
    * @param canvas canvas element
    * @param totalScore the total score you can get for a level
