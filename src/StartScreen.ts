@@ -59,7 +59,7 @@ export default class StartScreen extends Screen {
     if (this.count > 240) {
       Static.writeTextToCanvas(
         canvas,
-        'In a few days everyone in your friend group is getting together for a taco party.',
+        'In a few days everyone in your friend group is getting together for a taco party,',
         canvas.width / 2,
         (canvas.height * 3) / 10,
         25,

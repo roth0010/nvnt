@@ -14,6 +14,7 @@ export default class Phone10 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(49)) {
+                this.game.setFeedback('Your location can be used for identity theft or even stalking!');
                 this.answered = true;
                 this.correct = false;
             }

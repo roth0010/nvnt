@@ -35,7 +35,7 @@ export default class StartScreen extends Screen {
             Static.writeTextToCanvas(canvas, 'asks you if you have downloaded the new social media app TACOCAT.', canvas.width / 2, (canvas.height * 5) / 20, 25, 'black');
         }
         if (this.count > 240) {
-            Static.writeTextToCanvas(canvas, 'In a few days everyone in your friend group is getting together for a taco party.', canvas.width / 2, (canvas.height * 3) / 10, 25, 'black');
+            Static.writeTextToCanvas(canvas, 'In a few days everyone in your friend group is getting together for a taco party,', canvas.width / 2, (canvas.height * 3) / 10, 25, 'black');
             Static.writeTextToCanvas(canvas, 'and they are planning the party through the app.', canvas.width / 2, (canvas.height * 7) / 20, 25, 'black');
         }
         if (this.count > 480) {
