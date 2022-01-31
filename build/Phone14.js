@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone14 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('What kind of account do you want to support?', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
+        this.cat = new Gato('Welk account vind je er goed uitzien?', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -18,7 +18,7 @@ export default class Phone14 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(51)) {
-                this.game.setFeedback('No matter how enticing, you shouldn`t support cyberbullying anyone');
+                this.game.setFeedback('Hoe verleidelijk ook, cyberpesten hoort niet aangemoedigd te worden');
                 this.answered = true;
                 this.correct = false;
             }
@@ -45,13 +45,13 @@ export default class Phone14 extends Phone {
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.game.renderHP(ctx, canvas, 9);
-        Static.writeTextToCanvas(canvas, 'What page will you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
-        Static.writeTextToCanvas(canvas, '[1] An account about politics', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] An account that posts a fluffy bunny once per day', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] An account thast posts posts bad rumours about your classmates', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] An account that posts the same cheese sandwich every day', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
-        Static.writeTextToCanvas(canvas, 'Would you like to', (canvas.width / 22), (Phone.YPOSITION + 45), 40, 'white', 'left');
-        Static.writeTextToCanvas(canvas, 'follow these people?', (canvas.width / 22), (Phone.YPOSITION + 95), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'Wie ga je volgen?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
+        Static.writeTextToCanvas(canvas, '[1] Een profiel met politieke posts', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] Een profiel dat elke dag een schattig konijn post', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Een profiel dat leugens verspreid over je klasgenoten', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[4] Een profiel dat elke dag dezelfde tosti post', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'Zou je deze ', (canvas.width / 22), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'mensen willen volgen?', (canvas.width / 22), (Phone.YPOSITION + 95), 40, 'white', 'left');
         this.cat.render(ctx, canvas);
         let a = 100;
         for (let i = 0; i < 4; i++) {
@@ -62,7 +62,7 @@ export default class Phone14 extends Phone {
             ctx.strokeStyle = 'white';
             ctx.stroke();
             const nameArray = ['MonsterPoliticsReport', 'One_Bunny_Per_Day', 'HeltenUni_Rumours', 'ChandWhichPosting'];
-            const bioArray = ['Current Political Information And Debates', 'One fluffy bunny per day, follow for more fluffyness! 🐇🐇🐇', 'Juicy rumours and gossip and about the class of Helten U...', 'chandwhich. [noun] most commonly, two slices of bread...'];
+            const bioArray = ['De actuele politieke gebeurtenissen en debatten', 'Elke dag een schattig konijn, volg ons voor cuteness overload!', ' De nieuwste roddels van Erasmus Uni ', 'Toasti. Meestal twee sneetjes brood…'];
             Static.writeTextToCanvas(canvas, nameArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 35), 25, 'white', 'left');
             Static.writeTextToCanvas(canvas, bioArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 55), 15, 'grey', 'left');
         }

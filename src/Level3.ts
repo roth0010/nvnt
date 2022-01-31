@@ -16,7 +16,7 @@ export default class Level3 extends Level {
   public constructor(game: Game, shop: Shop) {
     super(game);
     this.cat = new Gato(
-      'Accept friend requests only from people you know!',
+      'Laat alleen bekende mensen je volgen!',
       this.game.getCanvasWidth() - Level.CAT_X_POSITION,
       this.game.getCanvasHeight() - Level.CAT_Y_POSITION,
       this.game,
@@ -59,7 +59,7 @@ export default class Level3 extends Level {
       image2.height,
     );
     Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
-    Static.writeTextToCanvas(canvas, 'Level 3: Making friends', canvas.width / 2, 50, 40, 'white');
+    Static.writeTextToCanvas(canvas, 'Level 3: vrienden maken', canvas.width / 2, 50, 40, 'white');
     Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'white');
     this.cat.render(ctx, canvas);
     this.shop.render(canvas);

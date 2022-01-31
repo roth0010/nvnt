@@ -5,7 +5,7 @@ export default class Level3 extends Level {
     cat;
     constructor(game, shop) {
         super(game);
-        this.cat = new Gato('Be careful who you follow!', this.game.getCanvasWidth() - Level.CAT_X_POSITION, this.game.getCanvasHeight() - Level.CAT_Y_POSITION, this.game);
+        this.cat = new Gato('Denk goed na over wie je wilt volgen!', this.game.getCanvasWidth() - Level.CAT_X_POSITION, this.game.getCanvasHeight() - Level.CAT_Y_POSITION, this.game);
         this.shop = shop;
     }
     processInput() {
@@ -27,7 +27,7 @@ export default class Level3 extends Level {
         ctx.drawImage(image2, ((canvas.width / 2) - (image2.width / 2)), (canvas.height / 1.6 - (image2.height / 2)), image2.width, image2.height);
         Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, 'Final Level: Choosing who to follow', canvas.width / 2, 50, 40, 'black');
+        Static.writeTextToCanvas(canvas, 'Laatste level: wie ga je volgen?', canvas.width / 2, 50, 40, 'black');
         this.cat.render(ctx, canvas);
         this.shop.render(canvas);
         Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 11, 50, 40, 'red');

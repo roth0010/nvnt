@@ -43,7 +43,7 @@ export default class Shop {
 
   public constructor(taco: Taco, game: Game) {
     this.game = game;
-    this.cat = new Gato('To remove my hat, press 0', this.game.getCanvasWidth() / 2, this.game.getCanvasHeight() / 3, game);
+    this.cat = new Gato('Om mijn hoed weg te halen, druk op 0', this.game.getCanvasWidth() / 2, this.game.getCanvasHeight() / 3, game);
     this.keyboard = new KeyListener();
     this.taco = taco;
     this.active = false;
@@ -151,58 +151,58 @@ export default class Shop {
       ctx.fill();
       this.cat.render(ctx, canvas);
       Static.writeTextToCanvas(canvas, 'Taco Shop', canvas.width / 2, 100, 40, 'black');
-      Static.writeTextToCanvas(canvas, 'You can buy a hat for the cat!', canvas.width / 2, 150, 25, 'black');
-      Static.writeTextToCanvas(canvas, '[1] Green Hat', canvas.width / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
-      Static.writeTextToCanvas(canvas, '[2] Spring Hat', (canvas.width * 2) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
-      Static.writeTextToCanvas(canvas, '[3] Birthday Hat', (canvas.width * 3) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
-      Static.writeTextToCanvas(canvas, '[4] Witch Hat', (canvas.width * 4) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
+      Static.writeTextToCanvas(canvas, 'Je kunt hier hoeden kopen voor de kat!', canvas.width / 2, 150, 25, 'black');
+      Static.writeTextToCanvas(canvas, '[1] Groene hoed', canvas.width / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
+      Static.writeTextToCanvas(canvas, '[2] Lentehoed', (canvas.width * 2) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
+      Static.writeTextToCanvas(canvas, '[3] Verjaardagshoed', (canvas.width * 3) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
+      Static.writeTextToCanvas(canvas, '[4] Heksenhoed', (canvas.width * 4) / 5, canvas.height - Shop.TITLE_POSITION_Y, Shop.TITLE_FONT_SIZE, 'black');
       if (this.ownGreenHat === false) {
         if (this.affordGreenHat === false) {
-          Static.writeTextToCanvas(canvas, 'Not Enough Tacos!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, 'Niet genoeg taco`s!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         } else {
-          Static.writeTextToCanvas(canvas, '500 Tacos', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, '500 Taco`s', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         }
       } else if (this.game.getCatHat() === 1) {
-        Static.writeTextToCanvas(canvas, 'Equipped!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
+        Static.writeTextToCanvas(canvas, 'Opgezet!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
       } else {
-        Static.writeTextToCanvas(canvas, 'Owned!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
+        Static.writeTextToCanvas(canvas, 'Gekocht!', canvas.width / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
       if (this.ownSpringHat === false) {
         if (this.affordSpringHat === false) {
-          Static.writeTextToCanvas(canvas, 'Not Enough Tacos!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, 'Niet genoeg taco`s!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         } else {
-          Static.writeTextToCanvas(canvas, '1000 Tacos', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, '1000 taco`s', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         }
       } else if (this.game.getCatHat() === 2) {
-        Static.writeTextToCanvas(canvas, 'Equipped!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
+        Static.writeTextToCanvas(canvas, 'Opgezet!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
       } else {
-        Static.writeTextToCanvas(canvas, 'Owned!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
+        Static.writeTextToCanvas(canvas, 'Gekocht!', (canvas.width * 2) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
       if (this.ownBirthdayHat === false) {
         if (this.affordBirthdayHat === false) {
-          Static.writeTextToCanvas(canvas, 'Not Enough Tacos!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, 'Niet genoeg taco`s!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         } else {
-          Static.writeTextToCanvas(canvas, '1500 Tacos', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, '1500 taco`s', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         }
       } else if (this.game.getCatHat() === 3) {
-        Static.writeTextToCanvas(canvas, 'Equipped!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
+        Static.writeTextToCanvas(canvas, 'Opgezet!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
       } else {
-        Static.writeTextToCanvas(canvas, 'Owned!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
+        Static.writeTextToCanvas(canvas, 'Gekocht!', (canvas.width * 3) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
       if (this.ownWitchHat === false) {
         if (this.affordWitchHat === false) {
-          Static.writeTextToCanvas(canvas, 'Not Enough Tacos!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, 'Niet genoeg taco`s!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         } else {
-          Static.writeTextToCanvas(canvas, '2000 Tacos!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
+          Static.writeTextToCanvas(canvas, '2000 taco`s!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Red');
         }
       } else if (this.game.getCatHat() === 4) {
-        Static.writeTextToCanvas(canvas, 'Equipped!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
+        Static.writeTextToCanvas(canvas, 'Opgezet!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Green');
       } else {
-        Static.writeTextToCanvas(canvas, 'Owned!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
+        Static.writeTextToCanvas(canvas, 'Gekocht!', (canvas.width * 4) / 5, canvas.height - Shop.PRICE_POSITION_Y, Shop.PRICE_FONT_SIZE, 'Blue');
       }
     } else {
-      Static.writeTextToCanvas(canvas, 'open the Taco Shop!', canvas.width / 6, canvas.height - 50, 30, 'black');
-      Static.writeTextToCanvas(canvas, 'Press T to', canvas.width / 6, canvas.height - 85, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'de taco shop te openen!', canvas.width / 6, canvas.height - 50, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'druk op T om', canvas.width / 6, canvas.height - 85, 30, 'black');
     }
   }
 

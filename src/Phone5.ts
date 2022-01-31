@@ -12,7 +12,7 @@ export default class Phone5 extends Phone {
   public constructor(game: Game) {
     super(game);
     this.cat = new Gato(
-      'Not everyone on the internet is a good person!',
+      'Ken je deze persoon?',
       this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION,
       this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION,
       this.game,
@@ -28,18 +28,18 @@ export default class Phone5 extends Phone {
       if (this.keyboard.isKeyDown(49)) {
         this.answered = true;
         this.correct = false;
-        this.game.setFeedback('This is called an advanced fee scam, this person is lying and will never repay you');
+        this.game.setFeedback('Dit is een advanced fee scam, deze persoon liegt en zal je nooit terugbetalen');
       } else if (this.keyboard.isKeyDown(50)) {
         this.answered = true;
         this.correct = false;
-        this.game.setFeedback('Even if it may seem funny, it`s not worth the risk to talk to shady people');
+        this.game.setFeedback('Het is misschien grappig, maar je kunt geen risico lopen door met vage mensen te praten');
       } else if (this.keyboard.isKeyDown(51)) { // correct option
         this.answered = true;
         this.correct = true;
       } else if (this.keyboard.isKeyDown(52)) {
         this.answered = true;
         this.correct = false;
-        this.game.setFeedback('Even if it may seem funny, it`s not worth the risk to talk to shady people');
+        this.game.setFeedback('Het is misschien grappig, maar je kunt geen risico lopen door met vage mensen te praten');
       }
       if (this.answered === true) {
         if (this.correct === true) {
@@ -72,12 +72,12 @@ export default class Phone5 extends Phone {
     );
     this.game.renderHP(ctx, canvas, 3);
     // the first 5 parameters are required, line2 to line5 are extra lines for longer DMs
-    this.renderDM(ctx, canvas, 'raquish', './assets/img/scary.png', 'Could you transfer me money?', 'I promise I will pay you back', 'double the amount tomorrow');
-    Static.writeTextToCanvas(canvas, 'How do you respond to this stranger?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
-    Static.writeTextToCanvas(canvas, '[1] Give them your bank details', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] Share his account with all your friends', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[3] Block Them', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[4] Have a normal conversation with them', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+    this.renderDM(ctx, canvas, 'raquish', './assets/img/scary.png', 'Kun je me geld lenen?', 'Ik betaal je ', 'morgen dubbel terug');
+    Static.writeTextToCanvas(canvas, 'Wat doe je met dit verzoek?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
+    Static.writeTextToCanvas(canvas, '[1] Stuur je bankgegevens', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Deel dit profiel met al je vrienden', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[3] Blokkeer deze onbekende', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[4] Hou een kort gesprek ', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
     this.cat.render(ctx, canvas);
   }
 

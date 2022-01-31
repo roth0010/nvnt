@@ -68,13 +68,13 @@ export default class VictoryScreen extends Screen {
    * @param canvas the canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    Static.writeTextToCanvas(canvas, 'You beat the game! good job!', canvas.width / 2, ((canvas.height / 2) - 50), 30, 'Red');
-    Static.writeTextToCanvas(canvas, 'Want to play again?', canvas.width / 2, ((canvas.height / 2) + 50), 25, 'Red');
-    Static.writeTextToCanvas(canvas, 'Press 1 to play Level 1 again', canvas.width / 2, ((canvas.height / 2) + 90), 20, 'Black');
-    Static.writeTextToCanvas(canvas, 'Press 2 to play Level 2 again', canvas.width / 2, ((canvas.height / 2) + 130), 20, 'Black');
-    Static.writeTextToCanvas(canvas, 'Press 3 to play Level 3 again', canvas.width / 2, ((canvas.height / 2) + 170), 20, 'Black');
-    Static.writeTextToCanvas(canvas, 'Press 4 to play Level 4 again', canvas.width / 2, ((canvas.height / 2) + 210), 20, 'Black');
-    Static.writeTextToCanvas(canvas, 'Press 5 to play Level 5 again', canvas.width / 2, ((canvas.height / 2) + 250), 20, 'Black');
+    Static.writeTextToCanvas(canvas, 'Je hebt gewonnen, goed gedaan!', canvas.width / 2, ((canvas.height / 2) - 50), 30, 'Red');
+    Static.writeTextToCanvas(canvas, 'Wil je overnieuw beginnen?', canvas.width / 2, ((canvas.height / 2) + 50), 25, 'Red');
+    Static.writeTextToCanvas(canvas, 'Druk op 1 om level 1 opnieuw te spelen', canvas.width / 2, ((canvas.height / 2) + 90), 20, 'Black');
+    Static.writeTextToCanvas(canvas, 'Druk op 2 om level 2 opnieuw te spelen', canvas.width / 2, ((canvas.height / 2) + 130), 20, 'Black');
+    Static.writeTextToCanvas(canvas, 'Druk op 3 om level 3 opnieuw te spelen', canvas.width / 2, ((canvas.height / 2) + 170), 20, 'Black');
+    Static.writeTextToCanvas(canvas, 'Druk op 4 om level 4 opnieuw te spelen', canvas.width / 2, ((canvas.height / 2) + 210), 20, 'Black');
+    Static.writeTextToCanvas(canvas, 'Druk op 5 om level 5 opnieuw te spelen', canvas.width / 2, ((canvas.height / 2) + 250), 20, 'Black');
     const image2 = Static.loadNewImage(this.game.getMonsterType());
     image2.height = canvas.height / 2;
     image2.width = (canvas.height / 2) * Static.getMonsterAR(this.game.getMonsterType());

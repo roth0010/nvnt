@@ -12,7 +12,7 @@ export default class Phone9 extends Phone {
             if (this.keyboard.isKeyDown(50)) {
                 this.game.setChosenPost('./assets/img/levelOneBackground.png');
                 console.log(`player chose ${this.game.getChosenPost()}`);
-                this.game.setFeedback('people can use photos of you for things like identity theft');
+                this.game.setFeedback('Foto’s van jezelf kunnen door anderen gebruikt worden, bijvoorbeeld voor identiteitsdiefstal');
                 this.answered = true;
                 this.correct = true;
             }
@@ -41,12 +41,12 @@ export default class Phone9 extends Phone {
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.game.renderHP(ctx, canvas, 6);
-        Static.writeTextToCanvas(canvas, 'Which photo will you post?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
-        Static.writeTextToCanvas(canvas, '[1] A photo of yourself', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] A photo of the forest', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'Welke foto ga je posten?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
+        Static.writeTextToCanvas(canvas, '[1] Een foto van jezelf', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] Een foto van het bos', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
         this.cat.render(ctx, canvas);
-        Static.writeTextToCanvas(canvas, 'Choose from gallery', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
-        Static.writeTextToCanvas(canvas, 'to post:', (canvas.width / 20), (Phone.YPOSITION + 85), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'Selecteer van gallerij:', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'om te posten:', (canvas.width / 20), (Phone.YPOSITION + 85), 40, 'white', 'left');
         ctx.beginPath();
         ctx.rect((canvas.width / 35), (Phone.YPOSITION + 150), 440, 250);
         ctx.strokeStyle = 'white';

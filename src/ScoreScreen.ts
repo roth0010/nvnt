@@ -72,21 +72,21 @@ export default class ScoreScreen extends Screen {
    * @param canvas the canvas to render on
    */
   public render(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement): void {
-    Static.writeTextToCanvas(canvas, `Your Score: ${this.game.getScore()} points`, canvas.width / 2, ((canvas.height / 2) - 300), 30, 'Red');
-    Static.writeTextToCanvas(canvas, `Total Number of Tacos: ${this.taco.getTaco()}`, canvas.width / 2, ((canvas.height / 2) - 250), 25, 'black');
+    Static.writeTextToCanvas(canvas, `Je Score: ${this.game.getScore()} points`, canvas.width / 2, ((canvas.height / 2) - 300), 30, 'Red');
+    Static.writeTextToCanvas(canvas, `totaalaantal taco's: ${this.taco.getTaco()}`, canvas.width / 2, ((canvas.height / 2) - 250), 25, 'black');
     const feedbackArray = this.game.getFeedback();
     if (this.game.getMistakeScore() !== 0 && this.game.getLevelNumber() !== 5) {
-      Static.writeTextToCanvas(canvas, 'Here is some advice in case you want to try again:', canvas.width / 2, (canvas.height / 2) - 50, 30, 'Black');
+      Static.writeTextToCanvas(canvas, 'Hier is wat advies voor als je het nog eens wilt proberen:', canvas.width / 2, (canvas.height / 2) - 50, 30, 'Black');
       for (let i = 0; i < this.game.getFeedback().length;) {
         Static.writeTextToCanvas(canvas, feedbackArray[i], canvas.width / 2, (canvas.height / 2) + (i * 40), 20, 'Black');
         i += 1;
       }
     }
     if (this.levelPass === 2) {
-      Static.writeTextToCanvas(canvas, 'Looks like you didn`t get enough points to advance.', canvas.width / 2, ((canvas.height / 2) - 350), 30, 'Black');
-      Static.writeTextToCanvas(canvas, 'You can do better, press R to try again!', canvas.width / 2, (canvas.height / 2) + 200, 30, 'Black');
+      Static.writeTextToCanvas(canvas, 'Je hebt niet genoeg punten om verder te gaan, druk op R om opnieuw te beginnen.', canvas.width / 2, ((canvas.height / 2) - 350), 30, 'Black');
+      Static.writeTextToCanvas(canvas, 'Je kunt beter dan dit, druk op R om opnieuw te beginnen', canvas.width / 2, (canvas.height / 2) + 200, 30, 'Black');
     } else if (this.levelPass === 1) {
-      Static.writeTextToCanvas(canvas, 'You got enough points to pass! Press S to start the next level', canvas.width / 2, (canvas.height / 2) - 350, 30, 'Black');
+      Static.writeTextToCanvas(canvas, 'je hebt genoeg punten om door te gaan! druk op S voor het volgende level', canvas.width / 2, (canvas.height / 2) - 350, 30, 'Black');
     }
   }
 }

@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone15 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('Always be aware of accounts that ask you to pay money', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
+        this.cat = new Gato('Vertrouw nooit een profiel dat je om geld vraagt', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -18,12 +18,12 @@ export default class Phone15 extends Phone {
                 this.correct = true;
             }
             else if (this.keyboard.isKeyDown(51)) {
-                this.game.setFeedback('A lot of `lost weight fast` accounts are false and some even sell or advise dangerous treatments');
+                this.game.setFeedback('Veel ‘val snel af’ profielen zijn nep en sommige kunnen gevaarlijke producten promoten');
                 this.answered = true;
                 this.correct = false;
             }
             else if (this.keyboard.isKeyDown(52)) {
-                this.game.setFeedback('Most `hacking services` on social media are fake and will only try to extort money from you');
+                this.game.setFeedback('De meeste ‘hackdiensten’ op sociale media zijn nep en zijn alleen op je geld uit');
                 this.answered = true;
                 this.correct = false;
             }
@@ -46,13 +46,13 @@ export default class Phone15 extends Phone {
         ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.game.renderHP(ctx, canvas, 9);
-        Static.writeTextToCanvas(canvas, 'Which account should you follow?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
-        Static.writeTextToCanvas(canvas, '[1] An account about your favorite movie series', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[2] A Cryptocurrency account', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] An account selling weight-loss pills', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, 'Wie ga je volgen?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
+        Static.writeTextToCanvas(canvas, '[1] Een profiel over je favoriete filmreeks', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[2] Een profiel over cryptocurrency', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Een profiel dat ', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, '[4] An account that provides hacking services', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
-        Static.writeTextToCanvas(canvas, 'Would you like to', (canvas.width / 22), (Phone.YPOSITION + 45), 40, 'white', 'left');
-        Static.writeTextToCanvas(canvas, 'follow these people?', (canvas.width / 22), (Phone.YPOSITION + 95), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'Zou je deze ', (canvas.width / 22), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'mensen willen volgen?', (canvas.width / 22), (Phone.YPOSITION + 95), 40, 'white', 'left');
         this.cat.render(ctx, canvas);
         let a = 100;
         for (let i = 0; i < 4; i++) {
@@ -63,7 +63,7 @@ export default class Phone15 extends Phone {
             ctx.strokeStyle = 'white';
             ctx.stroke();
             const nameArray = ['WarTrek2000_Fans', 'CRYPT0NEWS', 'Pilltoxquickly', 'nightwatchhackers'];
-            const bioArray = ['Welcome! I post the latest news and videos from a univer...', 'Sharing #crypto`s Biggest Headlines Since 2016 ⬇ For A...', 'Simple Two-Step pilltox Program 💊 || Made In Meskander', 'Hire our hackers to get professionals who love doing their...'];
+            const bioArray = ['Welkom! Ik post de laatste feitjes en video’s van een univer… ', 'We delen het laatste nieuws over crypto. Voor een… ', 'Speciaal voor u een twee stappen pilltox programma || Gemaakt in Meskander', 'Huur onze hackers en krijg professionals die houden van hun… '];
             Static.writeTextToCanvas(canvas, nameArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 35), 25, 'white', 'left');
             Static.writeTextToCanvas(canvas, bioArray[i], (canvas.width / 25), (Phone.YPOSITION + a + 55), 15, 'grey', 'left');
         }

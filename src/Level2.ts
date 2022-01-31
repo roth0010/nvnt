@@ -16,7 +16,7 @@ export default class Level2 extends Level {
   public constructor(game: Game, shop: Shop) {
     super(game);
     this.cat = new Gato(
-      'Do not give personal info to strangers!',
+      'Persoonlijke info kun je beter niet delen!',
       this.game.getCanvasWidth() - Level.CAT_X_POSITION,
       this.game.getCanvasHeight() - Level.CAT_Y_POSITION,
       this.game,
@@ -59,8 +59,8 @@ export default class Level2 extends Level {
       image2.height,
     );
     Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
-    Static.writeTextToCanvas(canvas, 'Level 2: An Unknown Visitor', canvas.width / 2, 50, 40, 'black');
-    Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Level 2: een onbekend persoon', canvas.width / 2, 50, 40, 'black');
+    Static.writeTextToCanvas(canvas, 'Druk op E om op je telefoon te kijken', canvas.width / 2, 100, 30, 'black');
     this.cat.render(ctx, canvas);
     this.shop.render(canvas);
     Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 12, 50, 40, 'black');

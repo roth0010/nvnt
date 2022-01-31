@@ -126,8 +126,8 @@ export default class Gato {
       Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 39, this.yPosition - 39, 20, 'white');
       Static.writeTextToCanvas(canvas, `${this.phrase}`, this.xPosition - 40, this.yPosition - 40, 20, 'black');
     } else {
-      Static.writeTextToCanvas(canvas, 'Press C for Cat Tips', this.xPosition - 41, this.yPosition - 41, 20, 'white');
-      Static.writeTextToCanvas(canvas, 'Press C for Cat Tips', this.xPosition - 40, this.yPosition - 40, 20, 'black');
+      Static.writeTextToCanvas(canvas, 'druk op C voor een kattentip', this.xPosition - 41, this.yPosition - 41, 20, 'white');
+      Static.writeTextToCanvas(canvas, 'druk op C voor een kattentip', this.xPosition - 40, this.yPosition - 40, 20, 'black');
     }
   }
 

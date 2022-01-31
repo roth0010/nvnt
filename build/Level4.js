@@ -5,7 +5,7 @@ export default class Level3 extends Level {
     cat;
     constructor(game, shop) {
         super(game);
-        this.cat = new Gato('once something is on the internet, it can`t be removed', this.game.getCanvasWidth() - Level.CAT_X_POSITION, this.game.getCanvasHeight() - Level.CAT_Y_POSITION, this.game);
+        this.cat = new Gato('Je kunt post`s niet van het internet verwijderen!', this.game.getCanvasWidth() - Level.CAT_X_POSITION, this.game.getCanvasHeight() - Level.CAT_Y_POSITION, this.game);
         this.shop = shop;
     }
     processInput() {
@@ -26,7 +26,7 @@ export default class Level3 extends Level {
         image2.width = (canvas.height / 2) * Static.getMonsterAR(this.game.getMonsterType());
         ctx.drawImage(image2, ((canvas.width / 2) - (image2.width / 2)), (canvas.height / 1.6 - (image2.height / 2)), image2.width, image2.height);
         Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
-        Static.writeTextToCanvas(canvas, 'Level 4: Making a Post', canvas.width / 2, 50, 40, 'black');
+        Static.writeTextToCanvas(canvas, 'Level 4: een post plaatsen', canvas.width / 2, 50, 40, 'black');
         Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'black');
         this.cat.render(ctx, canvas);
         this.shop.render(canvas);

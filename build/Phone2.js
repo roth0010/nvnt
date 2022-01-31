@@ -4,7 +4,7 @@ import Gato from './Gato.js';
 export default class Phone2 extends Phone {
     constructor(game) {
         super(game);
-        this.cat = new Gato('A good password should not be easy to guess!', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
+        this.cat = new Gato('Een goed wachtwoord is moeilijk te raden!', this.game.getCanvasWidth() - Phone.CAT_PHONE_X_POSITION, this.game.getCanvasHeight() - Phone.CAT_PHONE_Y_POSITION, this.game);
     }
     processInput() {
         this.cat.processInput();
@@ -12,20 +12,20 @@ export default class Phone2 extends Phone {
             if (this.keyboard.isKeyDown(49)) {
                 this.answered = true;
                 this.correct = false;
-                this.game.setFeedback('The more complicated and the longer a password is, the longer it takes for a computer or person to guess it.');
+                this.game.setFeedback('Hoe ingewikkelder en langer een wachtwoord is, hoe langer het duurt voordat die geraden is.');
                 this.game.setProfileInfo('admin');
             }
             else if (this.keyboard.isKeyDown(50)) {
                 this.answered = true;
                 this.correct = false;
                 this.game.setProfileInfo('qwerty');
-                this.game.setFeedback('querty is the 4th most used password in the world, and it takes a computer under one second to guess it');
+                this.game.setFeedback('Querty staat op nummer 4 van de meest gebruikte wachtwoorden ter wereld en een computer raadt het binnen een seconde.');
             }
             else if (this.keyboard.isKeyDown(51)) {
                 this.answered = true;
                 this.correct = false;
                 this.game.setProfileInfo(`${this.game.getMonsterName()}`);
-                this.game.setFeedback('Using your name in a password is a bad idea because people can easily guess it.');
+                this.game.setFeedback('Je naam in een wachtwoord gebruiken is niet slim, omdat mensen dit makkelijk kunnen raden.');
             }
             else if (this.keyboard.isKeyDown(52)) {
                 this.answered = true;
@@ -51,13 +51,13 @@ export default class Phone2 extends Phone {
         ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
         ctx.drawImage(this.image, 25, -50, this.image.width, this.image.height);
         this.game.renderHP(ctx, canvas, 12);
-        Static.writeTextToCanvas(canvas, 'Pick a Password!', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
+        Static.writeTextToCanvas(canvas, 'Kies een wachtwoord!', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] admin', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] qwerty', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
         Static.writeTextToCanvas(canvas, `[3] ${this.game.getMonsterName()}`, ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
         Static.writeTextToCanvas(canvas, '[4] !X6a#gA3', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         this.cat.render(ctx, canvas);
-        Static.writeTextToCanvas(canvas, 'your profile:', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+        Static.writeTextToCanvas(canvas, 'Je profiel:', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
         let textYCoord = 0;
         for (let i = 0; i < 1; i++) {
             textYCoord += 120;

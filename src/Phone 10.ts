@@ -31,7 +31,7 @@ export default class Phone10 extends Phone {
       } else if (
         this.keyboard.isKeyDown(49)
       ) {
-        this.game.setFeedback('Your location can be used for identity theft or even stalking!');
+        this.game.setFeedback('Je locatie kan worden gebruikt voor identiteitsdiefstal of zelfs stalken!');
         this.answered = true;
         this.correct = false;
       }
@@ -65,11 +65,11 @@ export default class Phone10 extends Phone {
       this.image.height,
     );
     this.game.renderHP(ctx, canvas, 6);
-    Static.writeTextToCanvas(canvas, 'will you add your location to the photo?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
-    Static.writeTextToCanvas(canvas, '[1] Yes', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
-    Static.writeTextToCanvas(canvas, '[2] No', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
+    Static.writeTextToCanvas(canvas, 'Voeg je je locatie aan de foto toe?', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 42, 'black');
+    Static.writeTextToCanvas(canvas, '[1] Ja', ((canvas.width * 2) / 3), Phone.YPOSITION + 250, 30, 'black');
+    Static.writeTextToCanvas(canvas, '[2] Nee', ((canvas.width * 2) / 3), Phone.YPOSITION + 300, 30, 'black');
 
-    Static.writeTextToCanvas(canvas, 'add location tag?', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
+    Static.writeTextToCanvas(canvas, 'locatietag toevoegen?', (canvas.width / 20), (Phone.YPOSITION + 45), 40, 'white', 'left');
     this.cat.render(ctx, canvas);
 
     ctx.beginPath();

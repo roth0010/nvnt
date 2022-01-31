@@ -61,7 +61,7 @@ export default class Game {
         this.mistakeScore = 0;
         this.profileInfo = [];
         this.feedback = [];
-        this.profileArray = ['username:', 'password:', 'privacy:', 'biography:'];
+        this.profileArray = ['gebruikersnaam:', 'wachtwoord:', 'privacy:', 'biografie:'];
         this.setUp();
         this.engine.start();
     }
