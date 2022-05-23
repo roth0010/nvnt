@@ -113,7 +113,7 @@ export default class StartScreen extends Screen {
       );
     }
     if (this.count >= 1200) {
-      Static.writeTextToCanvas(canvas, 'Press S to Start!', canvas.width / 2, (canvas.height * 8) / 10, 30, 'black');
+      Static.writeTextToCanvas(canvas, 'druk op S om te beginnen!', canvas.width / 2, (canvas.height * 8) / 10, 30, 'black');
       this.continue = true;
     }
   }

@@ -60,7 +60,7 @@ export default class Level3 extends Level {
     );
     Static.writeTextToCanvas(canvas, this.game.getMonsterName(), canvas.width / 2, canvas.height - 50, 60, 'black');
     Static.writeTextToCanvas(canvas, 'Level 3: vrienden maken', canvas.width / 2, 50, 40, 'white');
-    Static.writeTextToCanvas(canvas, 'Press E to open your phone', canvas.width / 2, 100, 30, 'white');
+    Static.writeTextToCanvas(canvas, 'Druk op E om op je telefoon te kijken', canvas.width / 2, 100, 30, 'white');
     this.cat.render(ctx, canvas);
     this.shop.render(canvas);
     Static.writeTextToCanvas(canvas, `Tacos: ${this.game.getTaco()}`, canvas.width / 11 + 2, 53, 40, 'white');

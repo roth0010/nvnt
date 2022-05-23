@@ -49,7 +49,7 @@ export default class StartScreen extends Screen {
             Static.writeTextToCanvas(canvas, 'Toevallig is er een aardige kat in de buurt, die je graag helpt.', canvas.width / 2, (canvas.height * 6) / 10, 25, 'black');
         }
         if (this.count >= 1200) {
-            Static.writeTextToCanvas(canvas, 'Press S to Start!', canvas.width / 2, (canvas.height * 8) / 10, 30, 'black');
+            Static.writeTextToCanvas(canvas, 'druk op S om te beginnen!', canvas.width / 2, (canvas.height * 8) / 10, 30, 'black');
             this.continue = true;
         }
     }
