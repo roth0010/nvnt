@@ -49,8 +49,8 @@ export default class Phone15 extends Phone {
         Static.writeTextToCanvas(canvas, 'Wie ga je volgen?', ((canvas.width * 2) / 3), Phone.YPOSITION, 42, 'black');
         Static.writeTextToCanvas(canvas, '[1] Een profiel over je favoriete filmreeks', ((canvas.width * 2) / 3), Phone.YPOSITION + 50, 30, 'black');
         Static.writeTextToCanvas(canvas, '[2] Een profiel over cryptocurrency', ((canvas.width * 2) / 3), Phone.YPOSITION + 100, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[3] Een profiel dat ', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
-        Static.writeTextToCanvas(canvas, '[4] An account that provides hacking services', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[3] Een profiel dat pillen verkoopt om af te vallen', ((canvas.width * 2) / 3), Phone.YPOSITION + 150, 30, 'black');
+        Static.writeTextToCanvas(canvas, '[4] Een account dat hackdiensten verkoopt', ((canvas.width * 2) / 3), Phone.YPOSITION + 200, 30, 'black');
         Static.writeTextToCanvas(canvas, 'Zou je deze ', (canvas.width / 22), (Phone.YPOSITION + 45), 40, 'white', 'left');
         Static.writeTextToCanvas(canvas, 'mensen willen volgen?', (canvas.width / 22), (Phone.YPOSITION + 95), 40, 'white', 'left');
         this.cat.render(ctx, canvas);
